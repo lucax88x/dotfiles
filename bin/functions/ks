@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+ks() {
+  (
+    cd ~/.kube/ || exit 1
+    # shellcheck disable=SC2012
+    KUBE=$(ls *.config | fzf)
+    [[ -n "$KUBE" ]] && ln -sf "$KUBE" config
+  )
+}
