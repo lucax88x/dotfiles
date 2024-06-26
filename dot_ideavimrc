@@ -40,8 +40,8 @@ nnoremap gd :action GotoDeclaration<CR>
 nnoremap gr :action FindUsages<CR>
 nnoremap gi :action GotoImplementation<CR>
 
-nnoremap <leader>rl :action Refactorings.QuickListPopupAction<CR>
-vmap <leader>rl :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>rs :action Refactorings.QuickListPopupAction<CR>
+vmap <leader>rs :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>ra :action ShowIntentionActions<CR>
 vmap <leader>ra :action ShowIntentionActions<CR>
 

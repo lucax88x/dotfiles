@@ -33,7 +33,7 @@ return {
       require("refactoring").refactor("Inline Variable")
     end, "Inline variable", opts)
 
-    r.noremap({ "n", "v" }, "<leader>rl", function()
+    r.noremap({ "n", "v" }, "<leader>rs", function()
       require("refactoring").select_refactor()
     end, "Refactor", opts)
   end,

@@ -177,7 +177,6 @@ return {
       texlab = {},
       ansiblels = {},
       gopls = {},
-      golangci_lint_ls = {},
       terraformls = {},
       clangd = {},
       -- azure_pipelines_ls = {},

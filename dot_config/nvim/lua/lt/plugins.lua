@@ -124,8 +124,6 @@ return {
 
   -- debugging
   require("lt.plugins.dap"),
-  require("lt.plugins.dap-ui"),
-  require("lt.plugins.dap-virtual-text"),
 
   -- http
   require("lt.plugins.luarocks"),

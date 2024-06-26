@@ -1,5 +1,11 @@
 return {
   "mfussenegger/nvim-dap",
+  dependencies = {
+    "rcarriga/nvim-dap-ui",
+    "theHamsta/nvim-dap-virtual-text",
+
+    "leoluz/nvim-dap-go",
+  },
   init = function()
     -- dap.set_log_level("TRACE")
 
@@ -114,5 +120,19 @@ return {
     r.noremap("n", "<leader>/df", function()
       require("fzf-lua").dap_frames()
     end, "DAP frames")
+
+    local dap_ui = require("dapui")
+    dap_ui.setup({})
+
+    r.noremap("n", "<leader>du", function()
+      local dap_ui = require("dapui")
+      dap_ui.toggle()
+    end, "Toggle DAP UI")
+
+    local dap_virtual_text = require("nvim-dap-virtual-text")
+    dap_virtual_text.setup({})
+
+    -- Setup the go debug adapter
+    require("dap-go").setup()
   end,
 }
