@@ -23,3 +23,6 @@ export PATH="$PATH:$HOME/repos/dotmemory"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/luca.trazzi/Library/Application Support/JetBrains/Toolbox/scripts"

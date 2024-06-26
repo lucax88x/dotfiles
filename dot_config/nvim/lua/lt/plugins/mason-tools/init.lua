@@ -10,8 +10,7 @@ return {
         "jsonlint",
 
         -- go
-        -- "golangci-lint",
-        "gofmt",
+        "golangci-lint",
         "goimports",
 
         -- format
@@ -22,13 +21,13 @@ return {
         "shfmt",
         "xmlformatter",
         "powershell-editor-services",
-        
+
         -- python
-        "ruff",
-        "isort"
+        -- "ruff",
+        -- "isort"
       },
     })
   end,
   dependencies = { "williamboman/mason.nvim" },
-  cmd = { "Mason", "MasonInstall" },
+  cmd = { "MasonToolsInstall" },
 }

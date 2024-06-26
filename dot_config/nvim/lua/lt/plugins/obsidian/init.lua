@@ -12,11 +12,11 @@ return {
     workspaces = {
       {
         name = "work",
-        path = "~/vaults/work",
+        path = "~/Documents/work",
       },
       {
         name = "personal",
-        path = "~/vaults/personal",
+        path = "~/Documents/personal",
       },
     },
   },

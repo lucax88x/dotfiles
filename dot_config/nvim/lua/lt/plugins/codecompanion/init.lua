@@ -1,4 +1,3 @@
--- Lazy.nvim
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
@@ -29,7 +28,7 @@ return {
   keys = {
     {
       "<leader>ic",
-      "<cmd>CodeCompanionToggle<CR>",
+      "<cmd>CodeCompanionChat<CR>",
       desc = "A[I] [C]hat",
       mode = { "n", "v" },
     },

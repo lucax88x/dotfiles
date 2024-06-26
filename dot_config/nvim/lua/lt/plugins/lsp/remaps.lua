@@ -76,9 +76,9 @@ function M.set_default_on_buffer(client, bufnr)
   -- buf_set_keymap("n", "<leader>te", function()
   --   require("fzf-lua").diagnostics_document()
   -- end, "Show diagnostics")
-  buf_set_keymap("n", "<leader>tE", "<cmd>Trouble diagnostics toggle<cr>", "Show workspace diagnostics")
+  -- buf_set_keymap("n", "<leader>tE", "<cmd>Trouble diagnostics toggle<cr>", "Show workspace diagnostics")
   buf_set_keymap("n", "<leader>te", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Show buffer diagnostics")
-  -- buf_set_keymap("n", "<leader>tE", vim.diagnostic.open_float, "Show line diagnostics")
+  buf_set_keymap("n", "<leader>tE", vim.diagnostic.open_float, "Show line diagnostics")
 
   -- if cap.workspaceSymbolProvider then
   --   map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)

@@ -70,21 +70,22 @@ export MANGOHUD=1
 # emacs
 export PATH="$PATH:$HOME/.config/emacs/bin"
 
-source "$HOME/.zshrc.env"
+if [[ -r "$HOME/.zshrc.env" ]]; then
+  source "$HOME/.zshrc.env"
+fi
 # END ENV VAR
 
+if [[ -r "$HOME/.pyenv" ]]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-# end pyenv
-
-# go
-export GOPATH=$HOME/go
-export GOROOT=/opt/homebrew/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-# end go
+if [[ -r "$HOME/go" ]]; then
+  export GOPATH=$HOME/go
+  export GOROOT=/opt/homebrew/opt/go/libexec
+  export PATH=$PATH:$GOPATH/bin
+fi
 
 source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
 source "$HOME/bin/functions/ks"
@@ -142,6 +143,12 @@ alias p="pnpm"
 alias run="run.mjs"
 alias zipgit="git archive HEAD -o ${PWD##*/}.zip"
 # alias zip7git="7z a -bd ${PWD##*/}.7z * '-xr@./.gitignore'"
+
+function addTodo() {
+    todoist add --date today -P 2211210927 "$1"
+}
+alias todo=addTodo
+alias todos="todoist list"
 
 # END ALIASES
 

@@ -29,7 +29,7 @@ return {
       if not presentNavic then
         vim.notify("navic not present")
       else
-        local filetype = vim.api.nvim_buf_get_option(bufnr or 0, "filetype")
+        local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr or 0 })
 
         if client.server_capabilities.documentSymbolProvider then
           if client.name == "graphql" then
@@ -63,7 +63,6 @@ return {
           buffer = bufnr,
           callback = function()
             vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
-        
           end,
           group = "lsp_augroup",
         })
