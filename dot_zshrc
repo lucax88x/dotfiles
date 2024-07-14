@@ -5,13 +5,6 @@ if [[ $INTELLIJ_ENVIRONMENT_READER ]]; then
   return
 fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ### ZINIT
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -28,7 +21,8 @@ zinit light-mode for \
 
 if [ `tput colors` = "256" ]; then  
   if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    zinit light romkatv/powerlevel10k
+    # zinit light romkatv/powerlevel10k
+    eval "$(starship init zsh)"
   fi
 fi 
 
@@ -49,7 +43,6 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 # zinit snippet OMZ::plugins/docker/_docker
 
 # those should stay last
-# 
 zinit light zsh-users/zsh-autosuggestions
 # for some reason really slow in osx
 # zinit light zdharma-continuum/fast-syntax-highlighting
@@ -61,7 +54,6 @@ compinit
 zinit cdreplay -q
 
 # ENV VAR
-export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export VOLTA_HOME="$HOME/.volta"
 export EDITOR=nvim
 export VISUAL=nvim
@@ -93,7 +85,7 @@ source "$HOME/bin/functions/ks"
 # awaits, necessary for vi mode
 zinit ice lucid wait
 # zinit snippet OMZP::fzf
-zinit light Aloxaf/fzf-tab
+# zinit light Aloxaf/fzf-tab
 # zinit light Tarrasch/zsh-bd
 # zinit snippet $HOME/.fzf.zsh
 #
@@ -108,11 +100,27 @@ zinit load atuinsh/atuin
 
 # zinit snippet OMZ::lib/key-bindings.zsh 
  
-eval "$(zoxide init zsh)"
 # gh completion -s zsh > /Users/luca.trazzi/.zinit/completions/_gh
 # https://cli.github.com/manual/gh_completion
 
 # END PLUGINS
+
+
+# HISTORY
+export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+# END HISTORY
+
 
 # ALIASES
 alias k='kubectl'
@@ -159,21 +167,14 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-[[ ! -f $HOME/.p10k.zsh ]] || zinit snippet $HOME/.p10k.zsh
+ 
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
 
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/pnpm.zsh ]] && . ~/.config/tabtab/zsh/pnpm.zsh || true
-
-# To customize prompt, run `p10k configure` or edit ~/.zinit/snippets/Users--luca.trazzi/.p10k.zsh/.p10k.zsh.
-[[ ! -f ~/.zinit/snippets/Users--luca.trazzi/.p10k.zsh/.p10k.zsh ]] || source ~/.zinit/snippets/Users--luca.trazzi/.p10k.zsh/.p10k.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/repos/configs/dotfiles/.p10k.zsh.
-[[ ! -f ~/repos/configs/dotfiles/.p10k.zsh ]] || source ~/repos/configs/dotfiles/.p10k.zsh
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/luca.trazzi/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # zprof

@@ -3,6 +3,31 @@ local vim = vim
 
 local M = {}
 
+local function lsp_action(action)
+  vim.lsp.buf.code_action({
+    apply = true,
+    context = {
+      only = { action },
+      diagnostics = {},
+    },
+  })
+end
+
+local function lsp_execute(opts)
+  local params = {
+    command = opts.command,
+    arguments = opts.arguments,
+  }
+  if opts.open then
+    require("trouble").open({
+      mode = "lsp_command",
+      params = params,
+    })
+  else
+    return vim.lsp.buf_request(0, "workspace/executeCommand", params, opts.handler)
+  end
+end
+
 local function generate_buf_keymapper(bufnr)
   return function(type, input, output, description, extraOptions)
     local options = { buffer = bufnr }
@@ -32,8 +57,12 @@ function M.set_default_on_buffer(client, bufnr)
 
     if is_typescript then
       buf_set_keymap("n", "gD", function()
-        local typescript = require("typescript-tools.api")
-        typescript.go_to_source_definition(false)
+        local params = vim.lsp.util.make_position_params()
+        lsp_execute({
+          command = "typescript.goToSourceDefinition",
+          arguments = { params.textDocument.uri, params.position },
+          open = true,
+        })
       end, "Go to definition")
     end
   end
@@ -106,19 +135,20 @@ function M.set_default_on_buffer(client, bufnr)
     r.which_key("<leader>ri", "import")
 
     buf_set_keymap("n", "<leader>rio", function()
-      local typescript = require("typescript-tools.api")
-      typescript.organize_imports(false)
+      lsp_action("source.organizeImports")
     end, "Organize imports (TS)")
 
     buf_set_keymap("n", "<leader>riu", function()
-      local typescript = require("typescript-tools.api")
-      typescript.remove_unused(false)
+      lsp_action("source.removeUnused.ts")
     end, "Remove unused variables (TS)")
 
     buf_set_keymap("n", "<leader>rim", function()
-      local typescript = require("typescript-tools.api")
-      typescript.add_missing_imports(false)
+      lsp_action("source.addMissingImports.ts")
     end, "Import missing imports (TS)")
+
+    buf_set_keymap("n", "<leader>rV", function()
+      lsp_execute({ command = "typescript.selectTypeScriptVersion" })
+    end, "Select TS workspace version")
   end
 
   if cap.renameProvider then

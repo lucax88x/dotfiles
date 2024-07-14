@@ -8,6 +8,12 @@ return {
   },
   init = function()
     -- dap.set_log_level("TRACE")
+    local icons = require("lt.utils.icons")
+
+    vim.fn.sign_define("DapBreakpoint", { text = icons.dap.breakpoint, texthl = "DiagnosticInfo" })
+    vim.fn.sign_define("DapStopped", { text = icons.dap.stopped, texthl = "DiagnosticWarn" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = icons.dap.breakpoint_condition, texthl = "DiagnosticInfo" })
+    vim.fn.sign_define("DapBreakpointRejected", { text = icons.dap.breakpoint_rejected, texthl = "DiagnosticInfo" })
 
     local r = require("lt.utils.remaps")
 
@@ -125,7 +131,6 @@ return {
     dap_ui.setup({})
 
     r.noremap("n", "<leader>du", function()
-      local dap_ui = require("dapui")
       dap_ui.toggle()
     end, "Toggle DAP UI")
 
@@ -134,5 +139,8 @@ return {
 
     -- Setup the go debug adapter
     require("dap-go").setup()
+
+    local adapters = require("lt.plugins.dap.adapters")
+    adapters.setupNode()
   end,
 }

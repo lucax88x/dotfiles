@@ -5,8 +5,7 @@
 -- | | |_| | (_| (_| | |_| | | (_| |/ / / /| |
 -- |_|\__,_|\___\__,_|\__|_|  \__,_/___/___|_|
 --
-if vim.g.vscode then
-else
+if not vim.g.vscode then
   require("lt.defaults")
   require("lt.neovide")
   require("lt.project")

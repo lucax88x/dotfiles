@@ -2,7 +2,7 @@ return {
   diagnostics = {
     Error = " ",
     Warn = " ",
-    Hint = " ",
+    Hint = " ",
     Info = " ",
   },
   git = {
@@ -11,11 +11,11 @@ return {
     Removed = " ",
   },
   dap = {
-    breakpoint = " ",
-    breakpoint_condition = " ",
+    breakpoint = " ",
+    breakpoint_condition = " ",
+    breakpoint_rejected = " ",
     log_point = " ",
     stopped = " ",
-    breakpoint_rejected = " ",
     pause = " ",
     play = " ",
     step_into = " ",

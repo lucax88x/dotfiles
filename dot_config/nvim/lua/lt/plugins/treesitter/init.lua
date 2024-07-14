@@ -80,15 +80,15 @@ return {
             ['@class.outer'] = '<c-v>', -- blockwise
           },
         },
-        swap = {
-          enable = true,
-          swap_next = {
-            ["<leader>rp"] = "@parameter.inner",
-          },
-          swap_previous = {
-            ["<leader>rP"] = "@parameter.inner",
-          },
-        },
+        -- swap = {
+        --   enable = true,
+        --   swap_next = {
+        --     ["<leader>rp"] = "@parameter.inner",
+        --   },
+        --   swap_previous = {
+        --     ["<leader>rP"] = "@parameter.inner",
+        --   },
+        -- },
         move = {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
@@ -152,8 +152,8 @@ return {
     --
     -- r.which_key("fp", "parameters")
     --
-    r.map_virtual("<leader>rp", "Swap parameter to next")
-    r.map_virtual("<leader>rP", "Swap parameter to previous")
+    -- r.map_virtual("<leader>rp", "Swap parameter to next")
+    -- r.map_virtual("<leader>rP", "Swap parameter to previous")
     --
     r.map_virtual("]m", "Go to next function (start)")
     r.map_virtual("]M", "Go to next function (end)")

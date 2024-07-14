@@ -53,6 +53,8 @@ nnoremap <leader>rF :action com.intellij.csharpier.ReformatWithCSharpierAction<C
 nnoremap <leader>rio :action OptimizeImports<CR>
 
 nnoremap <leader>rr :action RenameElement<CR>
+nnoremap <leader>rpl :action MoveElementRight<CR>
+nnoremap <leader>rph :action MoveElementLeft<CR>
 " nnoremap <leader>rf :action RenameFile<CR>
 
 " Comment

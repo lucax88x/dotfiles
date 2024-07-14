@@ -1,7 +1,8 @@
 return {
   "nvim-lua/plenary.nvim",
 
-  require("lt.plugins.catppuccin"),
+  -- require("lt.plugins.catppuccin"),
+  require("lt.plugins.tokyonight"),
 
   -- notifications
   require("lt.plugins.notify"),
@@ -18,7 +19,7 @@ return {
     event = "VeryLazy",
   },
   require("lt.plugins.noice"),
-  require("lt.plugins.edgy"),
+  -- require("lt.plugins.edgy"),
 
   -- shortcuts
   require("lt.plugins.better-escape"),
@@ -53,6 +54,7 @@ return {
   -- treesitter
   require("lt.plugins.treesitter"),
   require("lt.plugins.treesitter-context"),
+  require("lt.plugins.iswap"),
   -- incremental selection
   require("lt.plugins.wildfire"),
   -- require("lt.plugins.mini-ai"),
@@ -74,6 +76,7 @@ return {
 
   -- fuzzy finder
   require("lt.plugins.fzf"),
+  require("lt.plugins.advanced-git-search"),
   --
 
   -- search
@@ -85,7 +88,6 @@ return {
   require("lt.plugins.mason-dap"),
   require("lt.plugins.mason-tools"),
 
-  require("lt.plugins.null-ls"),
   require("lt.plugins.lint"),
   require("lt.plugins.conform"),
   -- require("lt.plugins.typescript-tools"),

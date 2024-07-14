@@ -3,25 +3,51 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  init = function()
+  config = function()
     require("codecompanion").setup({
       strategies = {
-        chat = "ollama",
-        inline = "ollama",
+        chat = {
+          adapter = "llama3",
+        },
+        inline = {
+          adapter = "deepseekcoder",
+        },
+        agent = {
+          adapter = "llama3",
+        },
       },
 
       adapters = {
-        ollama = require("codecompanion.adapters").use("ollama", {
+        deepseekcoder = require("codecompanion.adapters").use("ollama", {
           schema = {
             model = {
-              default = "deepseek-coder:6.7b",
+              default = "deepseek-coder-v2",
             },
           },
         }),
+        llama3 = require("codecompanion.adapters").use("ollama", {
+          schema = {
+            model = {
+              default = "llama3",
+            },
+            num_ctx = {
+              default = 16384,
+            },
+            num_predict = {
+              default = -1,
+            },
+          },
+        }),
+        -- codegemma = require("codecompanion.adapters").use("ollama", {
+        --   schema = {
+        --     model = {
+        --       default = "codegemma",
+        --     },
+        --   },
+        -- }),
       },
     })
-  end,
-  config = function()
+
     -- Expand `cc` into CodeCompanion in the command line
     vim.cmd([[cab cc CodeCompanion]])
   end,

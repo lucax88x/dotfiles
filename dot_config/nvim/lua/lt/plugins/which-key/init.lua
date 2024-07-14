@@ -36,8 +36,6 @@ return {
       ["'"] = { name = "marks" },
       ['"'] = { name = "registers" },
       ["/"] = { name = "search" },
-      ["/g"] = { name = "git" },
-      ["/gd"] = { name = "diff" },
       ["["] = { name = "previous" },
       ["]"] = { name = "next" },
     }

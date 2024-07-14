@@ -21,7 +21,7 @@ return {
         require("persistence").load({ last = true })
       end),
       dashboard.button("p", " Projects", function()
-        require("lt.project.functions").switch_project()
+        require("lt.plugins.fzf.functions").switch_project()
       end),
       dashboard.button("n", " Notes", ":ObsidianSearch<CR>"),
       dashboard.button("r", " Recent files", ":FzfLua oldfiles<CR>"),

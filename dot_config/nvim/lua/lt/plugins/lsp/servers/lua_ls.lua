@@ -1,5 +1,3 @@
-local api = vim.api
-
 return function(on_attach)
   return {
     on_attach = function(client, bufnr)
