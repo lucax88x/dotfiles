@@ -6,7 +6,131 @@ return {
 
     "leoluz/nvim-dap-go",
   },
-  init = function()
+  keys = {
+    {
+      "F5",
+      function()
+        local dap = require("dap")
+        dap.continue()
+      end,
+      desc = "Debugger start/continue (F5)",
+    },
+    {
+      "<leader>dd",
+      function()
+        local dap = require("dap")
+        dap.continue()
+      end,
+      desc = "Debugger start/continue",
+    },
+    {
+      "<leader>do",
+      function()
+        local dap = require("dap")
+        dap.step_over()
+      end,
+      desc = "Step over",
+    },
+    {
+      "F8",
+      function()
+        local dap = require("dap")
+        dap.step_over()
+      end,
+      desc = "Step over (F8)",
+    },
+    {
+      "<leader>di",
+      function()
+        local dap = require("dap")
+        dap.step_into()
+      end,
+      desc = "Step into",
+    },
+    {
+      "F7",
+      function()
+        local dap = require("dap")
+        dap.step_into()
+      end,
+      desc = "Step into (F7)",
+    },
+    {
+      "<leader>dO",
+      function()
+        local dap = require("dap")
+        dap.step_out()
+      end,
+      desc = "Step out",
+    },
+    {
+      "<leader>db",
+      function()
+        local dap = require("dap")
+        dap.toggle_breakpoint()
+      end,
+      desc = "Toggle breakpoint",
+    },
+    {
+      "<leader>dh",
+      function()
+        require("dap.ui.widgets").hover()
+      end,
+      desc = "Hover widgets",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>/dcc",
+      function()
+        require("fzf-lua").dap_commands()
+      end,
+      desc = "DAP commands",
+    },
+    {
+      "<leader>/dco",
+      function()
+        require("fzf-lua").dap_configurations()
+      end,
+      desc = "DAP configurations",
+    },
+    {
+      "<leader>/db",
+      function()
+        require("fzf-lua").dap_breakpoints()
+      end,
+      desc = "DAP list breakpoints",
+    },
+    {
+      "<leader>/dv",
+      function()
+        require("fzf-lua").dap_variables()
+      end,
+      desc = "DAP variables",
+    },
+    {
+      "<leader>/df",
+      function()
+        require("fzf-lua").dap_frames()
+      end,
+      desc = "DAP frames",
+    },
+    {
+      "<leader>du",
+      function()
+        local dap_ui = require("dapui")
+        dap_ui.toggle()
+      end,
+      desc = "Toggle DAP UI",
+    },
+    {
+      "<leader>dl",
+      function()
+        print(vim.fn.stdpath("cache") .. "/dap.log")
+      end,
+      desc = "Show log path",
+    },
+  },
+  config = function()
     -- dap.set_log_level("TRACE")
     local icons = require("lt.utils.icons")
 
@@ -14,54 +138,6 @@ return {
     vim.fn.sign_define("DapStopped", { text = icons.dap.stopped, texthl = "DiagnosticWarn" })
     vim.fn.sign_define("DapBreakpointCondition", { text = icons.dap.breakpoint_condition, texthl = "DiagnosticInfo" })
     vim.fn.sign_define("DapBreakpointRejected", { text = icons.dap.breakpoint_rejected, texthl = "DiagnosticInfo" })
-
-    local r = require("lt.utils.remaps")
-
-    r.which_key("<leader>dv", "variables")
-    r.which_key("<leader>dw", "widgets")
-    r.which_key("<leader>dr", "repl")
-    r.which_key("<leader>/d", "dap")
-
-    r.noremap("n", "<F5>", function()
-      local dap = require("dap")
-      dap.continue()
-    end, "Debugger start/continue (F5)")
-    r.noremap("n", "<leader>dd", function()
-      local dap = require("dap")
-      dap.continue()
-    end, "Debugger start/continue")
-
-    r.noremap("n", "<leader>do", function()
-      local dap = require("dap")
-      dap.step_over()
-    end, "Step over (f8)")
-    r.noremap("n", "<F8>", function()
-      local dap = require("dap")
-      dap.step_over()
-    end, "Step over")
-
-    r.noremap("n", "<leader>di", function()
-      local dap = require("dap")
-      dap.step_into()
-    end, "Step into (f7)")
-    r.noremap("n", "<F7>", function()
-      local dap = require("dap")
-      dap.step_into()
-    end, "Step into")
-
-    r.noremap("n", "<leader>dO", function()
-      local dap = require("dap")
-      dap.step_out()
-    end, "Step out")
-
-    r.noremap("n", "<leader>db", function()
-      local dap = require("dap")
-      dap.toggle_breakpoint()
-    end, "Toggle breakpoint")
-
-    r.noremap({ "n", "v" }, "<Leader>dh", function()
-      require("dap.ui.widgets").hover()
-    end, "hover widgets")
 
     -- r.noremap("n", "<leader>dbc", function()
     --   local dap = require("dap")
@@ -107,37 +183,12 @@ return {
     -- r.noremap("n", "<leader>dro", dap.repl.open, "repl_open", "Open REPL")
     -- r.noremap("n", "<leader>drl", dap.repl.run_last, "repl_run_last", "REPL last")
 
-    r.noremap("n", "<leader>dl", function()
-      print(vim.fn.stdpath("cache") .. "/dap.log")
-    end, "Show log path")
-
-    r.noremap("n", "<leader>/dcc", function()
-      require("fzf-lua").dap_commands()
-    end, "DAP commands")
-    r.noremap("n", "<leader>/dco", function()
-      require("fzf-lua").dap_configurations()
-    end, "DAP configurations")
-    r.noremap("n", "<leader>/db", function()
-      require("fzf-lua").dap_breakpoints()
-    end, "DAP list breakpoints")
-    r.noremap("n", "<leader>/dv", function()
-      require("fzf-lua").dap_variables()
-    end, "DAP variables")
-    r.noremap("n", "<leader>/df", function()
-      require("fzf-lua").dap_frames()
-    end, "DAP frames")
-
     local dap_ui = require("dapui")
     dap_ui.setup({})
-
-    r.noremap("n", "<leader>du", function()
-      dap_ui.toggle()
-    end, "Toggle DAP UI")
 
     local dap_virtual_text = require("nvim-dap-virtual-text")
     dap_virtual_text.setup({})
 
-    -- Setup the go debug adapter
     require("dap-go").setup()
 
     local adapters = require("lt.plugins.dap.adapters")

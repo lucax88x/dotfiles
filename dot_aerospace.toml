@@ -159,6 +159,11 @@ if.app-id = 'com.microsoft.Outlook'
 run = 'move-node-to-workspace E'
 
 [[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+if.window-title-regex-substring = 'Reminders'
+run = ['layout floating']
+
+[[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'move-node-to-workspace F'
 
