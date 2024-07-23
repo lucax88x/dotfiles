@@ -123,8 +123,6 @@ return {
 
     local r = require("lt.utils.remaps")
 
-    r.which_key("<leader>dt", "Treesitter")
-
     r.noremap("n", "<leader>dtp", function()
       vim.treesitter.inspect_tree({ command = "botright 60vnew" })
     end, "Treesitter playground")

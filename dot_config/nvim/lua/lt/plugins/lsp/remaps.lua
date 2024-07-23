@@ -132,8 +132,6 @@ function M.set_default_on_buffer(client, bufnr)
   end, "Format")
 
   if is_typescript then
-    r.which_key("<leader>ri", "import")
-
     buf_set_keymap("n", "<leader>rio", function()
       lsp_action("source.organizeImports")
     end, "Organize imports (TS)")
@@ -170,8 +168,6 @@ function M.set_default_on_buffer(client, bufnr)
 
   buf_set_keymap("n", "<leader>lsa", ":LspInfo()<CR>", "LSP Info")
 end
-
-r.which_key("<leader>ls", "servers")
 
 r.noremap("n", "<leader>lsi", "<cmd>LspInstallInfo<CR>", "LSP servers install info")
 

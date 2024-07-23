@@ -38,7 +38,7 @@ return {
   -- highlight matching words when cursor on it
   -- require("lt.plugins.illuminate"),
   -- disabled search highlight until next search
-  -- { "romainl/vim-cool", event = "VeryLazy" },
+  { "romainl/vim-cool", event = "VeryLazy" },
   require("lt.plugins.bufremove"),
   -- :S to replace with smartcase
   { "tpope/vim-abolish", event = "VeryLazy" },

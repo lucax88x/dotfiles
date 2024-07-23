@@ -29,7 +29,7 @@ return {
         local lspkind_text = ({
           -- copilot = "[cop]",
           nvim_lsp = "[LSP]",
-          luasnip = "[snp]",
+          snippets = "[snp]",
           buffer = "[buf]",
           nvim_lua = "[lua]",
           path = "[path]",

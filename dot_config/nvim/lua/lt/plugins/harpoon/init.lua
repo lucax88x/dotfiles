@@ -19,7 +19,7 @@ return {
         local harpoon = require("harpoon")
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end,
-      desc = "Toggle Quick Menu",
+      desc = "Toggle Quick Menu harpoon",
     },
     {
       "<leader>q1",
@@ -28,7 +28,16 @@ return {
         local harpoon = require("harpoon")
         harpoon:list():select(1)
       end,
-      desc = "Select Harpoon 1",
+      desc = "Select harpoon 1",
+    },
+    {
+      "<leader>q!",
+      mode = { "n" },
+      function()
+        local harpoon = require("harpoon")
+        harpoon:list():replace_at(1)
+      end,
+      desc = "Replace harpoon 1",
     },
     {
       "<leader>q2",
@@ -37,7 +46,16 @@ return {
         local harpoon = require("harpoon")
         harpoon:list():select(2)
       end,
-      desc = "Select Harpoon 2",
+      desc = "Select harpoon 2",
+    },
+    {
+      "<leader>q@",
+      mode = { "n" },
+      function()
+        local harpoon = require("harpoon")
+        harpoon:list():replace_at(2)
+      end,
+      desc = "Replace harpoon 2",
     },
     {
       "<leader>q3",
@@ -46,7 +64,16 @@ return {
         local harpoon = require("harpoon")
         harpoon:list():select(3)
       end,
-      desc = "Select Harpoon 3",
+      desc = "Select harpoon 3",
+    },
+    {
+      "<leader>q#",
+      mode = { "n" },
+      function()
+        local harpoon = require("harpoon")
+        harpoon:list():replace_at(3)
+      end,
+      desc = "Replace harpoon 3",
     },
     {
       "<leader>q4",
@@ -55,7 +82,25 @@ return {
         local harpoon = require("harpoon")
         harpoon:list():select(4)
       end,
-      desc = "Select Harpoon 4",
+      desc = "Select harpoon 4",
+    },
+    {
+      "<leader>q$",
+      mode = { "n" },
+      function()
+        local harpoon = require("harpoon")
+        harpoon:list():replace_at(4)
+      end,
+      desc = "Replace harpoon 4",
+    },
+    {
+      "<leader>qx",
+      mode = { "n" },
+      function()
+        local harpoon = require("harpoon")
+        harpoon:list():clear()
+      end,
+      desc = "Clear",
     },
     -- {
     --   "<C-S-P>",
