@@ -41,7 +41,7 @@ end
 function M.set_default_on_buffer(client, bufnr)
   local buf_set_keymap = generate_buf_keymapper(bufnr)
   local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr or 0 })
-  local is_typescript = filetype == "typescript" or filetype == "typescriptreact"
+  local is_typescript = filetype == "typescript" or filetype == "typescriptreact" or filetype == "vue"
 
   local cap = client.server_capabilities
 
@@ -126,10 +126,6 @@ function M.set_default_on_buffer(client, bufnr)
       vim.lsp.buf.code_action({ range = range.range })
     end, "Buffer code actions")
   end
-
-  buf_set_keymap("n", "<leader>rf", function()
-    require("conform").format({ bufnr = bufnr, lsp_fallback = true })
-  end, "Format")
 
   if is_typescript then
     buf_set_keymap("n", "<leader>rio", function()

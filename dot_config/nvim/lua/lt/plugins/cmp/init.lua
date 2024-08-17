@@ -24,7 +24,12 @@ return {
       fields = { "kind", "abbr", "menu" },
       format = function(entry, item)
         local icon = lsp_kind.presets.default[item.kind]
-        icon = " " .. icon .. " "
+
+        if icon ~= nil then
+          icon = " " .. icon .. " "
+        else
+          print("missing icon for kind " .. item.kind)
+        end
 
         local lspkind_text = ({
           -- copilot = "[cop]",
@@ -36,7 +41,10 @@ return {
         })[entry.source.name]
 
         item.menu = lspkind_text and "   (" .. item.kind .. ")" or ""
-        item.kind = icon
+
+        if icon ~= nil then
+          item.kind = icon
+        end
 
         return require("tailwindcss-colorizer-cmp").formatter(entry, item)
       end,

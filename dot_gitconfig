@@ -4,6 +4,9 @@
 
 [includeIf "gitdir:~/repos/swisscom-*/"]
   path = .gitconfig-swisscom
+  
+[includeIf "gitdir:~/repos/adesso-*/"]
+  path = .gitconfig-adesso
 
 [pull]
 	rebase = true

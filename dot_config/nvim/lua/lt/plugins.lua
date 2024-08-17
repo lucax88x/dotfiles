@@ -8,10 +8,7 @@ return {
   require("lt.plugins.notify"),
 
   -- icons
-  {
-    "nvim-tree/nvim-web-devicons",
-    event = "VeryLazy",
-  },
+  require("lt.plugins.icons"),
 
   -- ui library
   {
@@ -61,6 +58,7 @@ return {
 
   -- git
   -- require("lt.plugins.fugitive"),
+  --https://github.com/rafi/vim-config/blob/master/lua/rafi/plugins/git.lua 
   require("lt.plugins.neogit"),
   require("lt.plugins.blame"),
   require("lt.plugins.gitsigns"),
@@ -96,6 +94,7 @@ return {
   -- lua
   require("lt.plugins.lazydev"),
   require("lt.plugins.trouble"),
+  require("lt.plugins.goplelements"),
   require("lt.plugins.lsp"),
 
   -- autocompletion
@@ -122,6 +121,7 @@ return {
   require("lt.plugins.oil"),
 
   -- tests
+  -- require("lt.plugins.quicktest"),
   require("lt.plugins.neotest"),
 
   -- debugging
@@ -158,6 +158,8 @@ return {
   require("lt.plugins.peek"),
   require("lt.plugins.plantuml"),
   require("lt.plugins.obsidian"),
+  require("lt.plugins.markview"),
+  
   -- require("lt.plugins.hardtime"),
   -- require("lt.plugins.profile"),
 

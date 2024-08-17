@@ -11,12 +11,12 @@ return {
         typescriptreact = { { "prettierd", "prettier" } },
         vue = { { "prettierd", "prettier" } },
         css = { { "prettierd", "prettier" } },
-        go = { "goimports", "gofmt" },
+        go = { "gofmt" },
         bash = { "shfmt" },
         yaml = { "yamlfmt" },
-        xml = { "xmlformatter" },
+        xml = { "xmlformat" },
         json = { "jq" },
-        python = { "isort", "ruff_format" },
+        -- python = { "isort", "ruff_format" },
         -- python = function(bufnr)
         --   -- if require("conform").get_formatter_info("ruff_format", bufnr).available then
         --   return { "ruff_format" }
@@ -27,6 +27,15 @@ return {
       },
     })
   end,
+  keys = {
+    {
+      "<leader>rf",
+      function()
+        require("conform").format({ lsp_fallback = true })
+      end,
+      desc = "Format",
+    },
+  },
 }
 
 -- formatting.prettierd,

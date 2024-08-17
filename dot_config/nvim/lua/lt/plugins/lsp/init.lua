@@ -37,7 +37,12 @@ return {
             end
           end
 
-          if client.name == "eslint" or client.name == "angularls" or client.name == "null-ls" then
+          if
+            client.name == "eslint"
+            or client.name == "angularls"
+            or client.name == "null-ls"
+            or client.name == "volar"
+          then
             return
           end
 
@@ -94,7 +99,7 @@ return {
 
     local config = {
       -- show signs
-      update_in_insert = true,
+      update_in_insert = false,
       underline = true,
       float = {
         focus = false,

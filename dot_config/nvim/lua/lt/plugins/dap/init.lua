@@ -8,7 +8,7 @@ return {
   },
   keys = {
     {
-      "F5",
+      "<F5>",
       function()
         local dap = require("dap")
         dap.continue()
@@ -32,7 +32,7 @@ return {
       desc = "Step over",
     },
     {
-      "F8",
+      "<F8>",
       function()
         local dap = require("dap")
         dap.step_over()
@@ -48,7 +48,7 @@ return {
       desc = "Step into",
     },
     {
-      "F7",
+      "<F7>",
       function()
         local dap = require("dap")
         dap.step_into()

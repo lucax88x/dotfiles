@@ -1,7 +1,8 @@
 # Reference: https://github.com/i3/i3/blob/next/etc/config
-
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] # mouse lazily follows focused monitor (default in i3)
 
 [mode.main.binding]
 # alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
@@ -201,3 +202,5 @@ F = 'main'
 E = ['DELL U2715H \(2\)', 'built-in']    
 D = 'DELL U2715H \(1\)'
 N = 'DELL U2715H \(1\)'
+# # or
+# on-focus-changed = ['move-mouse window-lazy-center'] # Mouse lazily follows any focus (window or workspace)

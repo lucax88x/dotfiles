@@ -6,10 +6,21 @@ return {
   config = function()
     require("codecompanion").setup({
       strategies = {
-        chat = "llama3",
-        inline = "deepseekcoderv2",
-        agent = "llama3",
+        chat = {
+          adapter = "llama3",
+        },
+        inline = {
+          adapter = "deepseekcoderv2",
+        },
+        agent = {
+          adapter = "llama3",
+        },
       },
+      -- strategies = {
+      --   chat = "llama3",
+      --   inline = "deepseekcoderv2",
+      --   agent = "llama3",
+      -- },
 
       adapters = {
         deepseekcoder = require("codecompanion.adapters").use("ollama", {

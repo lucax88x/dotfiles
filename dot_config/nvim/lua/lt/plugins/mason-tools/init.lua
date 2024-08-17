@@ -20,6 +20,7 @@ return {
         "prettierd",
         "shfmt",
         "xmlformatter",
+        "lazyfmt",
         "powershell-editor-services",
 
         -- python
