@@ -9,9 +9,9 @@ return {
       lua = {
         "selene",
       },
-      markdown = {
-        "vale",
-      },
+      -- markdown = {
+      --   "vale",
+      -- },
       sh = {
         "shellcheck",
       },

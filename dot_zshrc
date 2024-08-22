@@ -9,6 +9,7 @@ fi
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Load a few important annexes, without Turbo
@@ -91,6 +92,7 @@ zinit ice lucid wait
 #
 zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
 # zinit light g-plane/zsh-yarn-autocompletions
+zinit ice atload"unalias zi"
 
 # HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=true
 # zinit light zsh-users/zsh-history-substring-search
@@ -177,6 +179,7 @@ esac
 # eval "$(fzf --zsh)"
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
+
 # eval "$(zoxide init --cmd cd zsh)"
 
 # tabtab source for packages
