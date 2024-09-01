@@ -7,6 +7,9 @@
   
 [includeIf "gitdir:~/repos/adesso-*/"]
   path = .gitconfig-adesso
+  
+[includeIf "gitdir:~/repos/itrl-*/"]
+  path = .gitconfig-itrl
 
 [pull]
 	rebase = true

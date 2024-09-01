@@ -94,6 +94,7 @@ return {
   -- lua
   require("lt.plugins.lazydev"),
   require("lt.plugins.trouble"),
+  -- go structs
   require("lt.plugins.goplelements"),
   require("lt.plugins.lsp"),
 
@@ -142,6 +143,9 @@ return {
   -- status bar
   require("lt.plugins.lualine"),
   require("lt.plugins.statuscol"),
+  
+  -- runner
+  require("lt.plugins.overseer"),
 
   -- rest
   "mbbill/undotree",

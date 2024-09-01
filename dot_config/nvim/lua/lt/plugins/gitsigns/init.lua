@@ -1,5 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
+  event = "VeryLazy",
   config = function()
     local gitsigns = require("gitsigns")
 
@@ -8,7 +9,7 @@ return {
       watch_gitdir = {
         interval = 500,
       },
-      sign_priority = 9,
+      -- sign_priority = 9,
       status_formatter = nil, -- Use default
     })
 
@@ -19,68 +20,76 @@ return {
     end
   end,
   keys = {
-    { "]h", function()
-      if vim.wo.diff then
-        return "]h"
-      end
-      vim.schedule(function()
-        require("gitsigns").next_hunk()
-      end)
-      return "<Ignore>"
-    end, "go to next hunk", { expr = true },
+    {
+      "]h",
+      function()
+        if vim.wo.diff then
+          return "]h"
+        end
+        vim.schedule(function()
+          require("gitsigns").next_hunk()
+        end)
+        return "<Ignore>"
+      end,
+      "go to next hunk",
+      { expr = true },
     },
-
-    { "[h", function()
-      if vim.wo.diff then
-        return "[h"
-      end
-      vim.schedule(function()
-        require("gitsigns").prev_hunk()
-      end)
-      return "<Ignore>"
-    end, "go to prev hunk", { expr = true } },
+    {
+      "[h",
+      function()
+        if vim.wo.diff then
+          return "[h"
+        end
+        vim.schedule(function()
+          require("gitsigns").prev_hunk()
+        end)
+        return "<Ignore>"
+      end,
+      "go to prev hunk",
+      { expr = true },
+    },
 
     {
       "<leader>hs",
       function()
         require("gitsigns").stage_hunk()
       end,
-      desc = "Stage hunk"
+      desc = "Stage hunk",
     },
     {
       "<leader>hu",
       function()
         require("gitsigns").undo_stage_hunk()
       end,
-      desc = "Undo stage hunk"
+      desc = "Undo stage hunk",
     },
     {
       "<leader>hr",
       function()
         require("gitsigns").reset_hunk()
       end,
-      desc = "Reset hunk"
+      desc = "Reset hunk",
     },
     {
       "<leader>hp",
       function()
         require("gitsigns").preview_hunk()
       end,
-      desc = "Preview hunk"
+      desc = "Preview hunk",
     },
     {
       "<leader>hb",
       function()
-        require("gitsigns").blame_line { full = true }
+        require("gitsigns").blame_line({ full = true })
       end,
-      desc = "Blame line"
+      desc = "Blame line",
     },
     {
       "<leader>hd",
       function()
         require("gitsigns").diffthis()
       end,
-      desc = "Diff this"
+      desc = "Diff this",
     },
-  }
+  },
 }

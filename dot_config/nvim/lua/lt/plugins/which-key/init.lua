@@ -46,6 +46,7 @@ return {
       { "<leader>v", group = "view/render" },
       { "<leader>w", group = "window" },
       { "<leader>z", group = "zen" },
+      { "<leader>o", group = "runner" },
     }
 
     which_key.add(groups, opts)

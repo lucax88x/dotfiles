@@ -10,7 +10,7 @@ return {
           adapter = "llama3",
         },
         inline = {
-          adapter = "deepseekcoderv2",
+          adapter = "deepseekcoder",
         },
         agent = {
           adapter = "llama3",
@@ -53,7 +53,8 @@ return {
       },
     })
     -- Expand `cc` into CodeCompanion in the command line
-    -- vim.cmd([[cab cc CodeCompanion]])
+
+    vim.cmd([[cab cc CodeCompanion]])
 
     -- vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
     -- vim.api.nvim_set_keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
@@ -70,10 +71,54 @@ return {
     },
     {
       "<leader>ia",
-      "<cmd>CodeCompanion<CR>",
       desc = "A[I] [A]sk",
+    },
+    {
+      "<leader>iae",
+      "<cmd>CodeCompanion /explain<CR>",
+      desc = "A[I] [A]sk to [E]xplain",
       mode = { "n", "v" },
     },
+    {
+      "<leader>iaf",
+      "<cmd>CodeCompanion /fix<CR>",
+      desc = "A[I] [A]sk to [F]ix",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>iat",
+      "<cmd>CodeCompanion /tests<CR>",
+      desc = "A[I] [A]sk to create [T]tests",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>iad",
+      function()
+        vim.ui.input({ prompt = "what do you ask" }, function(input)
+          vim.cmd("CodeCompanion /buffer " .. input)
+        end)
+      end,
+      desc = "A[I] [A]sk to [D]o with a prompt [ga accept|gr reject]",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ial",
+      "<cmd>CodeCompanion /lsp<CR>",
+      desc = "A[I] [A]sk to explain [L]sp diagnostics",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ial",
+      "<cmd>CodeCompanion /commit<CR>",
+      desc = "A[I] [A]sk to generate a [C]ommit message",
+      mode = { "n", "v" },
+    },
+    -- /explain - Explain how selected code in a buffer works
+    -- /tests - Generate unit tests for selected code
+    -- /fix - Fix the selected code
+    -- /buffer - Send the current buffer to the LLM alongside a prompt
+    -- /lsp - Explain the LSP diagnostics for the selected code
+    -- /commit - Generate a commit message
     {
       "<leader>il",
       "<cmd>CodeCompanionActions<CR>",
