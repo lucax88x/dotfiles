@@ -4,11 +4,9 @@ return {
   config = function()
     local which_key = require("which-key")
 
-    local opts = {
-      prefix = "<leader>",
-    }
-
-    which_key.setup()
+    which_key.setup({
+      icons = { mappings = false },
+    })
 
     local groups = {
       { '<leader>"', group = "registers" },
@@ -49,6 +47,8 @@ return {
       { "<leader>o", group = "runner" },
     }
 
-    which_key.add(groups, opts)
+    which_key.add(groups, {
+      prefix = "<leader>",
+    })
   end,
 }

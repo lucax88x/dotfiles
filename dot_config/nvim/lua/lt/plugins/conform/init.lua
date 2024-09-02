@@ -3,27 +3,20 @@ return {
   opts = {},
   config = function()
     require("conform").setup({
+      format_on_save = nil,
       formatters_by_ft = {
         lua = { "stylua" },
-        javascript = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
-        javascriptreact = { { "prettierd", "prettier" } },
-        typescriptreact = { { "prettierd", "prettier" } },
-        vue = { { "prettierd", "prettier" } },
-        css = { { "prettierd", "prettier" } },
+        javascript = { { "prettierd", "prettier", stop_after_first = true } },
+        typescript = { { "prettierd", "prettier", stop_after_first = true } },
+        javascriptreact = { { "prettierd", "prettier", stop_after_first = true } },
+        typescriptreact = { { "prettierd", "prettier", stop_after_first = true } },
+        vue = { { "prettierd", "prettier", stop_after_first = true } },
+        css = { { "prettierd", "prettier", stop_after_first = true } },
         go = { "gofmt" },
         bash = { "shfmt" },
         yaml = { "yamlfmt" },
         xml = { "xmlformat" },
         json = { "jq" },
-        -- python = { "isort", "ruff_format" },
-        -- python = function(bufnr)
-        --   -- if require("conform").get_formatter_info("ruff_format", bufnr).available then
-        --   return { "ruff_format" }
-        --   -- else
-        --   --   return { "isort", "black" }
-        --   -- end
-        -- end,
       },
     })
   end,

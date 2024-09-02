@@ -96,6 +96,9 @@ return {
             require("lt.plugins.lualine.codecompanion"),
           },
           {
+            "overseer"
+          },
+          {
             function()
               return require("noice").api.status.command.get()
             end,

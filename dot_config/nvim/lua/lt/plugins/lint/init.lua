@@ -81,7 +81,6 @@ return {
 
     vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "BufWritePost" }, {
       callback = function()
-        vim.notify("linting")
         local client = vim.lsp.get_clients({ bufnr = 0 })[1] or {}
         lint.try_lint(nil, { cwd = client.root_dir })
       end,

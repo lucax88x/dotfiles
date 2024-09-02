@@ -17,7 +17,8 @@ return {
       "OverseerClearCache",
     },
     opts = {
-      -- dap = false,
+      strategy = "toggleterm",
+      dap = false,
       -- task_list = {
       --   bindings = {
       --     ["<C-h>"] = false,

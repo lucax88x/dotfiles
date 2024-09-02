@@ -61,6 +61,9 @@ local options = {
   laststatus = 3,
   -- hides stuff, like in the json it will hide double quotes
   conceallevel = 2,
+
+  -- edgy
+  splitkeep = "screen",
 }
 
 for k, v in pairs(options) do

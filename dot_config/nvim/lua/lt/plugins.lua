@@ -16,7 +16,8 @@ return {
     event = "VeryLazy",
   },
   -- require("lt.plugins.noice"),
-  -- require("lt.plugins.edgy"),
+  require("lt.plugins.edgy"),
+  require("lt.plugins.fidget"),
 
   -- shortcuts
   require("lt.plugins.better-escape"),
@@ -53,7 +54,6 @@ return {
   require("lt.plugins.treesitter-context"),
   require("lt.plugins.iswap"),
   -- incremental selection
-  require("lt.plugins.wildfire"),
   -- require("lt.plugins.mini-ai"),
 
   -- git
