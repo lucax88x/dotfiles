@@ -1,5 +1,5 @@
 [user]
-	email = luca.trazzi@adesso.ch
+	email = lucax88x@gmail.ch
 	name = lucatrazzi
 
 [includeIf "gitdir:~/repos/swisscom-*/"]
@@ -10,6 +10,9 @@
   
 [includeIf "gitdir:~/repos/itrl-*/"]
   path = .gitconfig-itrl
+  
+[includeIf "gitdir:~/repos/post-*/"]
+  path = .gitconfig-post
 
 [pull]
 	rebase = true
