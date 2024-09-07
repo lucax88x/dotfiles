@@ -14,6 +14,7 @@ return {
         css = { { "prettierd", "prettier", stop_after_first = true } },
         go = { "gofmt" },
         bash = { "shfmt" },
+        sh = { "shfmt" },
         yaml = { "yamlfmt" },
         xml = { "xmlformat" },
         json = { "jq" },

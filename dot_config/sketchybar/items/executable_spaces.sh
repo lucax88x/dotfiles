@@ -30,9 +30,9 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
       script="$PLUGIN_DIR/space.sh"
     )
 
-    sketchybar --add space space.$sid left \
-               --set space.$sid "${space[@]}" \
-               --subscribe space.$sid mouse.clicked
+    sketchybar --add space "space.$sid" left \
+               --set "space.$sid" "${space[@]}" \
+               --subscribe "space.$sid" mouse.clicked
 
     apps=$(aerospace list-windows --workspace $sid | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
