@@ -23,33 +23,39 @@ return {
       -- },
 
       adapters = {
-        deepseekcoder = require("codecompanion.adapters").use("ollama", {
-          schema = {
-            model = {
-              default = "deepseek-coder:6.7b",
+        deepseekcoder = function()
+          require("codecompanion.adapters").extend("ollama", {
+            schema = {
+              model = {
+                default = "deepseek-coder:6.7b",
+              },
             },
-          },
-        }),
-        deepseekcoderv2 = require("codecompanion.adapters").use("ollama", {
-          schema = {
-            model = {
-              default = "deepseek-coder-v2:latest",
+          })
+        end,
+        deepseekcoderv2 = function()
+          return require("codecompanion.adapters").extend("ollama", {
+            schema = {
+              model = {
+                default = "deepseek-coder-v2:latest",
+              },
             },
-          },
-        }),
-        llama3 = require("codecompanion.adapters").use("ollama", {
-          schema = {
-            model = {
-              default = "llama3:8b",
+          })
+        end,
+        llama3 = function()
+          return require("codecompanion.adapters").extend("ollama", {
+            schema = {
+              model = {
+                default = "llama3:8b",
+              },
+              num_ctx = {
+                default = 16384,
+              },
+              num_predict = {
+                default = -1,
+              },
             },
-            num_ctx = {
-              default = 16384,
-            },
-            num_predict = {
-              default = -1,
-            },
-          },
-        }),
+          })
+        end,
       },
     })
     -- Expand `cc` into CodeCompanion in the command line

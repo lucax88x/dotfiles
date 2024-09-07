@@ -16,8 +16,9 @@ return {
     event = "VeryLazy",
   },
   -- require("lt.plugins.noice"),
-  require("lt.plugins.edgy"),
+  -- require("lt.plugins.edgy"),
   require("lt.plugins.fidget"),
+  -- require("lt.plugins.bufferline"),
 
   -- shortcuts
   require("lt.plugins.better-escape"),

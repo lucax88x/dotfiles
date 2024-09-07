@@ -160,6 +160,8 @@ return {
       }
     end
 
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+
     local servers = {
       bashls = {},
       yamlls = require("lt.plugins.lsp.servers.yamlls")(capabilities),
