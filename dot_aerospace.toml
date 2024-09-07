@@ -13,7 +13,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] # mouse lazily f
 
 alt-shift-c = 'reload-config'
 alt-shift-r = 'reload-config'
-alt-shift-R = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
+# alt-shift-R = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 
 alt-k = 'focus up'
 alt-j = 'focus down'

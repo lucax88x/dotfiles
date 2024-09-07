@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-## download from https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.24/icon_map.sh
-
 ### START-OF-ICON-MAP
 function __icon_map() {
+  echo "called!"
+  echo "$1"
   case "$1" in
   "Live")
     icon_result=":ableton:"
