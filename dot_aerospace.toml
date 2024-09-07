@@ -1,3 +1,7 @@
+exec-on-workspace-change = ['/bin/bash', '-c',
+    '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
+]
+
 # Reference: https://github.com/i3/i3/blob/next/etc/config
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -9,6 +13,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] # mouse lazily f
 
 alt-shift-c = 'reload-config'
 alt-shift-r = 'reload-config'
+alt-shift-R = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 
 alt-k = 'focus up'
 alt-j = 'focus down'

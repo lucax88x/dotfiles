@@ -75,9 +75,6 @@ function __icon_map() {
    "BetterTouchTool")
         icon_result=":bettertouchtool:"
         ;;
-   "Bilibili" | "哔哩哔哩")
-        icon_result=":bilibili:"
-        ;;
    "Bitwarden")
         icon_result=":bit_warden:"
         ;;

@@ -29,7 +29,6 @@ set_space_label() {
 
 mouse_clicked() {
   if [ "$BUTTON" = "right" ]; then
-    # yabai -m space --destroy $SID
     echo ''
   else
     if [ "$MODIFIER" = "shift" ]; then
@@ -42,8 +41,6 @@ mouse_clicked() {
         fi
       fi
     else
-      #yabai -m space --focus $SID 2>/dev/null
-      #echo space.sh BUTTON: $BUTTON, $'SELECTED': $SELECTED, MODIFIER: $MODIFIER, NAME: $NAME, SENDER: $SENDER, INFO: $INFO, TEST: ${NAME#*.}, ${NAME:6} >> ~/aaaa
       aerospace workspace ${NAME#*.}
     fi
   fi
