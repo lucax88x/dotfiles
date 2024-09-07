@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#SPACE_ICONS=("1" "2" "3" "4")
-
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
 
@@ -9,7 +7,7 @@ sketchybar --add event aerospace_workspace_change
 #echo $(aerospace list-workspaces --monitor 1 --visible no --empty no) >> ~/aaaa
 
 for m in $(aerospace list-monitors | awk '{print $1}'); do
-  for i in $(aerospace list-workspaces --monitor $m); do
+  for i in $(aerospace list-workspaces --monitor "$m"); do
     sid=$i
     space=(
       space="$sid"
@@ -34,23 +32,23 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
                --set "space.$sid" "${space[@]}" \
                --subscribe "space.$sid" mouse.clicked
 
-    apps=$(aerospace list-windows --workspace $sid | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+    apps=$(aerospace list-windows --workspace "$sid" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
     icon_strip=" "
     if [ "${apps}" != "" ]; then
       while read -r app
       do
-        icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh "$app")"
+        icon_strip+=" $("$CONFIG_DIR/plugins/icon_map.sh" "$app")"
       done <<< "${apps}"
     else
       icon_strip=" —"
     fi
 
-    sketchybar --set space.$sid label="$icon_strip"
+    sketchybar --set "space.$sid" label="$icon_strip"
   done
 
-  for i in $(aerospace list-workspaces --monitor $m --empty); do
-    sketchybar --set space.$i display=0
+  for i in $(aerospace list-workspaces --monitor "$m" --empty); do
+    sketchybar --set "space.$i" display=0
   done
   
 done
@@ -62,10 +60,8 @@ space_creator=(
   padding_right=8
   label.drawing=off
   display=active
-  #click_script='yabai -m space --create'
   script="$PLUGIN_DIR/space_windows.sh"
-  #script="$PLUGIN_DIR/aerospace.sh"
-  icon.color=$WHITE
+  icon.color="$WHITE"
 )
 
 # sketchybar --add item space_creator left               \

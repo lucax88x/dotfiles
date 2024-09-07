@@ -1,36 +1,36 @@
 #!/bin/bash
 
 # General Icons
-LOADING=􀖇
-APPLE=􀣺
-PREFERENCES=􀺽
-ACTIVITY=􀒓
-LOCK=􀒳
-BELL=􀋚
-BELL_DOT=􀝗
+export LOADING=􀖇
+export APPLE=􀣺
+export PREFERENCES=􀺽
+export ACTIVITY=􀒓
+export LOCK=􀒳
+export BELL=􀋚
+export BELL_DOT=􀝗
 
 # Git Icons
-GIT_ISSUE=􀍷
-GIT_DISCUSSION=􀒤
-GIT_PULL_REQUEST=􀙡
-GIT_COMMIT=􀡚
-GIT_INDICATOR=􀂓
+export GIT_ISSUE=􀍷
+export GIT_DISCUSSION=􀒤
+export GIT_PULL_REQUEST=􀙡
+export GIT_COMMIT=􀡚
+export GIT_INDICATOR=􀂓
 
 # Battery Icons
-BATTERY_100=􀛨
-BATTERY_75=􀺸
-BATTERY_50=􀺶
-BATTERY_25=􀛩
-BATTERY_0=􀛪
-BATTERY_CHARGING=􀢋
+export BATTERY_100=􀛨
+export BATTERY_75=􀺸
+export BATTERY_50=􀺶
+export BATTERY_25=􀛩
+export BATTERY_0=􀛪
+export BATTERY_CHARGING=􀢋
 
 # Volume Icons
-VOLUME_100=􀊩
-VOLUME_66=􀊧
-VOLUME_33=􀊥
-VOLUME_10=􀊡
-VOLUME_0=􀊣
+export VOLUME_100=􀊩
+export VOLUME_66=􀊧
+export VOLUME_33=􀊥
+export VOLUME_10=􀊡
+export VOLUME_0=􀊣
 
 # WiFi
-WIFI_CONNECTED=􀙇
-WIFI_DISCONNECTED=􀙈
+export WIFI_CONNECTED=􀙇
+export WIFI_DISCONNECTED=􀙈
