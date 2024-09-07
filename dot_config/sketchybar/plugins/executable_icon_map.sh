@@ -668,3 +668,5 @@ function __icon_map() {
   esac
 }
 ### END-OF-ICON-MAP
+__icon_map "$1"
+echo "$icon_result"
