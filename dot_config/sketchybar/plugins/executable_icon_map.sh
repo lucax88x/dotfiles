@@ -2,8 +2,6 @@
 
 ### START-OF-ICON-MAP
 function __icon_map() {
-  echo "called!"
-  echo "$1"
   case "$1" in
   "Live")
     icon_result=":ableton:"

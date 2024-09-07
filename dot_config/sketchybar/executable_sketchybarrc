@@ -7,7 +7,8 @@ source "$CONFIG_DIR/icons.sh"  # Loads all defined icons
 ITEM_DIR="$CONFIG_DIR/items"            # Directory where the items are configured
 export PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
 
-FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+FONT="SF Pro"
+ICON_FONT="Hack Nerd Font"
 PADDINGS=3    # All paddings use this value (icon, label, background)
 
 # aerospace setting
@@ -72,7 +73,6 @@ sketchybar --default "${defaults[@]}"
 
 # Left
 source "$ITEM_DIR/spaces.sh"
-source "$ITEM_DIR/front_app.sh"
 
 # Center
 # source "$ITEM_DIR/spotify.sh"
@@ -81,8 +81,8 @@ source "$ITEM_DIR/front_app.sh"
 # Right
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/battery.sh"
-
 source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/front_app.sh"
 
 sketchybar --hotload on
 
