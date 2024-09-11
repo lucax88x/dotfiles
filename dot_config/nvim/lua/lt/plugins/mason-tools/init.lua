@@ -22,6 +22,9 @@ return {
         "xmlformatter",
         "lazyfmt",
         "powershell-editor-services",
+        
+        -- format toml
+        "taplo",
 
         -- python
         -- "ruff",

@@ -1,18 +1,21 @@
-#!/usr/bin/env bash
- 
-echo AEROSPACE_PREV_WORKSPACE: $AEROSPACE_PREV_WORKSPACE, \
- AEROSPACE_FOCUSED_WORKSPACE: $AEROSPACE_FOCUSED_WORKSPACE \
- SELECTED: $SELECTED \
- BG2: $BG2 \
- INFO: $INFO \
- SENDER: $SENDER \
- NAME: $NAME \
-  >> ~/aaaa
+#!/bin/bash
+# shellcheck disable=SC1091
+
+echo "reacting to event: $SENDER"
+
+# echo AEROSPACE_PREV_WORKSPACE: $AEROSPACE_PREV_WORKSPACE, \
+#   AEROSPACE_FOCUSED_WORKSPACE: $AEROSPACE_FOCUSED_WORKSPACE \
+#   SELECTED: $SELECTED \
+#   BG2: $BG2 \
+#   INFO: $INFO \
+#   SENDER: $SENDER \
+#   NAME: $NAME \
+#   >>~/aaaa
 
 source "$CONFIG_DIR/colors.sh"
 
 AEROSPACE_FOCUSED_MONITOR=$(aerospace list-monitors --focused | awk '{print $1}')
-AEROSAPCE_WORKSPACE_FOCUSED_MONITOR=$(aerospace list-workspaces --monitor focused --empty no)
+AEROSPACE_WORKSPACE_FOCUSED_MONITOR=$(aerospace list-workspaces --monitor focused --empty no)
 AEROSPACE_EMPTY_WORKESPACE=$(aerospace list-workspaces --monitor focused --empty)
 
 reload_workspace_icon() {
@@ -21,10 +24,9 @@ reload_workspace_icon() {
 
   icon_strip=" "
   if [ "${apps}" != "" ]; then
-    while read -r app
-    do
+    while read -r app; do
       icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh "$app")"
-    done <<< "${apps}"
+    done <<<"${apps}"
   else
     icon_strip=" —"
   fi
@@ -62,26 +64,24 @@ if [ "$SENDER" = "aerospace_workspace_change" ]; then
 
   # current workspace space border color
   sketchybar --set space.$AEROSPACE_FOCUSED_WORKSPACE icon.highlight=true \
-                         label.highlight=true \
-                         background.border_color=$GREY
+    label.highlight=true \
+    background.border_color=$GREY
 
   # prev workspace space border color
   sketchybar --set space.$AEROSPACE_PREV_WORKSPACE icon.highlight=false \
-                         label.highlight=false \
-                         background.border_color=$BACKGROUND_2
+    label.highlight=false \
+    background.border_color=$BACKGROUND_2
 
   # if [ "$AEROSPACE_FOCUSED_WORKSPACE" -gt 3 ]; then
   #   sketchybar --animate sin 10 --set space.$AEROSPACE_FOCUSED_WORKSPACE display=1
   # fi
-  ## focused 된 모니터에 space 상태 보이게 설정
-  for i in $AEROSAPCE_WORKSPACE_FOCUSED_MONITOR; do
-    sketchybar --set space.$i display=$AEROSPACE_FOCUSED_MONITOR
+  for i in $AEROSPACE_WORKSPACE_FOCUSED_MONITOR; do
+    sketchybar --set "space.$i" display="$AEROSPACE_FOCUSED_MONITOR"
   done
 
   for i in $AEROSPACE_EMPTY_WORKESPACE; do
-    sketchybar --set space.$i display=0
+    sketchybar --set "space.$i" display=0
   done
 
-  sketchybar --set space.$AEROSPACE_FOCUSED_WORKSPACE display=$AEROSPACE_FOCUSED_MONITOR
-
+  sketchybar --set "space.$AEROSPACE_FOCUSED_WORKSPACE" display="$AEROSPACE_FOCUSED_MONITOR"
 fi

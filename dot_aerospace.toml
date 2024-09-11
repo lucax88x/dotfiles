@@ -1,12 +1,24 @@
-exec-on-workspace-change = ['/bin/bash', '-c',
-    '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
 ]
 
 # Reference: https://github.com/i3/i3/blob/next/etc/config
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] # mouse lazily follows focused monitor (default in i3)
+on-focused-monitor-changed = [
+  'move-mouse monitor-lazy-center',
+] # mouse lazily follows focused monitor (default in i3)
+
+[gaps]
+inner.horizontal = 4
+inner.vertical = 4
+outer.left = 4
+outer.bottom = 4
+outer.top = [{ monitor."Built-in" = 4 }, 35]
+outer.right = 4
 
 [mode.main.binding]
 # alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
@@ -31,8 +43,8 @@ alt-shift-l = 'move-through right'
 alt-f = 'fullscreen'
 alt-shift-q = 'close'
 
-alt-s = 'layout v_accordion' # 'layout stacking' in i3
-alt-w = 'layout h_accordion' # 'layout tabbed' in i3
+alt-s = 'layout v_accordion'               # 'layout stacking' in i3
+alt-w = 'layout h_accordion'               # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
@@ -203,13 +215,11 @@ run = 'move-node-to-workspace 7'
 # center LC32G5xT
 # office DELL U3425WE
 [workspace-to-monitor-force-assignment]
-1 = 'built-in'                   
-2 = 'main'            
-3 = ['DELL U2715H \(2\)', 'built-in']    
-4 = 'DELL U2715H \(1\)'   
+1 = 'built-in'
+2 = 'main'
+3 = ['DELL U2715H \(2\)', 'built-in']
+4 = 'DELL U2715H \(1\)'
 5 = 'main'
-6 = ['DELL U2715H \(2\)', 'built-in']    
+6 = ['DELL U2715H \(2\)', 'built-in']
 7 = 'DELL U2715H \(1\)'
 8 = 'DELL U2715H \(1\)'
-# # or
-# on-focus-changed = ['move-mouse window-lazy-center'] # Mouse lazily follows any focus (window or workspace)

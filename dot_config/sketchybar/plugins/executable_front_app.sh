@@ -5,11 +5,12 @@
 # focused application in the $INFO variable:
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
 
-AEROSPACE_FOCUSED_MONITOR_NO=$(aerospace list-workspaces --focused)
-AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR=$(aerospace list-windows --workspace "$AEROSPACE_FOCUSED_MONITOR_NO" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+AEROSPACE_FOCUSED_WORKSPACE_ID=$(aerospace list-workspaces --focused)
+AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR=$(aerospace list-windows --workspace "$AEROSPACE_FOCUSED_WORKSPACE_ID" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
+  # echo "$NAME reacting to $SENDER"
 if [ "$SENDER" = "front_app_switched" ]; then
-  #echo name:$NAME INFO: $INFO SENDER: $SENDER, SID: $SID >> ~/logs
+ 
   sketchybar --set "$NAME" label="$INFO" icon.background.image="app.$INFO" icon.background.image.scale=0.8
 
   apps=$AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR
@@ -23,5 +24,5 @@ if [ "$SENDER" = "front_app_switched" ]; then
     icon_strip=" —"
   fi
   
-  sketchybar --set "space.$AEROSPACE_FOCUSED_MONITOR_NO" label="$icon_strip"
+  sketchybar --set "space.$AEROSPACE_FOCUSED_WORKSPACE_ID" label="$icon_strip"
 fi
