@@ -5,23 +5,6 @@ return {
   },
   config = function()
     require("codecompanion").setup({
-      strategies = {
-        chat = {
-          adapter = "llama3",
-        },
-        inline = {
-          adapter = "deepseekcoder",
-        },
-        agent = {
-          adapter = "llama3",
-        },
-      },
-      -- strategies = {
-      --   chat = "llama3",
-      --   inline = "deepseekcoderv2",
-      --   agent = "llama3",
-      -- },
-
       adapters = {
         deepseekcoder = function()
           require("codecompanion.adapters").extend("ollama", {
@@ -32,32 +15,90 @@ return {
             },
           })
         end,
-        deepseekcoderv2 = function()
-          return require("codecompanion.adapters").extend("ollama", {
-            schema = {
-              model = {
-                default = "deepseek-coder-v2:latest",
-              },
-            },
-          })
-        end,
+        --     deepseekcoderv2 = function()
+        --       return require("codecompanion.adapters").extend("ollama", {
+        --         schema = {
+        --           model = {
+        --             default = "deepseek-coder-v2:latest",
+        --           },
+        --         },
+        --       })
+        --     end,
         llama3 = function()
           return require("codecompanion.adapters").extend("ollama", {
+            name = "llama3", -- Give this adapter a different name to differentiate it from the default ollama adapter
             schema = {
               model = {
                 default = "llama3:8b",
               },
               num_ctx = {
-                default = 16384,
-              },
-              num_predict = {
-                default = -1,
+                default = 2048,
               },
             },
           })
         end,
       },
+      strategies = {
+        chat = { adapter = "llama3" },
+        inline = { adapter = "deepseekcoder" },
+        agent = { adapter = "llama3" },
+      },
+      -- adapters = {
+      --   llama3 = function()
+      --     return require("codecompanion.adapters").extend("ollama", {
+      --       name = "llama3", -- Give this adapter a different name to differentiate it from the default ollama adapter
+      --       schema = {
+      --         model = {
+      --           default = "llama3:latest",
+      --         },
+      --         num_ctx = {
+      --           default = 16384,
+      --         },
+      --         num_predict = {
+      --           default = -1,
+      --         },
+      --       },
+      --     })
+      --   end,
+      -- },
     })
+
+    -- require("codecompanion").setup({
+    --   strategies = {
+    --     chat = {
+    --       adapter = "llama3",
+    --     },
+    --     inline = {
+    --       adapter = "deepseekcoder",
+    --     },
+    --     agent = {
+    --       adapter = "llama3",
+    --     },
+    --   },
+    --   -- strategies = {
+    --   --   chat = "llama3",
+    --   --   inline = "deepseekcoderv2",
+    --   --   agent = "llama3",
+    --   -- },
+    --
+    --   adapters = {
+    --     llama3 = function()
+    --       return require("codecompanion.adapters").extend("ollama", {
+    --         schema = {
+    --           model = {
+    --             default = "llama3:8b",
+    --           },
+    --           num_ctx = {
+    --             default = 16384,
+    --           },
+    --           num_predict = {
+    --             default = -1,
+    --           },
+    --         },
+    --       })
+    --     end,
+    --   },
+    -- })
     -- Expand `cc` into CodeCompanion in the command line
 
     vim.cmd([[cab cc CodeCompanion]])

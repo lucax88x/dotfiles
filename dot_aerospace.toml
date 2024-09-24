@@ -1,7 +1,7 @@
 exec-on-workspace-change = [
   '/bin/bash',
   '-c',
-  '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
+  'echo "aerospace_workspace_change { \"focused\": \"$AEROSPACE_FOCUSED_WORKSPACE\", \"prev\": \"$AEROSPACE_PREV_WORKSPACE\" } ¬" > /tmp/wentsketchy',
 ]
 
 # Reference: https://github.com/i3/i3/blob/next/etc/config
@@ -17,7 +17,7 @@ inner.horizontal = 4
 inner.vertical = 4
 outer.left = 4
 outer.bottom = 4
-outer.top = [{ monitor."Built-in" = 4 }, 35]
+outer.top = [{ monitor."Built-in" = 4 }, 45]
 outer.right = 4
 
 [mode.main.binding]
@@ -170,11 +170,11 @@ run = 'move-node-to-workspace 8'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Powerpoint'
-run = 'move-node-to-workspace N'
+run = 'move-node-to-workspace 8'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Excel'
-run = 'move-node-to-workspace N'
+run = 'move-node-to-workspace 8'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'

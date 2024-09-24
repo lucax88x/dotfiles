@@ -169,6 +169,9 @@ return {
           ["CTRL-Q"] = "select-all+accept",
         },
       },
+      files = {
+        git_icons = false,
+      },
     })
     require("fzf-lua").register_ui_select()
   end,

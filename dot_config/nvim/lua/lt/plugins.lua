@@ -17,6 +17,7 @@ return {
   },
   -- require("lt.plugins.noice"),
   -- require("lt.plugins.edgy"),
+  require("lt.plugins.focus"),
   require("lt.plugins.fidget"),
   -- require("lt.plugins.bufferline"),
 

@@ -80,6 +80,10 @@ if [[ -r "$HOME/go" ]]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+if [[ -r "/opt/homebrew/bin/bun" ]]; then
+  export PATH="$HOME/.bun/bin:$PATH"
+fi
+
 source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
 source "$HOME/bin/functions/ks"
 
