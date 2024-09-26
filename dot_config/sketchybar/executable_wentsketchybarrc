@@ -1,7 +1,5 @@
 ##!/bin/bash
 
-# Setting up wentsketchy
-FIFO=/tmp/wentsketchy
-"$HOME/bin/wentsketchy" start --fifo=$FIFO
+"$HOME/bin/wentsketchy" start
 
 killall wentsketchy
