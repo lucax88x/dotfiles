@@ -157,7 +157,8 @@ return {
   require("lt.plugins.scrollback"),
   -- require("lt.plugins.chatgpt"),
   -- require("lt.plugins.gen"),
-  require("lt.plugins.codecompanion"),
+  -- require("lt.plugins.codecompanion"),
+  require("lt.plugins.avante"),
   -- require("lt.plugins.llm"),
 
   -- renderer (markdown, plantuml, etc)

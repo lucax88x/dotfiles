@@ -2,6 +2,10 @@
 left:
   - main_icon
   - aerospace
+right_notch:
+  - front_app
 right:
+  - sensors
+  - cpu
   - battery
   - calendar
