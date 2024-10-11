@@ -26,3 +26,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Added by Toolbox App
 export PATH="$PATH:/Users/luca.trazzi/Library/Application Support/JetBrains/Toolbox/scripts"
+
+if [[ -r "$HOME/.z.env" ]]; then
+  source "$HOME/.z.env"
+fi

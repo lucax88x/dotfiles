@@ -60,7 +60,7 @@ local options = {
   -- global statusline
   laststatus = 3,
   -- hides stuff, like in the json it will hide double quotes
-  conceallevel = 2,
+  conceallevel = 1,
 
   -- edgy
   splitkeep = "screen",

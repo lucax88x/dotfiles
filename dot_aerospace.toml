@@ -59,25 +59,14 @@ alt-o = 'workspace-back-and-forth'
 # should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
 # alt-a = 'focus parent'
 
-# C - chat
-alt-1 = 'workspace 1'
-# alt-t = 'workspace 1'
-# I - ide
-alt-2 = 'workspace 2'
-alt-r = 'workspace 2'
-# terminal
-alt-3 = 'workspace 3'
-# B - browser
-alt-4 = 'workspace 4'
-alt-c = 'workspace 4'
-# F - finder
-alt-5 = 'workspace 5'
-# E- emails
-alt-6 = 'workspace 6'
-# devtools
-alt-7 = 'workspace 7'
-# N - notes
-alt-8 = 'workspace 8'
+alt-1 = 'workspace 1' # C - chat
+alt-2 = 'workspace 2' # I - ide
+alt-3 = 'workspace 3' # terminal
+alt-4 = 'workspace 4' # B - browser
+alt-5 = 'workspace 5' # F - finder
+alt-6 = 'workspace 6' # E- emails
+alt-7 = 'workspace 7' # devtools
+alt-8 = 'workspace 8' # N - notes
 
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -186,6 +175,10 @@ if.window-title-regex-substring = 'Reminders'
 run = ['layout floating']
 
 [[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = ['layout floating']
+
+[[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'move-node-to-workspace 5'
 
@@ -203,6 +196,10 @@ run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
 if.app-id = 'com.electron.dockerdesktop'
+run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.rdc.macos'
 run = 'move-node-to-workspace 7'
 
 # [[on-window-detected]]

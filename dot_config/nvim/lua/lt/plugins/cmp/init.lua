@@ -28,7 +28,9 @@ return {
         if icon ~= nil then
           icon = " " .. icon .. " "
         else
-          print("missing icon for kind " .. item.kind)
+          if item.kind ~= nil then
+            print("missing icon for kind " .. item.kind)
+          end
         end
 
         local lspkind_text = ({

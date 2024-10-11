@@ -3,7 +3,7 @@ return {
   dependencies = {
     -- shows treesitter context in end of parenthesis
     "haringsrob/nvim_context_vt",
-    "RRethy/nvim-treesitter-textsubjects"
+    "RRethy/nvim-treesitter-textsubjects",
   },
   event = { "BufReadPost", "BufNewFile", "BufEnter" },
   config = function()
@@ -38,6 +38,7 @@ return {
         "markdown_inline",
         "regex",
         "http",
+        "nix",
       },
       highlight = {
         enable = true,
@@ -51,7 +52,7 @@ return {
           init_selection = "zi",
           node_incremental = "zi",
           scope_incremental = "zo",
-          node_decremental = "zd"
+          node_decremental = "zd",
         },
       },
       textobjects = {
@@ -75,9 +76,9 @@ return {
             ["iv"] = "@value.inner",
           },
           selection_modes = {
-            ['@parameter.outer'] = 'v', -- charwise
-            ['@function.outer'] = 'V',  -- linewise
-            ['@class.outer'] = '<c-v>', -- blockwise
+            ["@parameter.outer"] = "v", -- charwise
+            ["@function.outer"] = "V", -- linewise
+            ["@class.outer"] = "<c-v>", -- blockwise
           },
         },
         -- swap = {
@@ -115,10 +116,9 @@ return {
         keymaps = {
           ["."] = "textsubjects-smart",
           [";"] = "textsubjects-container-outer",
-          ['i;'] = 'textsubjects-container-inner',
+          ["i;"] = "textsubjects-container-inner",
         },
       },
-
     })
 
     local r = require("lt.utils.remaps")

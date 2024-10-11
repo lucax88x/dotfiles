@@ -29,7 +29,7 @@ return {
       { "<leader>g", group = "git" },
       { "<leader>gd", group = "diffview" },
       { "<leader>h", group = "hunks" },
-      { "<leader>i", group = "llm" },
+      { "<leader>a", group = "avante" },
       { "<leader>ls", group = "servers" },
       { "<leader>k", group = "terminal" },
       { "<leader>l", group = "lsp" },
