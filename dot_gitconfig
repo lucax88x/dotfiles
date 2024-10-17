@@ -1,6 +1,6 @@
 [user]
 	email = lucax88x@gmail.ch
-	name = lucatrazzi
+	name = lucax88x
 
 [includeIf "gitdir:~/repos/swisscom-*/"]
   path = .gitconfig-swisscom

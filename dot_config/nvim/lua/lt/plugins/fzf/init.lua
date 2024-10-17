@@ -3,7 +3,7 @@ return {
   branch = "main",
   dependencies = {
     { "nvim-tree/nvim-web-devicons" },
-    { "tpope/vim-fugitive" },
+    -- { "tpope/vim-fugitive" },
   },
   keys = {
     {
@@ -162,7 +162,7 @@ return {
       desc = "Resume FZF",
     },
   },
-  init = function()
+  config = function()
     require("fzf-lua").setup({
       keymap = {
         fzf = {

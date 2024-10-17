@@ -18,7 +18,6 @@ return {
   -- require("lt.plugins.noice"),
   -- require("lt.plugins.edgy"),
   require("lt.plugins.focus"),
-  require("lt.plugins.fidget"),
   -- require("lt.plugins.bufferline"),
 
   -- shortcuts
@@ -101,11 +100,12 @@ return {
   require("lt.plugins.lsp"),
 
   -- autocompletion
-  require("lt.plugins.cmp"),
-  require("lt.plugins.autopairs"),
+  -- require("lt.plugins.cmp"),
+  -- require("lt.plugins.autopairs"),
+  require("lt.plugins.blink"),
 
   -- snippets
-  require("lt.plugins.snippets"),
+  -- require("lt.plugins.snippets"),
 
   -- comments & annotation
   require("lt.plugins.neogen"),

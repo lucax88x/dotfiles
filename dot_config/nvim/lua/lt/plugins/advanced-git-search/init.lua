@@ -44,7 +44,5 @@ return {
       desc = "Git Search: Log content file",
     },
   },
-  init = function()
-    require("advanced_git_search.fzf").setup({})
-  end,
+  opts = {},
 }

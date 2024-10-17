@@ -4,11 +4,7 @@ return {
     { "nvim-lua/plenary.nvim" },
     { "nvim-treesitter/nvim-treesitter" },
   },
-  init = function()
-    local refactoring = require("refactoring")
-
-    refactoring.setup({})
-  end,
+  opts = {},
   keys = {
     {
       "<leader>rem",
