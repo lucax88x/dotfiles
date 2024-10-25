@@ -30,3 +30,7 @@ export PATH="$PATH:/Users/luca.trazzi/Library/Application Support/JetBrains/Tool
 if [[ -r "$HOME/.z.env" ]]; then
   source "$HOME/.z.env"
 fi
+
+if [[ -r "/home/linuxbrew/" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi

@@ -50,8 +50,11 @@ local config = {
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  config.font_size = 16.0
+  config.font = wezterm.font("JetBrainsMono Nerd Font")
+
   -- config.front_end = "Software" -- OpenGL doesn't work quite well with RDP.
-  config.term = "" -- Set to empty so FZF works on windows
+  -- config.term = "" -- Set to empty so FZF works on windows
   config.default_prog = { "pwsh.exe" }
   table.insert(config.launch_menu, { label = "pwsh", args = { "pswh.exe", "-NoLogo" } })
 
@@ -68,10 +71,13 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
       },
     })
   end
+
+  config.default_domain = "WSL:Ubuntu"
 else
   table.insert(config.launch_menu, { label = "zsh", args = { "zsh", "-l" } })
 
   config.window_decorations = "NONE";
 end
+
 
 return config
