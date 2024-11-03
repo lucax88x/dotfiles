@@ -100,7 +100,7 @@ zinit ice lucid wait
 #
 zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
 # zinit light g-plane/zsh-yarn-autocompletions
-zinit ice atload"unalias zi"
+# zinit ice atload"unalias zi"
 
 # HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=true
 # zinit light zsh-users/zsh-history-substring-search

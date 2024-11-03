@@ -52,10 +52,9 @@ return {
 
   -- treesitter
   require("lt.plugins.treesitter"),
+  require("lt.plugins.mini-ai"),
   require("lt.plugins.treesitter-context"),
   require("lt.plugins.iswap"),
-  -- incremental selection
-  -- require("lt.plugins.mini-ai"),
 
   -- git
   -- require("lt.plugins.fugitive"),
@@ -100,9 +99,9 @@ return {
   require("lt.plugins.lsp"),
 
   -- autocompletion
-  -- require("lt.plugins.cmp"),
-  -- require("lt.plugins.autopairs"),
-  require("lt.plugins.blink"),
+  require("lt.plugins.cmp"),
+  require("lt.plugins.autopairs"),
+  -- require("lt.plugins.blink"),
 
   -- snippets
   -- require("lt.plugins.snippets"),
@@ -119,6 +118,7 @@ return {
   require("lt.plugins.rust-tools"),
   require("lt.plugins.quick-switcher"),
   require("lt.plugins.refactoring"),
+  require("lt.plugins.tailwindcss"),
 
   -- tree
   require("lt.plugins.oil"),
@@ -166,6 +166,7 @@ return {
   require("lt.plugins.plantuml"),
   require("lt.plugins.obsidian"),
   require("lt.plugins.markview"),
+  require("lt.plugins.bigfile"),
   
   -- require("lt.plugins.hardtime"),
   -- require("lt.plugins.profile"),

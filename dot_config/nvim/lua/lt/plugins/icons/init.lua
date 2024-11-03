@@ -1,6 +1,5 @@
 return {
   "echasnovski/mini.icons",
-  opts = {},
   lazy = true,
   specs = {
     { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
@@ -11,4 +10,12 @@ return {
       return package.loaded["nvim-web-devicons"]
     end
   end,
+  opts = {
+    file = {
+      [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
+    },
+    filetype = {
+      gotmpl = { glyph = "󰟓", hl = "MiniIconsGrey" },
+    },
+  },
 }
