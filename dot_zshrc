@@ -80,7 +80,6 @@ fi
 
 if [[ -r "$HOME/go" ]]; then
   export GOPATH=$HOME/go
-  export GOROOT=/opt/homebrew/opt/go/libexec
   export PATH=$PATH:$GOPATH/bin
 fi
 
