@@ -185,7 +185,7 @@ return {
       ansiblels = {},
       gopls = {},
       terraformls = {},
-      clangd = {},
+      -- clangd = {},
       -- azure_pipelines_ls = {},
       powershell_es = {},
       pyright = require("lt.plugins.lsp.servers.pyright")(on_attach),

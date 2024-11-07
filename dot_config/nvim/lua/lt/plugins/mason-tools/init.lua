@@ -10,8 +10,8 @@ return {
         "jsonlint",
 
         -- go
-        "golangci-lint",
-        "goimports",
+        -- "golangci-lint",
+        -- "goimports",
 
         -- format
         "stylua",
@@ -20,7 +20,7 @@ return {
         "prettierd",
         "shfmt",
         "xmlformatter",
-        "lazyfmt",
+        -- "lazyfmt",
         "powershell-editor-services",
         
         -- format toml
