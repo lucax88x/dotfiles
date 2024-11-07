@@ -177,6 +177,7 @@ return {
       graphql = {},
       -- rust_analyzer = {},
       eslint = require("lt.plugins.lsp.servers.eslint")(on_attach),
+      biome = {},
       -- svelte = {},
       angularls = {},
       tailwindcss = {},
