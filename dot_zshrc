@@ -87,9 +87,6 @@ if [[ -r "/opt/homebrew/bin/bun" ]]; then
   export PATH="$HOME/.bun/bin:$PATH"
 fi
 
-source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
-source "$HOME/bin/functions/ks"
-
 # awaits, necessary for vi mode
 zinit ice lucid wait
 # zinit snippet OMZP::fzf
@@ -183,9 +180,20 @@ esac
 # pnpm end
  
 # Shell integrations
-# eval "$(fzf --zsh)"
-source <(fzf --zsh)
-eval "$(zoxide init zsh)"
+if command -v fzf > /dev/null 2>&1; then
+  # eval "$(fzf --zsh)"
+  source <(fzf --zsh)
+fi
+
+if command -v zoxide > /dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
+if command -v kubectl > /dev/null 2>&1; then
+  source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
+source "$HOME/bin/functions/ks"
+fi
+
 
 # eval "$(zoxide init --cmd cd zsh)"
 
