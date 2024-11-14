@@ -8,16 +8,6 @@ return {
   opts = function()
     local icons = require("lt.utils.icons")
 
-    local function fg(name)
-      return function()
-        ---@type {foreground?:number}?
-        local hl = vim.api.nvim_get_hl_by_name(name, true)
-        return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
-      end
-    end
-
-    local trouble = require("trouble")
-
     return {
       options = {
         theme = "auto",
@@ -96,6 +86,7 @@ return {
         lualine_z = {
           { "searchcount" },
           { "selectioncount" },
+          { "hostname" },
           function()
             return os.date("%R")
           end,
