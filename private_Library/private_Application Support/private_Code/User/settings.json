@@ -1,0 +1,310 @@
+{
+    "update.showReleaseNotes": false,
+    "editor.fontSize": 16,
+    "editor.fontFamily": "Jetbrains Mono, Monaco, 'Courier New', monoleader",
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<C-6>"
+            ],
+            "commands": [
+                "workbench.action.quickSwitch"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "l"
+            ],
+            "commands": [
+                "workbench.action.quickSwitchWindow"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "s"
+            ],
+            "commands": [
+                "editor.action.refactor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "r"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "g"
+            ],
+            "commands": [
+                "workbench.action.showAllSymbols"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<C-o>"
+            ],
+            "commands": [
+                "workbench.action.navigateBack"
+            ]
+        },
+        {
+            "before": [
+                "<C-i>"
+            ],
+            "commands": [
+                "workbench.action.navigateForward"
+            ]
+        },
+        {
+            "before": [
+                "<A-]>"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "<A-[>"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "p"
+            ],
+            "commands": [
+                {
+                    "command": "projectManager.listProjectsNewWindow",
+                    "args": {
+                        "rootPath": "~/repos"
+                    }
+                }
+            ]
+        },
+        // Test bindings
+        {
+            "before": [
+                "<leader>",
+                ";",
+                "r"
+            ],
+            "commands": [
+                "testing.runAtCursor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                "t"
+            ],
+            "commands": [
+                "testing.reRunLastRun"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                "l"
+            ],
+            "commands": [
+                "testing.runCurrentFile"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                "d"
+            ],
+            "commands": [
+                "testing.debugAtCursor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                "s"
+            ],
+            "commands": [
+                "testing.cancelRun"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                ";"
+            ],
+            "commands": [
+                "testing.toggleTestingView"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                ":"
+            ],
+            "commands": [
+                "workbench.view.testing.focus"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                "w"
+            ],
+            "commands": [
+                "testing.runFileInWatch"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                "o"
+            ],
+            "commands": [
+                "testing.toggleTestingOutputVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ";",
+                "O"
+            ],
+            "commands": [
+                "testing.showMostRecentOutput"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-o>": true,
+        "<C-i>": true,
+        "<C-6>": true,
+    },
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha"
+}
