@@ -5,6 +5,8 @@ return {
     "b0o/schemastore.nvim",
     "williamboman/mason-lspconfig.nvim",
     "SmiteshP/nvim-navic",
+    "saghen/blink.cmp",
+
     require("lt.plugins.lsp_lines"),
     require("lt.plugins.aerial"),
   },
@@ -20,6 +22,7 @@ return {
     local presentLspSignature, lsp_signature = pcall(require, "lsp_signature")
     local presentNavic, navic = pcall(require, "nvim-navic")
     local presentUfo = pcall(require, "ufo")
+    local presentBlinkCmp, blinkCmp = pcall(require, "blink.cmp")
     local ufo = require("lt.plugins.ufo.setup")
 
     vim.lsp.set_log_level("error") -- 'trace', 'debug', 'info', 'warn', 'error'
@@ -148,6 +151,10 @@ return {
       capabilities = vim.lsp.protocol.make_client_capabilities()
     end
 
+    if presentBlinkCmp then
+      config.capabilities = blinkCmp.get_lsp_capabilities(capabilities)
+    end
+
     if presentLspStatus then
       lsp_status.register_progress()
       capabilities = vim.tbl_extend("keep", capabilities, lsp_status.capabilities)
@@ -180,7 +187,7 @@ return {
       biome = {},
       -- svelte = {},
       angularls = {},
-      tailwindcss = {},
+      -- tailwindcss = {},
       texlab = {},
       ansiblels = {},
       gopls = {},

@@ -1,0 +1,69 @@
+{
+	"if err != nil": {
+		"prefix": "iferr",
+		"body": "if err != nil {\n\treturn ${1:nil}, ${2:err}\n}",
+		"description": "Snippet for if err != nil"
+	},
+	"slog.Info": {
+		"prefix": "slogi",
+		"body": ["slog.Info(\"${1:message}\", ${2:\"key\", value})"],
+		"description": "Log an info message using slog"
+	},
+	"slog.InfoContext": {
+		"prefix": "slogic",
+		"body": [
+			"slog.InfoContext(${1:ctx}, \"${2:message}\", ${3:\"key\", value})"
+		],
+		"description": "Log an info message with context using slog"
+	},
+	"slog.Error": {
+		"prefix": "sloge",
+		"body": ["slog.Error(\"${1:message}\", ${2:err}, ${3:\"key\", value})"],
+		"description": "Log an error message using slog"
+	},
+	"slog.ErrorContext": {
+		"prefix": "slogec",
+		"body": [
+			"slog.ErrorContext(${1:ctx}, \"${2:message}\", ${3:err}, ${4:\"key\", value})"
+		],
+		"description": "Log an error message with context using slog"
+	},
+	"slog.Debug": {
+		"prefix": "slogd",
+		"body": ["slog.Debug(\"${1:message}\", ${2:\"key\", value})"],
+		"description": "Log a debug message using slog"
+	},
+	"slog.DebugContext": {
+		"prefix": "slogdc",
+		"body": [
+			"slog.DebugContext(${1:ctx}, \"${2:message}\", ${3:\"key\", value})"
+		],
+		"description": "Log a debug message with context using slog"
+	},
+	"slog.Warn": {
+		"prefix": "slogw",
+		"body": ["slog.Warn(\"${1:message}\", ${2:\"key\", value})"],
+		"description": "Log a warning message using slog"
+	},
+	"slog.WarnContext": {
+		"prefix": "slogwc",
+		"body": [
+			"slog.WarnContext(${1:ctx}, \"${2:message}\", ${3:\"key\", value})"
+		],
+		"description": "Log a warning message with context using slog"
+	},
+	"slog.With": {
+		"prefix": "slogwith",
+		"body": ["logger := slog.With(${1:\"key\", value})"],
+		"description": "Create a new logger with additional context"
+	},
+	"slog.New": {
+		"prefix": "slognew",
+		"body": [
+			"logger := slog.New(slog.New${1|TextHandler,JSONHandler|}(${2:os.Stdout}, &slog.HandlerOptions{",
+			"\tLevel: slog.Level${3|Info,Debug,Warn,Error|},",
+			"}))"
+		],
+		"description": "Create a new slog logger instance"
+	}
+}

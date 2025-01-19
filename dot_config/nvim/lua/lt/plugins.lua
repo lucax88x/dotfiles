@@ -58,7 +58,7 @@ return {
 
   -- git
   -- require("lt.plugins.fugitive"),
-  --https://github.com/rafi/vim-config/blob/master/lua/rafi/plugins/git.lua 
+  --https://github.com/rafi/vim-config/blob/master/lua/rafi/plugins/git.lua
   require("lt.plugins.neogit"),
   require("lt.plugins.blame"),
   require("lt.plugins.gitsigns"),
@@ -99,12 +99,14 @@ return {
   require("lt.plugins.lsp"),
 
   -- autocompletion
-  require("lt.plugins.cmp"),
-  require("lt.plugins.autopairs"),
-  -- require("lt.plugins.blink"),
+  -- require("lt.plugins.cmp"),
+  -- require("lt.plugins.autopairs"),
+  -- require("lt.plugins.snippets"), -- cmp snippets
+  require("lt.plugins.blink"),
+  require("lt.plugins.luasnip"),
+  require("lt.plugins.friendly_snippets"),
 
   -- snippets
-  -- require("lt.plugins.snippets"),
 
   -- comments & annotation
   require("lt.plugins.neogen"),
@@ -118,7 +120,7 @@ return {
   require("lt.plugins.rust-tools"),
   require("lt.plugins.quick-switcher"),
   require("lt.plugins.refactoring"),
-  require("lt.plugins.tailwindcss"),
+  -- require("lt.plugins.tailwindcss"),
 
   -- tree
   require("lt.plugins.oil"),
@@ -145,7 +147,7 @@ return {
   -- status bar
   require("lt.plugins.lualine"),
   require("lt.plugins.statuscol"),
-  
+
   -- runner
   require("lt.plugins.overseer"),
 
@@ -167,7 +169,7 @@ return {
   require("lt.plugins.obsidian"),
   require("lt.plugins.markview"),
   require("lt.plugins.bigfile"),
-  
+
   -- require("lt.plugins.hardtime"),
   -- require("lt.plugins.profile"),
 

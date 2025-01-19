@@ -30,6 +30,8 @@ nmap s :action KJumpAction.Word1<cr>
 inoremap jk <esc>
 nnoremap - :action ActivateProjectToolWindow<CR>
 " nnoremap - :action ProjectViewChangeView<CR>
+
+" Windows
 nnoremap <c-w>o :action HideAllWindows<cr>
 
 nnoremap <leader>bw :action SaveDocument<CR>

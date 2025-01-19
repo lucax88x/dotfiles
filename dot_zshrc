@@ -90,7 +90,7 @@ fi
 # awaits, necessary for vi mode
 zinit ice lucid wait
 # zinit snippet OMZP::fzf
-# zinit light Aloxaf/fzf-tab
+zinit light Aloxaf/fzf-tab
 # zinit light Tarrasch/zsh-bd
 # zinit snippet $HOME/.fzf.zsh
 #
@@ -102,7 +102,7 @@ zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
 # zinit light zsh-users/zsh-history-substring-search
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
-zinit load atuinsh/atuin
+# zinit load atuinsh/atuin
 
 # zinit snippet OMZ::lib/key-bindings.zsh 
  
