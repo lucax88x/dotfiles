@@ -214,6 +214,10 @@ run = 'move-node-to-workspace 7'
 if.app-id = 'com.parallels.winapp'
 run = 'move-node-to-workspace 7'
 
+[[on-window-detected]]
+if.app-id = 'com.vmware.fusion'
+run = 'move-node-to-workspace 7'
+
 # [[on-window-detected]]
 # if.app-id = 'com.jetbrains.intellij'
 # if.window-title-regex-substring
