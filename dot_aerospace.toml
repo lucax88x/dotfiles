@@ -37,8 +37,8 @@ alt-shift-j = 'move-through down'
 alt-shift-h = 'move-through left'
 alt-shift-l = 'move-through right'
 
-# alt-g = 'split horizontal'
-# alt-v = 'split vertical'
+alt-g = 'split horizontal'
+alt-v = 'split vertical'
 
 alt-f = 'fullscreen'
 alt-shift-q = 'close'
