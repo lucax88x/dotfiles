@@ -83,8 +83,12 @@ if [[ -r "$HOME/go" ]]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
-if [[ -r "/opt/homebrew/bin/bun" ]]; then
+if command -v bun > /dev/null 2>&1; then
   export PATH="$HOME/.bun/bin:$PATH"
+fi
+
+if command -v asdf > /dev/null 2>&1; then
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
 
 # awaits, necessary for vi mode
