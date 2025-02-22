@@ -1,8 +1,8 @@
-exec-on-workspace-change = [
-  '/bin/bash',
-  '-c',
-  'echo "aerospace_workspace_change { \"focused\": \"$AEROSPACE_FOCUSED_WORKSPACE\", \"prev\": \"$AEROSPACE_PREV_WORKSPACE\" } ¬" > /tmp/wentsketchy',
-]
+# exec-on-workspace-change = [
+#   '/bin/bash',
+#   '-c',
+#   'echo "aerospace_workspace_change { \"focused\": \"$AEROSPACE_FOCUSED_WORKSPACE\", \"prev\": \"$AEROSPACE_PREV_WORKSPACE\" } ¬" > /tmp/wentsketchy',
+# ]
 
 # Reference: https://github.com/i3/i3/blob/next/etc/config
 enable-normalization-flatten-containers = true
@@ -65,8 +65,9 @@ alt-3 = 'workspace 3' # terminal
 alt-4 = 'workspace 4' # B - browser
 alt-5 = 'workspace 5' # F - finder
 alt-6 = 'workspace 6' # E- emails
-alt-7 = 'workspace 7' # devtools
+alt-7 = 'workspace 7' # vms - devtools
 alt-8 = 'workspace 8' # N - notes
+alt-9 = 'workspace 9' # trash
 
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -76,6 +77,7 @@ alt-shift-5 = 'move-node-to-workspace 5'
 alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
 
 # alt-shift-h = 'move-node-to-workspace prev'
 # alt-shift-l = 'move-node-to-workspace next'
@@ -236,3 +238,4 @@ run = 'move-node-to-workspace 7'
 6 = ['DELL U2715H \(2\)', 'built-in']
 7 = 'DELL U2715H \(1\)'
 8 = 'DELL U2715H \(1\)'
+9 = ['DELL U2715H \(2\)', 'built-in']
