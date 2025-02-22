@@ -78,10 +78,11 @@ function M.set_default_on_buffer(client, bufnr)
   end
 
   if cap.referencesProvider then
-    -- buf_set_keymap("n", "gr", function()
-    --   require("fzf-lua").lsp_references()
-    -- end, "Show references")
-    buf_set_keymap("n", "gr", "<cmd>Trouble lsp_references toggle focus=false<cr>", "Show references")
+    buf_set_keymap("n", "gr", function()
+      require("fzf-lua").lsp_references()
+    end, "Show references")
+    -- snacks
+    -- buf_set_keymap("n", "gr", "<cmd>Trouble lsp_references toggle focus=false<cr>", "Show references")
   end
 
   if cap.hoverProvider then

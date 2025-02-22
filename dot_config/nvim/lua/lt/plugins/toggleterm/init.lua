@@ -19,20 +19,21 @@ return {
     vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
   end,
   keys = {
-    {
-      "<leader>kg",
-      function()
-        local Terminal = require("toggleterm.terminal").Terminal
-        local lazygit = Terminal:new({
-          cmd = "lazygit",
-          direction = "float",
-          hidden = true,
-        })
-
-        lazygit:toggle()
-      end,
-      desc = "Open Lazygit (Toggleterm)",
-    },
+    -- using snacks
+    -- {
+    --   "<leader>kg",
+    --   function()
+    --     local Terminal = require("toggleterm.terminal").Terminal
+    --     local lazygit = Terminal:new({
+    --       cmd = "lazygit",
+    --       direction = "float",
+    --       hidden = true,
+    --     })
+    --
+    --     lazygit:toggle()
+    --   end,
+    --   desc = "Open Lazygit (Toggleterm)",
+    -- },
     -- {
     --   "<leader>kk",
     --   function()

@@ -15,9 +15,9 @@ return {
     "MunifTanjim/nui.nvim",
     event = "VeryLazy",
   },
-  -- require("lt.plugins.noice"),
   -- require("lt.plugins.edgy"),
   require("lt.plugins.focus"),
+  require("lt.plugins.snacks"),
   -- require("lt.plugins.bufferline"),
 
   -- shortcuts
@@ -38,7 +38,6 @@ return {
   -- require("lt.plugins.illuminate"),
   -- disabled search highlight until next search
   { "romainl/vim-cool", event = "VeryLazy" },
-  require("lt.plugins.bufremove"),
   -- :S to replace with smartcase
   { "tpope/vim-abolish", event = "VeryLazy" },
 
@@ -154,7 +153,6 @@ return {
   -- rest
   "mbbill/undotree",
   require("lt.plugins.dial"),
-  require("lt.plugins.zen"),
   require("lt.plugins.toggleterm"),
   require("lt.plugins.scrollback"),
   -- require("lt.plugins.chatgpt"),
