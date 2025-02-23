@@ -4,9 +4,6 @@ return {
   -- require("lt.plugins.catppuccin"),
   require("lt.plugins.tokyonight"),
 
-  -- notifications
-  require("lt.plugins.notify"),
-
   -- icons
   require("lt.plugins.icons"),
 
@@ -163,7 +160,6 @@ return {
 
   -- renderer (markdown, plantuml, etc)
   require("lt.plugins.peek"),
-  require("lt.plugins.plantuml"),
   require("lt.plugins.obsidian"),
   require("lt.plugins.markview"),
   require("lt.plugins.bigfile"),
