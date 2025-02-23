@@ -83,6 +83,11 @@ if [[ -r "$HOME/go" ]]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+if [[ -r "$HOME/.cargo" ]]; then
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$HOME/.cargo/bin
+fi
+
 if command -v bun > /dev/null 2>&1; then
   export PATH="$HOME/.bun/bin:$PATH"
 fi
