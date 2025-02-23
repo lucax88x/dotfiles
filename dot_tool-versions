@@ -3,3 +3,5 @@ go 1.23.0
 pnpm 10.4.1
 zig 0.13.0
 nodejs 22.14.0
+rust 1.85.0
+chezmoi 2.59.1
