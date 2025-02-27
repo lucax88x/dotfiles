@@ -40,7 +40,7 @@ return {
         "jsonlint",
       },
       go = {
-        "golangcilint",
+        "go tool golangcilint",
       },
       Terraform = {
         "tfsec",

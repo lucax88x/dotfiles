@@ -29,6 +29,13 @@ return {
           -- required for Windows users
           use_absolute_path = true,
         },
+
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-3-7-sonnet",
+          temperature = 0,
+          max_tokens = 4096,
+        },
       },
     },
     -- {
