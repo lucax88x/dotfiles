@@ -192,7 +192,7 @@ fi
 
 if command -v kubectl > /dev/null 2>&1; then
   source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
-source "$HOME/bin/functions/ks"
+  source "$HOME/bin/functions/ks"
 fi
 
 
