@@ -5,6 +5,7 @@ return {
     { "nvim-tree/nvim-web-devicons" },
     -- { "tpope/vim-fugitive" },
   },
+  cmd = { "FzfLua" },
   keys = {
     {
       "<leader>/c",

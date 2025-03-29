@@ -20,6 +20,7 @@ return {
         xml = { "xmlformat" },
         json = { "biome", "jq", stop_after_first = true },
         toml = { "taplo" },
+        ocaml = { "ocamlformat" },
       },
     })
   end,

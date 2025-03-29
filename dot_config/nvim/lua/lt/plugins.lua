@@ -66,7 +66,6 @@ return {
 
   -- navigation
   require("lt.plugins.flash"),
-  require("lt.plugins.harpoon"),
 
   -- fuzzy finder
   require("lt.plugins.fzf"),
@@ -95,9 +94,6 @@ return {
   require("lt.plugins.lsp"),
 
   -- autocompletion
-  -- require("lt.plugins.cmp"),
-  -- require("lt.plugins.autopairs"),
-  -- require("lt.plugins.snippets"), -- cmp snippets
   require("lt.plugins.blink"),
   require("lt.plugins.luasnip"),
   require("lt.plugins.friendly_snippets"),
@@ -113,7 +109,6 @@ return {
   require("lt.plugins.ufo"),
 
   -- code helpers
-  require("lt.plugins.rust-tools"),
   require("lt.plugins.quick-switcher"),
   require("lt.plugins.refactoring"),
   -- require("lt.plugins.tailwindcss"),
@@ -138,7 +133,6 @@ return {
   require("lt.plugins.indent-blankline"),
   -- require("lt.plugins.neocomposer"),
   require("lt.plugins.inc_rename"),
-  -- require("lt.plugins.headlines"),
 
   -- status bar
   require("lt.plugins.lualine"),
@@ -151,11 +145,8 @@ return {
   "mbbill/undotree",
   require("lt.plugins.dial"),
   require("lt.plugins.toggleterm"),
-  require("lt.plugins.scrollback"),
-  -- require("lt.plugins.chatgpt"),
-  -- require("lt.plugins.gen"),
-  -- require("lt.plugins.codecompanion"),
   require("lt.plugins.avante"),
+  require("lt.plugins.mcphub"),
   -- require("lt.plugins.llm"),
 
   -- renderer (markdown, plantuml, etc)
@@ -164,7 +155,6 @@ return {
   require("lt.plugins.markview"),
   require("lt.plugins.bigfile"),
 
-  -- require("lt.plugins.hardtime"),
   -- require("lt.plugins.profile"),
 
   --[[ { ]]

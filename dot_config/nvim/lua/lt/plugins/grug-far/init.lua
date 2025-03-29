@@ -7,14 +7,14 @@ return {
     {
       "<leader>ss",
       function()
-        require("grug-far").grug_far()
+        require("grug-far").open()
       end,
       desc = "Search all",
     },
     {
       "<leader>sw",
       function()
-        require("grug-far").grug_far({ prefills = { search = vim.fn.expand("<cword>") } })
+        require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
       end,
       desc = "Search this word",
     },

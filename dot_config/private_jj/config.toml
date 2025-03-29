@@ -1,0 +1,15 @@
+[user]
+name = "lucatrazzi"
+email = "lucax88x@gmail.com"
+
+[ui]
+paginate = "never"
+default-command = "log"
+
+[templates]
+log = "builtin_log_oneline"
+
+[aliases]
+l = ["log"]
+opl = ["operation", "log"]
+d = ["describe"]

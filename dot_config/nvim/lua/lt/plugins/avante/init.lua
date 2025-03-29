@@ -30,11 +30,13 @@ return {
           use_absolute_path = true,
         },
 
+        -- provider = "gemini",
         claude = {
           endpoint = "https://api.anthropic.com",
-          model = "claude-3-7-sonnet",
+          model = "claude-3-5-sonnet",
           temperature = 0,
           max_tokens = 4096,
+          disable_tools = true,
         },
       },
     },

@@ -170,6 +170,7 @@ alias p="pnpm"
 alias run="run.mjs"
 alias zipgit="git archive HEAD -o ${PWD##*/}.zip"
 # alias zip7git="7z a -bd ${PWD##*/}.7z * '-xr@./.gitignore'"
+# alias docker="podman"
 
 function addTodo() {
     todoist add --date today -P 2211210927 "$1"
@@ -177,6 +178,7 @@ function addTodo() {
 alias todo=addTodo
 alias todos="todoist list"
 alias pp='cd $(fd --full-path ~/repos/ -t d -d 2 | fzf)'
+alias j='jj'
 
 # END ALIASES
 
@@ -201,5 +203,21 @@ fi
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/pnpm.zsh ]] && . ~/.config/tabtab/zsh/pnpm.zsh || true
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '$HOME/.opam/opam-init/init.zsh' ]] || source '$HOME/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+
+# pnpm
+export PNPM_HOME="/home/lucatrazzi/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end#
 
 # zprof

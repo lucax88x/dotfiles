@@ -17,8 +17,6 @@ return {
     local remaps = require("lt.plugins.lsp.remaps")
     local icons = require("lt.utils.icons")
 
-    local presentLspStatus, lsp_status = pcall(require, "lsp-status")
-    local presentCmpNvimLsp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
     local presentLspSignature, lsp_signature = pcall(require, "lsp_signature")
     local presentNavic, navic = pcall(require, "nvim-navic")
     local presentUfo = pcall(require, "ufo")
@@ -82,10 +80,6 @@ return {
 
       remaps.set_default_on_buffer(client, bufnr)
 
-      if presentLspStatus then
-        lsp_status.on_attach(client)
-      end
-
       if presentLspSignature then
         lsp_signature.on_attach({ floating_window = false, timer_interval = 500 })
       end
@@ -113,13 +107,12 @@ return {
         header = "",
         prefix = "",
       },
-      virtual_text = {
-        spacing = 4,
-        source = "if_many",
-        prefix = "●",
-      },
-      -- enables lsp_lines but we want to start disabled
-      virtual_lines = false,
+      -- virtual_text = {
+      --   spacing = 4,
+      --   source = "if_many",
+      --   prefix = "●",
+      -- },
+      virtual_lines = true,
       severity_sort = true,
       signs = {
         text = {
@@ -143,21 +136,10 @@ return {
 
     vim.diagnostic.config(config)
 
-    local capabilities
-
-    if presentCmpNvimLsp then
-      capabilities = cmp_lsp.default_capabilities()
-    else
-      capabilities = vim.lsp.protocol.make_client_capabilities()
-    end
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
 
     if presentBlinkCmp then
       config.capabilities = blinkCmp.get_lsp_capabilities(capabilities)
-    end
-
-    if presentLspStatus then
-      lsp_status.register_progress()
-      capabilities = vim.tbl_extend("keep", capabilities, lsp_status.capabilities)
     end
 
     if presentUfo then
@@ -182,7 +164,6 @@ return {
       -- volar=vue
       volar = {},
       graphql = {},
-      -- rust_analyzer = {},
       eslint = require("lt.plugins.lsp.servers.eslint")(on_attach),
       biome = {},
       -- svelte = {},
@@ -195,8 +176,9 @@ return {
       -- clangd = {},
       -- azure_pipelines_ls = {},
       powershell_es = {},
-      pyright = require("lt.plugins.lsp.servers.pyright")(on_attach),
       vtsls = require("lt.plugins.lsp.servers.vtsls")(on_attach),
+      ocamllsp = {},
+      -- pyright = require("lt.plugins.lsp.servers.pyright")(on_attach),
       -- ruff_lsp = {},
       -- pylsp = {},
     }
@@ -217,7 +199,7 @@ return {
 
     local present_mason, mason = pcall(require, "mason-lspconfig")
     if present_mason then
-      mason.setup({ ensure_installed = server_names })
+      mason.setup({ ensure_installed = server_names, automatic_installation = true })
     else
       vim.notify("mason not there, cannot install lsp servers")
     end
@@ -226,14 +208,6 @@ return {
       local merged_config = vim.tbl_deep_extend("force", default_lsp_config, server_config)
 
       lspconfig[server_name].setup(merged_config)
-
-      if server_name == "rust_analyzer" then
-        local present_rust_tools, rust_tools = pcall(require, "rust-tools")
-
-        if present_rust_tools then
-          rust_tools.setup({ server = merged_config })
-        end
-      end
     end
 
     ufo.setupWithFallback()

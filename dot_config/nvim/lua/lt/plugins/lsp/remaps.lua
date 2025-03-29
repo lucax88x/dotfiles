@@ -85,10 +85,6 @@ function M.set_default_on_buffer(client, bufnr)
     -- buf_set_keymap("n", "gr", "<cmd>Trouble lsp_references toggle focus=false<cr>", "Show references")
   end
 
-  if cap.hoverProvider then
-    buf_set_keymap("n", "K", vim.lsp.buf.hover, "Hover documentation")
-  end
-
   if cap.documentSymbolProvider then
     -- buf_set_keymap('n','<leader>to', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
     buf_set_keymap("n", "<leader>tO", function()

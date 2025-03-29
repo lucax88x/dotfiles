@@ -20,9 +20,11 @@ return {
         "prettierd",
         "shfmt",
         "xmlformatter",
+        "ocamlformat",
+        "tfsec",
         -- "lazyfmt",
         "powershell-editor-services",
-        
+
         -- format toml
         "taplo",
 
