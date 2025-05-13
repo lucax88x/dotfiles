@@ -7,6 +7,7 @@
 --
 if not vim.g.vscode then
   require("lt.defaults")
+  require("lt.autocmds")
   require("lt.neovide")
   require("lt.project")
   require("lt.lazy")

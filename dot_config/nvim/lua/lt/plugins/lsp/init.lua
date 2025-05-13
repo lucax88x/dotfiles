@@ -1,57 +1,23 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "nvim-lua/lsp-status.nvim",
     "b0o/schemastore.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "SmiteshP/nvim-navic",
+    "mason-org/mason-lspconfig.nvim",
     "saghen/blink.cmp",
 
-    require("lt.plugins.lsp_lines"),
     require("lt.plugins.aerial"),
   },
   event = { "BufReadPre", "BufNewFile", "BufEnter" },
   config = function()
     local lspconfig = require("lspconfig")
 
-    local remaps = require("lt.plugins.lsp.remaps")
     local icons = require("lt.utils.icons")
 
-    local presentLspSignature, lsp_signature = pcall(require, "lsp_signature")
-    local presentNavic, navic = pcall(require, "nvim-navic")
     local presentUfo = pcall(require, "ufo")
     local presentBlinkCmp, blinkCmp = pcall(require, "blink.cmp")
     local ufo = require("lt.plugins.ufo.setup")
 
     vim.lsp.set_log_level("error") -- 'trace', 'debug', 'info', 'warn', 'error'
-
-    local function try_attach_navic(client, bufnr)
-      if not presentNavic then
-        vim.notify("navic not present")
-      else
-        local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr or 0 })
-
-        if client.server_capabilities.documentSymbolProvider then
-          if client.name == "graphql" then
-            if filetype == "typescript" or filetype == "typescriptreact" or filetype == "javascript" then
-              return
-            end
-          end
-
-          if
-            client.name == "eslint"
-            or client.name == "angularls"
-            or client.name == "null-ls"
-            or client.name == "volar"
-          then
-            return
-          end
-
-          -- vim.notify("attach navic to " .. client.name)
-          navic.attach(client, bufnr)
-        end
-      end
-    end
 
     local function try_attach_inlay_hints(client, bufnr)
       if client.server_capabilities.inlayHintProvider then
@@ -78,13 +44,6 @@ return {
       -- print(client.name)
       -- require("lt.utils.functions").tprint_keys(client.server_capabilities)
 
-      remaps.set_default_on_buffer(client, bufnr)
-
-      if presentLspSignature then
-        lsp_signature.on_attach({ floating_window = false, timer_interval = 500 })
-      end
-
-      try_attach_navic(client, bufnr)
       try_attach_inlay_hints(client, bufnr)
 
       if client.name == "tsserver" then
@@ -107,12 +66,13 @@ return {
         header = "",
         prefix = "",
       },
-      -- virtual_text = {
-      --   spacing = 4,
-      --   source = "if_many",
-      --   prefix = "●",
-      -- },
-      virtual_lines = true,
+      virtual_text = {
+        spacing = 4,
+        source = "if_many",
+        prefix = "●",
+      },
+      virtual_lines = false,
+      -- virtual_lines = { current_line = true },
       severity_sort = true,
       signs = {
         text = {
@@ -167,7 +127,7 @@ return {
       eslint = require("lt.plugins.lsp.servers.eslint")(on_attach),
       biome = {},
       -- svelte = {},
-      angularls = {},
+      -- angularls = {},
       -- tailwindcss = {},
       texlab = {},
       ansiblels = {},
@@ -178,8 +138,8 @@ return {
       powershell_es = {},
       vtsls = require("lt.plugins.lsp.servers.vtsls")(on_attach),
       ocamllsp = {},
-      -- pyright = require("lt.plugins.lsp.servers.pyright")(on_attach),
-      -- ruff_lsp = {},
+      pyright = {},
+      -- ruff = {},
       -- pylsp = {},
     }
 
@@ -199,7 +159,7 @@ return {
 
     local present_mason, mason = pcall(require, "mason-lspconfig")
     if present_mason then
-      mason.setup({ ensure_installed = server_names, automatic_installation = true })
+      mason.setup({ ensure_installed = server_names, automatic_installation = true, automatic_enable = true })
     else
       vim.notify("mason not there, cannot install lsp servers")
     end

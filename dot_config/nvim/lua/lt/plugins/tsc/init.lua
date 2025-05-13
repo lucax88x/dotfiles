@@ -6,7 +6,7 @@ return {
   end,
   keys = {
     {
-      "<leader>Cc",
+      "<leader>cc",
       "<cmd>TSC<cr>",
       desc = "Compile whole Typescript",
     },

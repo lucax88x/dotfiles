@@ -7,6 +7,15 @@ return {
     behaviour = {
       auto_suggestions = false,
     },
+
+    provider = "claude",
+    claude = {
+      endpoint = "https://api.anthropic.com",
+      model = "claude-3-5-sonnet-20241022",
+      temperature = 0,
+      max_tokens = 4096,
+      disable_tools = true,
+    },
   },
   build = "make BUILD_FROM_SOURCE=true",
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
@@ -28,15 +37,6 @@ return {
           },
           -- required for Windows users
           use_absolute_path = true,
-        },
-
-        -- provider = "gemini",
-        claude = {
-          endpoint = "https://api.anthropic.com",
-          model = "claude-3-5-sonnet",
-          temperature = 0,
-          max_tokens = 4096,
-          disable_tools = true,
         },
       },
     },

@@ -45,6 +45,9 @@ return {
       Terraform = {
         "tfsec",
       },
+      python = {
+        "ruff",
+      },
       -- typescript = {
       --   "eslint_d",
       -- },
@@ -57,27 +60,6 @@ return {
       -- },
       -- vue = { "eslint_d" },
     }
-
-    -- lint.linters = {
-    --   selene = {
-    --     condition = function(_)
-    --       local root = LazyVim.root.get({ normalize = true })
-    --       if root ~= vim.uv.cwd() then
-    --         return false
-    --       end
-    --       return vim.fs.find({ "selene.toml" }, { path = root, upward = true })[1]
-    --     end,
-    --   },
-    --   luacheck = {
-    --     condition = function(_)
-    --       local root = LazyVim.root.get({ normalize = true })
-    --       if root ~= vim.uv.cwd() then
-    --         return false
-    --       end
-    --       return vim.fs.find({ ".luacheckrc" }, { path = root, upward = true })[1]
-    --     end,
-    --   },
-    -- }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "BufWritePost" }, {
       callback = function()

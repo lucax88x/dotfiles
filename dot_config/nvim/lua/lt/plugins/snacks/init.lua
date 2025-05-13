@@ -5,7 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = false },
-    dashboard = { enabled = false },
+    dashboad = { enabled = false },
     explorer = { enabled = false },
     indent = { enabled = false },
     input = { enabled = true },
@@ -115,13 +115,6 @@ return {
         Snacks.bufdelete.all()
       end,
       desc = "Delete Buffer",
-    },
-    {
-      "<leader>rr",
-      function()
-        Snacks.rename.rename_file()
-      end,
-      desc = "Rename File",
     },
     {
       "<leader>gg",

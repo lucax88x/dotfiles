@@ -10,6 +10,7 @@ return {
     "Issafalcon/neotest-dotnet",
     "nvim-neotest/neotest-plenary",
     "nvim-neotest/neotest-go",
+    "nvim-neotest/neotest-python",
   },
   keys = {
     {
@@ -100,13 +101,14 @@ return {
     require("neotest").setup({
       adapters = {
         require("neotest-jest")({
-          jestCommand = "jest --watch ",
+          jestCommand = "npm test --",
         }),
         require("neotest-vitest"),
         require("neotest-dotnet"),
         require("neotest-plenary"),
         require("neotest-go"),
         require("neotest-busted"),
+        require("neotest-python"),
       },
     })
   end,

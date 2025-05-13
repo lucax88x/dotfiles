@@ -15,6 +15,6 @@ return {
       handlers = {},
     })
   end,
-  dependencies = { "williamboman/mason.nvim" },
+  dependencies = { "mason-org/mason.nvim" },
   cmd = { "Mason", "MasonInstall" },
 }

@@ -78,8 +78,8 @@ return {
 
   -- lsp
   require("lt.plugins.mason"),
-  require("lt.plugins.mason-dap"),
-  require("lt.plugins.mason-tools"),
+  -- require("lt.plugins.mason-dap"),
+  -- require("lt.plugins.mason-tools"),
 
   require("lt.plugins.lint"),
   require("lt.plugins.conform"),
@@ -156,13 +156,4 @@ return {
   require("lt.plugins.bigfile"),
 
   -- require("lt.plugins.profile"),
-
-  --[[ { ]]
-  --[[   "nvim-neorg/neorg", ]]
-  --[[   build = ":Neorg sync-parsers", ]]
-  --[[   ft = "norg", ]]
-  --[[   config = function() ]]
-  --[[     require("lt.plugins.neorg").setup() ]]
-  --[[   end, ]]
-  --[[ }, ]]
 }

@@ -4,6 +4,11 @@ return {
   config = function()
     require("conform").setup({
       format_on_save = nil,
+      formatters = {
+        biome = {
+          require_cwd = true,
+        },
+      },
       formatters_by_ft = {
         lua = { "stylua" },
         javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
@@ -21,6 +26,13 @@ return {
         json = { "biome", "jq", stop_after_first = true },
         toml = { "taplo" },
         ocaml = { "ocamlformat" },
+        python = function(bufnr)
+          if require("conform").get_formatter_info("ruff_format", bufnr).available then
+            return { "ruff_format" }
+          else
+            return { "isort", "black" }
+          end
+        end,
       },
     })
   end,
