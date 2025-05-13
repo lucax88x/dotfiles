@@ -15,4 +15,5 @@ export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 
 # used by jetbrains toolbox for OSX
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
-export PATH="$PATH:$HOME/repos/dotmemory"
+# used by jetbrains toolbox for linux
+export PATH="$PATH:/home/lucatrazzi/.local/share/JetBrains/Toolbox/scripts"
