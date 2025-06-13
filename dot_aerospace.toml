@@ -152,7 +152,7 @@ if.app-id = 'com.microsoft.edgemac'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
+if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
@@ -218,6 +218,10 @@ run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
 if.app-id = 'com.vmware.fusion'
+run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-id = 'com.utmapp.UTM'
 run = 'move-node-to-workspace 7'
 
 # [[on-window-detected]]
