@@ -21,7 +21,7 @@ return {
   require("lt.plugins.better-escape"),
   require("lt.plugins.which-key"),
   require("lt.plugins.mini-bracketed"),
-  require("lt.plugins.hawtkeys"),
+  -- require("lt.plugins.hawtkeys"),
 
   -- Change surrounding marks
   require("lt.plugins.surround"),
