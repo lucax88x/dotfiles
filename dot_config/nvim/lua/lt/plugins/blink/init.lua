@@ -1,7 +1,11 @@
 return {
   "saghen/blink.cmp",
   event = "InsertEnter",
-  dependencies = "rafamadriz/friendly-snippets",
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+    "Kaiser-Yang/blink-cmp-avante",
+    -- "milanglacier/minuet-ai.nvim",
+  },
   lazy = false,
   version = "v0.*",
   opts = {
@@ -33,13 +37,31 @@ return {
       ghost_text = {
         enabled = true,
       },
+      -- Recommended to avoid unnecessary request, for minuet
+      -- trigger = { prefetch_on_insert = false },
     },
 
     cmdline = {
       enabled = false,
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "avante", "lsp", "path", "snippets", "buffer" },
+      providers = {
+        avante = {
+          module = "blink-cmp-avante",
+          name = "Avante",
+          opts = {},
+        },
+        -- minuet = {
+        --   name = "minuet",
+        --   module = "minuet.blink",
+        --   async = true,
+        --   -- Should match minuet.config.request_timeout * 1000,
+        --   -- since minuet.config.request_timeout is in seconds
+        --   timeout_ms = 3000,
+        --   score_offset = 50, -- Gives minuet higher priority among suggestions
+        -- },
+      },
     },
 
     snippets = {
@@ -76,6 +98,8 @@ return {
 
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<C-e>"] = { "hide", "fallback" },
+
+       -- ["<A-y>"] = require("minuet").make_blink_map(),
     },
   },
 }

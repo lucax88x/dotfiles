@@ -94,9 +94,15 @@
 	t = log --graph --pretty=format:'%Cblue%h%Creset %s %Creset%Cgreen(%an %cr)%Creset%Cred%d' --abbrev-commit
 	history = log --oneline --graph --decorate --all
 	last = diff-tree --no-commit-id --name-only -r HEAD
+	l = log --oneline
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --decorate --numstat
-	lo = log --oneline
-	ls = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --decorate
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-only
+	lga = log --oneline --graph --decorate --all
+	lgaa = log --graph --decorate --all
+	t = log --graph --pretty=format:'%Cblue%h%Creset %s %Creset%Cgreen(%an %ad)%Creset%Cred%d' --abbrev-commit
+	lgb = log --oneline --graph --decorate --branches
+  memory = log --pretty=format:\"%ad %s - %an\" --date=format:\"%d/%m/%Y %H:%M\"
+	standup = "!git log --since yesterday  --author `git config user.email` --pretty=oneline"
 	po = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
 	pof = !git push --set-upstream origin $(git symbolic-ref --short HEAD) --force-with-lease
 	poff = !git push --set-upstream origin $(git symbolic-ref --short HEAD) --force
@@ -127,12 +133,6 @@
 	lsf = !git ls-files | grep -i
 	fk = fsck
 	g = grep -p
-	l = log --oneline
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-only
-	lga = log --oneline --graph --decorate --all
-	lgaa = log --graph --decorate --all
-	t = log --graph --pretty=format:'%Cblue%h%Creset %s %Creset%Cgreen(%an %ad)%Creset%Cred%d' --abbrev-commit
-	lgb = log --oneline --graph --decorate --branches
 	b = branch
 	br = branch -r
 	ba = branch -a
@@ -165,7 +165,6 @@
 	wdc = diff --color-words --cached
 	root = !sh -c \"cd $(git rev-parse --show-toplevel)\"
 	wip = commit -am WIP
-	standup = "!git log --since yesterday  --author `git config user.email` --pretty=oneline"
 	hash = rev-parse HEAD
 
 	# flush = !sh -c "git branch --merged | grep -v '*' | xargs -n 1 git branch -d"
@@ -179,13 +178,8 @@
 	root = !pwd
 	lgp = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p -M
 
-	# flow
-	feature = "!f() { feature=${1}; git flow feature start $feature;  }; f"
-	bugfix = "!f() { bugfix=${1}; git flow bugfix start $bugfix;  }; f"
-  hotfix = "!f() { hotfix=${1}; git flow hotfix start $hotfix;  }; f"
-	release = "!f() { release=${1}; git flow release start $release;  }; f"
 	
-        # fixup
+  # fixup
 	fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && GIT_SEQUENCE_EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
 	
 	# undo

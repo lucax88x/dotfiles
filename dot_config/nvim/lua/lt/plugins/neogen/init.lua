@@ -11,7 +11,7 @@ return {
   dependencies = "nvim-treesitter/nvim-treesitter",
   keys = {
     {
-      "<leader>tc",
+      "<leader>td",
       function()
         require("neogen").generate()
       end,

@@ -9,8 +9,6 @@ return {
   },
   event = { "BufReadPre", "BufNewFile", "BufEnter" },
   config = function()
-    local lspconfig = require("lspconfig")
-
     local icons = require("lt.utils.icons")
 
     local presentUfo = pcall(require, "ufo")
@@ -122,7 +120,7 @@ return {
       -- csharp_ls = {},
       -- omnisharp = {},
       -- volar=vue
-      volar = {},
+      vue_ls = {},
       graphql = {},
       eslint = require("lt.plugins.lsp.servers.eslint")(on_attach),
       biome = {},
@@ -167,7 +165,9 @@ return {
     for server_name, server_config in pairs(servers) do
       local merged_config = vim.tbl_deep_extend("force", default_lsp_config, server_config)
 
-      lspconfig[server_name].setup(merged_config)
+      -- lspconfig[server_name].setup(merged_config)
+      vim.lsp.config(server_name, merged_config)
+      vim.lsp.enable(server_name)
     end
 
     ufo.setupWithFallback()

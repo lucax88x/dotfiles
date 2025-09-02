@@ -92,6 +92,7 @@ return {
   -- go structs
   require("lt.plugins.goplelements"),
   require("lt.plugins.lsp"),
+  require("lt.plugins.fidget"),
 
   -- autocompletion
   require("lt.plugins.blink"),
@@ -146,7 +147,8 @@ return {
   require("lt.plugins.dial"),
   require("lt.plugins.toggleterm"),
   require("lt.plugins.avante"),
-  require("lt.plugins.mcphub"),
+  -- require("lt.plugins.mcphub"),
+  -- require("lt.plugins.minuet"),
   -- require("lt.plugins.llm"),
 
   -- renderer (markdown, plantuml, etc)

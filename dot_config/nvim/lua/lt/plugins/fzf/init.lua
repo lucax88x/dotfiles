@@ -36,6 +36,16 @@ return {
       desc = "Search neovim config",
     },
     {
+      "<leader>sC",
+      function()
+        require("fzf-lua").live_grep({
+          prompt = "Config >",
+          cwd = "$HOME/.local/share/chezmoi",
+        })
+      end,
+      desc = "Live grep neovim config",
+    },
+    {
       "<leader>s~",
       function()
         require("fzf-lua").files({
@@ -172,6 +182,7 @@ return {
       },
       files = {
         git_icons = false,
+        formatter = "path.filename_first",
       },
     })
     require("fzf-lua").register_ui_select()

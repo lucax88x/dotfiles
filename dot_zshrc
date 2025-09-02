@@ -169,6 +169,7 @@ alias lg="lazygit"
 alias p="pnpm"
 alias run="run.mjs"
 alias zipgit="git archive HEAD -o ${PWD##*/}.zip"
+alias gipzit="git archive HEAD -o ${PWD##*/}.zip"
 # alias zip7git="7z a -bd ${PWD##*/}.7z * '-xr@./.gitignore'"
 # alias docker="podman"
 

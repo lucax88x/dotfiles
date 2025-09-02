@@ -9,12 +9,17 @@ return {
     },
 
     provider = "claude",
-    claude = {
-      endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-20241022",
-      temperature = 0,
-      max_tokens = 4096,
-      disable_tools = true,
+    providers = {
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        -- model = "claude-3-5-sonnet-20241022",
+        model = "claude-sonnet-4-20250514",
+        -- disable_tools = true,
+        extra_request_body = {
+          temperature = 0.75,
+          max_tokens = 20480,
+        },
+      },
     },
   },
   build = "make BUILD_FROM_SOURCE=true",

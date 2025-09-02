@@ -12,7 +12,10 @@ vim.g.neovide_cursor_vfx_mode = "pixiedust"
 local map = vim.keymap.set
 
 local function neovideScale(amount)
-  print("scaling")
+  if not vim.g.neovide then
+    return
+  end
+
   local temp = vim.g.neovide_scale_factor + amount
 
   if temp < 0.5 then
