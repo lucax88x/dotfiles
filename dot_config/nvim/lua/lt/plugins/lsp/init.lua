@@ -15,7 +15,7 @@ return {
     local presentBlinkCmp, blinkCmp = pcall(require, "blink.cmp")
     local ufo = require("lt.plugins.ufo.setup")
 
-    vim.lsp.set_log_level("error") -- 'trace', 'debug', 'info', 'warn', 'error'
+    vim.lsp.log.set_level("error") -- 'trace', 'debug', 'info', 'warn', 'error'
 
     local function try_attach_inlay_hints(client, bufnr)
       if client.server_capabilities.inlayHintProvider then

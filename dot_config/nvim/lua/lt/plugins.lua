@@ -48,6 +48,7 @@ return {
 
   -- treesitter
   require("lt.plugins.treesitter"),
+  require("lt.plugins.treesitter-textobjects"),
   require("lt.plugins.mini-ai"),
   require("lt.plugins.treesitter-context"),
   require("lt.plugins.iswap"),
@@ -119,6 +120,7 @@ return {
 
   -- tests
   -- require("lt.plugins.quicktest"),
+  require("lt.plugins.neotest-golang"),
   require("lt.plugins.neotest"),
 
   -- debugging
