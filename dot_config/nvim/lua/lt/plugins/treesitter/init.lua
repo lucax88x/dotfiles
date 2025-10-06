@@ -101,13 +101,17 @@ return {
     --
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { '*' },
-      callback = function()
-        -- remove error = false when nvim 0.12+ is default
-        if vim.treesitter.get_parser(nil, nil, { error = false }) then
-          vim.treesitter.start()
+      callback = function(ctx)
+        local hasStarted = pcall(vim.treesitter.start) -- errors for filetypes with no parser
 
-          vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        if not hasStarted then
+          return
+        end
+
+        local noIndent = {}
+        if not vim.list_contains(noIndent, ctx.match) then
           vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         end
       end,
     })

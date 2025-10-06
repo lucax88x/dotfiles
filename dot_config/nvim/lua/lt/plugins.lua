@@ -106,6 +106,7 @@ return {
   require("lt.plugins.neogen"),
   require("lt.plugins.todo-comments"),
   require("lt.plugins.ts-comments"),
+  -- require("lt.plugins.mini-comments"),
 
   -- fold
   require("lt.plugins.ufo"),
@@ -149,6 +150,8 @@ return {
   require("lt.plugins.dial"),
   require("lt.plugins.toggleterm"),
   require("lt.plugins.avante"),
+  require("lt.plugins.sidekick"),
+  require("lt.plugins.copilot"),
   -- require("lt.plugins.mcphub"),
   -- require("lt.plugins.minuet"),
   -- require("lt.plugins.llm"),
