@@ -3,7 +3,7 @@ local M = {}
 M.search_config = function()
   require("fzf-lua").files({
     prompt = "Config >",
-    cwd = "$HOME/.local/share/chezmoi",
+    cwd = "$HOME/.local/share/chezmoi/dot_config/nvim",
   })
 end
 

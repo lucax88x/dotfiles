@@ -33,14 +33,14 @@ return {
       function()
         require("lt.plugins.fzf.functions").search_config()
       end,
-      desc = "Search neovim config",
+      desc = "Search neovim dotfiles",
     },
     {
       "<leader>sC",
       function()
         require("fzf-lua").live_grep({
           prompt = "Config >",
-          cwd = "$HOME/.local/share/chezmoi",
+          cwd = "$HOME/.local/share/chezmoi/dot_config/nvim",
         })
       end,
       desc = "Live grep neovim config",

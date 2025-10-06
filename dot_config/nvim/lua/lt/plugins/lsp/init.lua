@@ -121,7 +121,7 @@ return {
       -- csharp_ls = {},
       -- omnisharp = {},
       -- volar=vue
-      vue_ls = {},
+      -- vue_ls = {},
       graphql = {},
       eslint = require("lt.plugins.lsp.servers.eslint")(on_attach),
       biome = {},
@@ -136,7 +136,7 @@ return {
       -- azure_pipelines_ls = {},
       powershell_es = {},
       vtsls = require("lt.plugins.lsp.servers.vtsls")(on_attach),
-      ocamllsp = {},
+      -- ocamllsp = {},
       pyright = {},
       -- ruff = {},
       -- pylsp = {},

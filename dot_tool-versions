@@ -1,11 +1,10 @@
 bun 1.2.3
-golang 1.23.0
-pnpm 10.4.1
+golang 1.25.0
+pnpm 10.18.0
 zig 0.13.0
 nodejs 22.14.0
-rust 1.85.0
+rust 1.89.0
 chezmoi 2.59.1
 opam 2.3.0
 uv 0.6.14
-pnpm 10.18.0
-dotnet 8.0.408
+dotnet 9.0.304
