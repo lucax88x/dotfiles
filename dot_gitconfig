@@ -13,6 +13,9 @@
   
 [includeIf "gitdir:~/repos/post-*/"]
   path = .gitconfig-post
+  
+[includeIf "gitdir:~/repos/axa-*/"]
+  path = .gitconfig-axa
 
 [include]
   path = .gitconfig-private

@@ -30,6 +30,7 @@ return {
       end),
       dashboard.button("u p", " Lazy", ":Lazy<CR>"),
       dashboard.button("u l", " Mason", ":Mason<CR>"),
+      dashboard.button("u s", " Store", ":Store<CR>"),
       dashboard.button("q", "󰿅 Quit NVIM", ":qa<CR>"),
     }
 
