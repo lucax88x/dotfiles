@@ -9,7 +9,7 @@ r.noremap("n", "<leader>Q", "<cmd>q!<CR>", "Force quits editor")
 r.noremap("n", "<leader><CR>", functions.reload, "Reloads configuration")
 
 -- undo
-r.noremap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", "Toggle undo history")
+r.noremap("n", "<leader>u", "<cmd>Undotree<CR>", "Toggle undo history")
 
 -- move upper/down on visual
 r.noremap("v", "K", '<cmd>m "<-2<CR>gv=gv"', "Move upper on visual")

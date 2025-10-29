@@ -146,7 +146,6 @@ return {
   require("lt.plugins.overseer"),
 
   -- rest
-  "mbbill/undotree",
   require("lt.plugins.dial"),
   require("lt.plugins.toggleterm"),
   -- AI
