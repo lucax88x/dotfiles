@@ -4,6 +4,10 @@
 #   'echo "aerospace_workspace_change { \"focused\": \"$AEROSPACE_FOCUSED_WORKSPACE\", \"prev\": \"$AEROSPACE_PREV_WORKSPACE\" } ¬" > /tmp/wentsketchy',
 # ]
 
+after-startup-command = [
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+]
+
 # Reference: https://github.com/i3/i3/blob/next/etc/config
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true

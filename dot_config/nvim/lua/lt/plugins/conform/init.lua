@@ -25,6 +25,7 @@ return {
         yaml = { "yamlfmt" },
         xml = { "xmlformat" },
         json = { "biome-check", "jq", stop_after_first = true },
+        groovy = { "npm-groovy-lint" },
         toml = { "taplo" },
         ocaml = { "ocamlformat" },
         python = function(bufnr)

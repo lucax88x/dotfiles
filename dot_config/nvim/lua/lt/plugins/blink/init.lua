@@ -35,7 +35,7 @@ return {
         },
       },
       ghost_text = {
-        enabled = true,
+        enabled = false,
       },
       -- Recommended to avoid unnecessary request, for minuet
       -- trigger = { prefetch_on_insert = false },
