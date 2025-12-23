@@ -3,6 +3,10 @@
 #   '-c',
 #   'echo "aerospace_workspace_change { \"focused\": \"$AEROSPACE_FOCUSED_WORKSPACE\", \"prev\": \"$AEROSPACE_PREV_WORKSPACE\" } ¬" > /tmp/wentsketchy',
 # ]
+after-startup-command = [
+  # 'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+  'exec-and-forget borders active_color="glow(0xff00ffcf)" inactive_color=0x00ffffff width=4.0'
+]
 
 after-startup-command = [
   'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
@@ -21,7 +25,7 @@ inner.horizontal = 4
 inner.vertical = 4
 outer.left = 4
 outer.bottom = 4
-outer.top = [{ monitor."Built-in" = 4 }, 0]
+outer.top = [{ monitor."Built-in" = 4 }, 4]
 outer.right = 4
 
 [mode.main.binding]
