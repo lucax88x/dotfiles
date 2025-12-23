@@ -8,13 +8,42 @@ return {
   },
   lazy = false,
   branch = "main",
-  build = function()
-    vim.cmd([[TSUpdate]])
-  end,
+  build = ":TSUpdate",
+  keys = {
+    {
+      "<leader>dtp",
+      function()
+        vim.treesitter.inspect_tree({ command = "botright 60vnew" })
+      end,
+      desc = "Treesitter playground",
+    },
+    {
+      "<leader>dtt",
+      "<cmd>TSHighlightCapturesUnderCursor<CR>",
+      desc = "Shows highlight colors under cursor",
+    },
+  },
   init = function()
+    local function check_tree_sitter_cli()
+      if vim.fn.executable("tree-sitter") == 0 then
+        return false
+      end
+      return true
+    end
+
+    if not check_tree_sitter_cli() then
+      vim.notify(
+        "tree-sitter-cli is not installed. please install it",
+        vim.log.levels.WARN,
+        { title = "treesitter CLI missing" }
+      )
+
+      return
+    end
+
     local treesitter = require("nvim-treesitter")
 
-    local ensureInstalled = {
+    treesitter.install({
       "typescript",
       "javascript",
       "html",
@@ -43,18 +72,7 @@ return {
       "regex",
       "http",
       "nix",
-    }
-
-    local alreadyInstalled = require("nvim-treesitter.config").get_installed()
-
-    local parsersToInstall = vim
-        .iter(ensureInstalled)
-        :filter(function(parser)
-          return not vim.tbl_contains(alreadyInstalled, parser)
-        end)
-        :totable()
-
-    treesitter.install(parsersToInstall)
+    })
 
     --   highlight = {
     --     enable = true,
@@ -99,8 +117,8 @@ return {
     --   },
     -- })
     --
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = { '*' },
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "*" },
       callback = function(ctx)
         local hasStarted = pcall(vim.treesitter.start) -- errors for filetypes with no parser
 
@@ -111,20 +129,9 @@ return {
         local noIndent = {}
         if not vim.list_contains(noIndent, ctx.match) then
           vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-          vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+          vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
         end
       end,
     })
-
-    local r = require("lt.utils.remaps")
-
-    r.noremap("n", "<leader>dtp", function()
-      vim.treesitter.inspect_tree({ command = "botright 60vnew" })
-    end, "Treesitter playground")
-
-    r.noremap("n", "<leader>dtt", "<cmd>TSHighlightCapturesUnderCursor<CR>", "Shows highlight colors under cursor")
-
-    r.map_virtual("zi", "Init selection")
-    r.map_virtual("zi", "Expand node")
   end,
 }

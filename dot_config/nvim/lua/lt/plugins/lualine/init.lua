@@ -1,5 +1,8 @@
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = {
+    "AndreM222/copilot-lualine",
+  },
   event = "VeryLazy",
   init = function()
     -- disable until lualine loads
@@ -69,6 +72,7 @@ return {
         },
         lualine_x = {
           {
+            "copilot",
             "overseer",
           },
         },
@@ -77,7 +81,7 @@ return {
             "fileformat",
             icons_enabled = true,
           },
-          { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
+          { "progress", separator = " ", padding = { left = 1, right = 0 } },
           { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {

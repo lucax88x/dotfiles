@@ -31,9 +31,16 @@ return {
     {
       "<leader>sc",
       function()
-        require("lt.plugins.fzf.functions").search_config()
+        require("lt.plugins.fzf.functions").search_neovim_dotfiles()
       end,
       desc = "Search neovim dotfiles",
+    },
+    {
+      "<leader>sd",
+      function()
+        require("lt.plugins.fzf.functions").search_dotfiles()
+      end,
+      desc = "Search dotfiles",
     },
     {
       "<leader>sC",
@@ -185,6 +192,8 @@ return {
         formatter = "path.filename_first",
       },
     })
-    require("fzf-lua").register_ui_select()
+
+    -- snacks
+    -- require("fzf-lua").register_ui_select()
   end,
 }

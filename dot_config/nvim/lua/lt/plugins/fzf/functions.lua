@@ -1,6 +1,13 @@
 local M = {}
 
-M.search_config = function()
+M.search_dotfiles  = function()
+  require("fzf-lua").files({
+    prompt = "Config >",
+    cwd = "$HOME/.local/share/chezmoi/dot_config",
+  })
+end
+
+M.search_neovim_dotfiles = function()
   require("fzf-lua").files({
     prompt = "Config >",
     cwd = "$HOME/.local/share/chezmoi/dot_config/nvim",

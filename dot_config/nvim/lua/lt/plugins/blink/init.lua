@@ -3,29 +3,25 @@ return {
   event = "InsertEnter",
   dependencies = {
     "rafamadriz/friendly-snippets",
-    "Kaiser-Yang/blink-cmp-avante",
+    -- "Kaiser-Yang/blink-cmp-avante",
+    "nvim-mini/mini.icons",
     -- "milanglacier/minuet-ai.nvim",
+    "giuxtaposition/blink-cmp-copilot",
   },
   lazy = false,
-  version = "v0.*",
+  version = "1.*",
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
   opts = {
     appearance = {
-      use_nvim_cmp_as_default = false,
       nerd_font_variant = "mono",
     },
+
     completion = {
       accept = {
         auto_brackets = {
           enabled = true,
         },
-      },
-      -- menu = {
-      --   draw = {
-      --     treesitter = { "lsp" },
-      --   },
-      -- },
-      menu = {
-        border = "single",
       },
       documentation = {
         auto_show = true,
@@ -35,23 +31,52 @@ return {
         },
       },
       ghost_text = {
-        enabled = false,
+        enabled = true,
       },
       -- Recommended to avoid unnecessary request, for minuet
       -- trigger = { prefetch_on_insert = false },
+
+      menu = {
+        border = "single",
+        draw = {
+          columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", "source_name", gap = 1 } },
+        },
+      },
     },
 
     cmdline = {
-      enabled = false,
+      enabled = true,
     },
+
     sources = {
-      default = { "avante", "lsp", "path", "snippets", "buffer" },
+      default = { "copilot", "lsp", "snippets", "buffer", "path" },
+
       providers = {
-        avante = {
-          module = "blink-cmp-avante",
-          name = "Avante",
-          opts = {},
+        copilot = {
+          name = "copilot",
+          module = "blink-cmp-copilot",
+          score_offset = 100,
+          async = true,
+
+          transform_items = function(_, items)
+            local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+
+            local kind_idx = #CompletionItemKind + 1
+            CompletionItemKind[kind_idx] = "Copilot"
+
+            for _, item in ipairs(items) do
+              item.kind = kind_idx
+              item.kind_icon = ""
+              item.kind_name = "Copilot"
+            end
+            return items
+          end,
         },
+        -- avante = {
+        --   module = "blink-cmp-avante",
+        --   name = "Avante",
+        --   opts = {},
+        -- },
         -- minuet = {
         --   name = "minuet",
         --   module = "minuet.blink",
@@ -64,24 +89,7 @@ return {
       },
     },
 
-    snippets = {
-      preset = "luasnip",
-      -- This comes from the luasnip extra, if you don't add it, won't be able to
-      -- jump forward or backward in luasnip snippets
-      -- https://www.lazyvim.org/extras/coding/luasnip#blinkcmp-optional
-      expand = function(snippet)
-        require("luasnip").lsp_expand(snippet)
-      end,
-      active = function(filter)
-        if filter and filter.direction then
-          return require("luasnip").jumpable(filter.direction)
-        end
-        return require("luasnip").in_snippet()
-      end,
-      jump = function(direction)
-        require("luasnip").jump(direction)
-      end,
-    },
+    snippets = { preset = "luasnip" },
 
     keymap = {
       preset = "enter",

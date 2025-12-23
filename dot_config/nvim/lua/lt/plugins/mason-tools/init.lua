@@ -4,6 +4,7 @@ return {
     require("mason-tool-installer").setup({
       ensure_installed = {
         -- lint
+        "shellcheck",
         "selene",
         "stylelint",
         "yamllint",
@@ -28,6 +29,7 @@ return {
         -- format toml
         "taplo",
 
+        -- bash
         -- python
         -- "ruff",
         -- "isort"

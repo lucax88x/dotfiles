@@ -1,57 +1,109 @@
 return {
   "folke/sidekick.nvim",
+
+  ---@class sidekick.Config
+  opts = {
+    cli = {
+      picker = "fzf-lua",
+    },
+  },
   keys = {
     {
       "<tab>",
       function()
         -- if there is a next edit, jump to it, otherwise apply it if any
-        if not require("sidekick").nes_jump_or_apply() then
-          return "<Tab>" -- fallback to normal tab
+        if require("sidekick").nes_jump_or_apply() then
+          return -- jumped or applied
         end
+
+        -- if you are using Neovim's native inline completions
+        if vim.lsp.inline_completion.get() then
+          return
+        end
+
+        -- any other things (like snippets) you want to do on <tab> go here.
+
+        -- fall back to normal tab
+        return "<tab>"
       end,
+      mode = { "i", "n" },
       expr = true,
       desc = "Goto/Apply Next Edit Suggestion",
     },
+    -- {
+    --   "<tab>",
+    --   function()
+    --     -- if there is a next edit, jump to it, otherwise apply it if any
+    --     if not require("sidekick").nes_jump_or_apply() then
+    --       return "<Tab>" -- fallback to normal tab
+    --     end
+    --   end,
+    --   expr = true,
+    --   desc = "Goto/Apply Next Edit Suggestion",
+    -- },
     {
-      "<leader>Aa",
-      function() require("sidekick.cli").toggle() end,
+      "<leader>aa",
+      function()
+        require("sidekick.cli").toggle()
+      end,
       desc = "Sidekick Toggle CLI",
     },
     {
-      "<leader>As",
-      function() require("sidekick.cli").select() end,
+      "<leader>as",
+      function()
+        require("sidekick.cli").select()
+      end,
       -- Or to select only installed tools:
       -- require("sidekick.cli").select({ filter = { installed = true } })
       desc = "Select CLI",
     },
     {
-      "<leader>At",
-      function() require("sidekick.cli").send({ msg = "{this}" }) end,
+      "<leader>at",
+      function()
+        require("sidekick.cli").send({ msg = "{this}" })
+      end,
       mode = { "x", "n" },
       desc = "Send This",
     },
     {
-      "<leader>Av",
-      function() require("sidekick.cli").send({ msg = "{selection}" }) end,
+      "<leader>av",
+      function()
+        require("sidekick.cli").send({ msg = "{selection}" })
+      end,
       mode = { "x" },
       desc = "Send Visual Selection",
     },
     {
-      "<leader>Ap",
-      function() require("sidekick.cli").prompt() end,
+      "<leader>ap",
+      function()
+        require("sidekick.cli").prompt()
+      end,
       mode = { "n", "x" },
       desc = "Sidekick Select Prompt",
     },
     {
       "<c-.>",
-      function() require("sidekick.cli").focus() end,
+      function()
+        require("sidekick.cli").focus()
+      end,
       mode = { "n", "x", "i", "t" },
       desc = "Sidekick Switch Focus",
     },
     {
-      "<leader>Ac",
-      function() require("sidekick.cli").toggle({ name = "claude", focus = true }) end,
+      "<leader>ac",
+      function()
+        require("sidekick.cli").toggle({ name = "claude", focus = true })
+      end,
       desc = "Sidekick Toggle Claude",
+    },
+    {
+      "<C-n>",
+      function()
+        require("sidekick.nes").update()
+      end,
+      expr = true,
+      mode = { "i" },
+      desc = "Invoke NES manually",
     },
   },
 }

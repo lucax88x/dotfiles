@@ -25,8 +25,8 @@ return {
       end),
       dashboard.button("n", " Notes", ":ObsidianSearch<CR>"),
       dashboard.button("r", " Recent files", ":FzfLua oldfiles<CR>"),
-      dashboard.button("c", " Config", function()
-        require("lt.plugins.fzf.functions").search_config()
+      dashboard.button("c", " Dotfiles", function()
+        require("lt.plugins.fzf.functions").search_dotfiles()
       end),
       dashboard.button("u p", " Lazy", ":Lazy<CR>"),
       dashboard.button("u l", " Mason", ":Mason<CR>"),

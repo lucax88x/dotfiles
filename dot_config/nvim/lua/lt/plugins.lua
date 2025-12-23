@@ -1,8 +1,8 @@
 return {
   "nvim-lua/plenary.nvim",
 
-  -- require("lt.plugins.catppuccin"),
-  require("lt.plugins.tokyonight"),
+  require("lt.plugins.catppuccin"),
+  -- require("lt.plugins.tokyonight"),
 
   -- icons
   require("lt.plugins.icons"),
@@ -80,7 +80,7 @@ return {
   -- lsp
   require("lt.plugins.mason"),
   -- require("lt.plugins.mason-dap"),
-  -- require("lt.plugins.mason-tools"),
+  require("lt.plugins.mason-tools"),
 
   require("lt.plugins.lint"),
   require("lt.plugins.conform"),
@@ -136,11 +136,13 @@ return {
   require("lt.plugins.modes"),
   require("lt.plugins.indent-blankline"),
   -- require("lt.plugins.neocomposer"),
-  require("lt.plugins.inc_rename"),
+  -- replaced by snacks
+  -- require("lt.plugins.inc_rename"),
 
   -- status bar
   require("lt.plugins.lualine"),
-  require("lt.plugins.statuscol"),
+  -- replaced by snacks
+  -- require("lt.plugins.statuscol"),
 
   -- runner
   require("lt.plugins.overseer"),
@@ -149,18 +151,18 @@ return {
   require("lt.plugins.dial"),
   require("lt.plugins.toggleterm"),
   -- AI
-  require("lt.plugins.avante"),
+  -- require("lt.plugins.avante"),
   require("lt.plugins.sidekick"),
-  -- require("lt.plugins.copilot"),
-  require("lt.plugins.store"),
+  require("lt.plugins.copilot"),
+  -- require("lt.plugins.store"),
   -- require("lt.plugins.mcphub"),
   -- require("lt.plugins.minuet"),
   -- require("lt.plugins.llm"),
 
   -- renderer (markdown, plantuml, etc)
-  require("lt.plugins.peek"),
+  -- require("lt.plugins.peek"),
   require("lt.plugins.obsidian"),
-  require("lt.plugins.markview"),
+  -- require("lt.plugins.markview"),
   require("lt.plugins.bigfile"),
 
   -- require("lt.plugins.profile"),

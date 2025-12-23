@@ -13,13 +13,15 @@ return {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = false },
+    picker = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = false },
     scroll = { enabled = false },
-    statuscolumn = { enabled = false },
+    statuscolumn = { enabled = true },
+    rename = { enabled = false },
     terminal = { enabled = false },
     words = { enabled = false },
+    zen = { enabled = true },
   },
   keys = {
     -- LSP
