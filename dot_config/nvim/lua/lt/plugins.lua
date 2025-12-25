@@ -59,7 +59,8 @@ return {
   require("lt.plugins.neogit"),
   require("lt.plugins.blame"),
   require("lt.plugins.gitsigns"),
-  require("lt.plugins.diffview"),
+  -- require("lt.plugins.diffview"),
+  require("lt.plugins.vscode-diff"),
   require("lt.plugins.tardis"),
 
   -- quick list
@@ -162,7 +163,7 @@ return {
   -- renderer (markdown, plantuml, etc)
   -- require("lt.plugins.peek"),
   require("lt.plugins.obsidian"),
-  -- require("lt.plugins.markview"),
+  require("lt.plugins.markview"),
   require("lt.plugins.bigfile"),
 
   -- require("lt.plugins.profile"),

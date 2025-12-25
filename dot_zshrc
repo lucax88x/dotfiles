@@ -55,7 +55,10 @@ zinit light zsh-users/zsh-autosuggestions
 
 # COMPINIT 
 autoload -Uz compinit
-compinit
+if [ "$(find ~/.zcompdump -mtime 1)" ] ; then
+    compinit
+fi
+compinit -C
 zinit cdreplay -q
 
 # ENV VAR

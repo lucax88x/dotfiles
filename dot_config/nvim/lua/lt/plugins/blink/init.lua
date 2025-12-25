@@ -26,9 +26,9 @@ return {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
-        window = {
-          border = "single",
-        },
+        -- window = {
+        -- border = "single",
+        -- },
       },
       ghost_text = {
         enabled = true,
@@ -37,7 +37,7 @@ return {
       -- trigger = { prefetch_on_insert = false },
 
       menu = {
-        border = "single",
+        -- border = "single",
         draw = {
           columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", "source_name", gap = 1 } },
         },

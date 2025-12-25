@@ -18,6 +18,7 @@ return {
         vue = { "biome-check", "prettierd", "prettier", stop_after_first = true },
         css = { "biome-check", "prettierd", "prettier", stop_after_first = true },
         html = { "prettierd", "prettier", stop_after_first = true },
+        md = { "prettierd", "prettier", stop_after_first = true },
         php = { "pretty-php" },
         go = { "gofmt" },
         bash = { "shfmt" },

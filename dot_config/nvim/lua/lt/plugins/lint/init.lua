@@ -7,7 +7,7 @@ return {
 
     lint.linters_by_ft = {
       lua = {
-        "selene",
+        "selene"
       },
       -- markdown = {
       --   "vale",
@@ -48,25 +48,18 @@ return {
       python = {
         "ruff",
       },
-      -- typescript = {
-      --   "eslint_d",
-      -- },
-      -- javascript = { "eslint_d" },
-      -- javascriptreact = {
-      --   "eslint_d",
-      -- },
-      -- typescriptreact = {
-      --   "eslint_d",
-      -- },
+      typescript = {
+        "biomejs",
+      },
+      javascript = { "biomejs" },
+      javascriptreact = {
+        "biomejs",
+      },
+      typescriptreact = {
+        "biomejs",
+      },
       -- vue = { "eslint_d" },
     }
-
-    vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "BufWritePost" }, {
-      callback = function()
-        local client = vim.lsp.get_clients({ bufnr = 0 })[1] or {}
-        lint.try_lint(nil, { cwd = client.root_dir })
-      end,
-    })
   end,
   keys = {
     {
@@ -83,7 +76,7 @@ return {
       function()
         local linters = require("lint").get_running()
         if #linters == 0 then
-          vim.notify("󰦕")
+          vim.notify("󰦕  No linters")
         else
           vim.notify("󱉶 " .. table.concat(linters, ", "))
         end

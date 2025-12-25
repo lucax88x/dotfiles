@@ -1,15 +1,12 @@
 return {
   "folke/sidekick.nvim",
 
+  lazy = true,
   ---@class sidekick.Config
-  opts = {
-    cli = {
-      picker = "fzf-lua",
-    },
-  },
+  opts = {},
   keys = {
     {
-      "<tab>",
+      "<C-Space>",
       function()
         -- if there is a next edit, jump to it, otherwise apply it if any
         if require("sidekick").nes_jump_or_apply() then
@@ -29,6 +26,14 @@ return {
       mode = { "i", "n" },
       expr = true,
       desc = "Goto/Apply Next Edit Suggestion",
+    },
+    {
+      "<C-e>",
+      function()
+        require("sidekick").nes_clear()
+      end,
+      mode = { "i", "n" },
+      desc = "Clear Next Edit Suggestion",
     },
     -- {
     --   "<tab>",
