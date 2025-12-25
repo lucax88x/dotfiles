@@ -1,0 +1,3 @@
+#!/bin/sh
+
+chezmoi unmanaged ~/.config/nvim | awk '{print "~/" $0}' | xargs rm -rfichezmoi unmanaged ~/.config/nvim | awk -v home="$HOME" '{print home "/" $0}' | xargs rm -rfi
