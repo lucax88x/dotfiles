@@ -4,11 +4,6 @@
 #   'echo "aerospace_workspace_change { \"focused\": \"$AEROSPACE_FOCUSED_WORKSPACE\", \"prev\": \"$AEROSPACE_PREV_WORKSPACE\" } ¬" > /tmp/wentsketchy',
 # ]
 after-startup-command = [
-  # 'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
-  'exec-and-forget borders active_color="glow(0xff00ffcf)" inactive_color=0x00ffffff width=4.0'
-]
-
-after-startup-command = [
   'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
 ]
 
@@ -194,6 +189,11 @@ run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'org.alacritty'
+if.window-title-regex-substring = 'ovim-edit-'
 run = ['layout floating']
 
 [[on-window-detected]]

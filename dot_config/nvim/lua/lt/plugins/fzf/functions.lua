@@ -3,7 +3,7 @@ local M = {}
 M.search_dotfiles  = function()
   require("fzf-lua").files({
     prompt = "Config >",
-    cwd = "$HOME/.local/share/chezmoi/dot_config",
+    cwd = "$HOME/.local/share/chezmoi",
   })
 end
 
