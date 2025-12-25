@@ -86,6 +86,42 @@ time5=$(echo "$end - $start" | bc)
 echo -e "${GREEN}Time: ${time5} seconds${NC}"
 echo ""
 
+# Test 6: File listing/navigation
+echo -e "${YELLOW}Test 6: Listing files (ls operations x1000)${NC}"
+echo "Antivirus scans metadata on every file access"
+start=$(date +%s.%N)
+for i in {1..1000}; do
+    ls -la >/dev/null 2>&1
+done
+end=$(date +%s.%N)
+time6=$(echo "$end - $start" | bc)
+echo -e "${GREEN}Time: ${time6} seconds${NC}"
+echo ""
+
+# Test 7: File reading
+echo -e "${YELLOW}Test 7: Reading 500 files${NC}"
+echo "Each file read triggers antivirus content scanning"
+start=$(date +%s.%N)
+for i in {1..500}; do
+    cat "file_$i.txt" >/dev/null 2>&1
+done
+end=$(date +%s.%N)
+time7=$(echo "$end - $start" | bc)
+echo -e "${GREEN}Time: ${time7} seconds${NC}"
+echo ""
+
+# Test 8: Find operations
+echo -e "${YELLOW}Test 8: Finding files (find command x100)${NC}"
+echo "Recursive directory traversal = lots of antivirus checks"
+start=$(date +%s.%N)
+for i in {1..100}; do
+    find . -name "*.txt" >/dev/null 2>&1
+done
+end=$(date +%s.%N)
+time8=$(echo "$end - $start" | bc)
+echo -e "${GREEN}Time: ${time8} seconds${NC}"
+echo ""
+
 # Cleanup
 cd ..
 rm -rf "$TEST_DIR"
@@ -98,15 +134,19 @@ echo ""
 echo -e "Test 1 (1000 small files):    ${time1}s"
 echo -e "Test 2 (500 directories):     ${time2}s"
 echo -e "Test 3 (100 x 100KB files):   ${time3}s"
-echo -e "Test 4 (CPU calculation):     ${time4}s ${GREEN}← Should be FAST${NC}"
+echo -e "Test 4 (CPU calculation):     ${time4}s"
 echo -e "Test 5 (100 file copies):     ${time5}s"
+echo -e "Test 6 (ls x1000):            ${time6}s"
+echo -e "Test 7 (read 500 files):      ${time7}s"
+echo -e "Test 8 (find x100):           ${time8}s"
 echo ""
 echo -e "${RED}========================================${NC}"
 echo -e "${RED}THE PROOF:${NC}"
 echo -e "${RED}========================================${NC}"
 echo ""
-echo -e "If filesystem operations (Tests 1-3, 5) are slow but"
+echo -e "If filesystem operations (Tests 1-3, 5-8) are slow but"
 echo -e "CPU operations (Test 4) are fast, then:"
 echo -e ""
-echo -e "${GREEN}✓ Your MAC is NOT the problem${NC}"
+echo -e "${GREEN}✓ Your MAC CPU is NOT the problem${NC}"
 echo -e "${RED}✗ The antivirus scanning I/O is the bottleneck${NC}"
+echo ""
