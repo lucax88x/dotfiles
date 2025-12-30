@@ -19,70 +19,70 @@ return {
       function()
         require("neotest").run.run()
       end,
-      desc = "Run the nearest test",
+      desc = "neotest: run the nearest test",
     },
     {
       "<leader>;t",
       function()
         require("neotest").run.run_last()
       end,
-      desc = "Run latest test",
+      desc = "neotest: run latest test",
     },
     {
       "<leader>;l",
       function()
         require("neotest").run.run(vim.fn.expand("%"))
       end,
-      desc = "Run tests the current file",
+      desc = "neotest: run tests the current file",
     },
     {
       "<leader>;d",
       function()
         require("neotest").run.run({ strategy = "dap" })
       end,
-      desc = "Debug the nearest test (requires nvim-dap and adapter support)",
+      desc = "neotest: debug the nearest test",
     },
     {
       "<leader>;s",
       function()
         require("neotest").run.stop()
       end,
-      desc = "Stop the nearest test",
+      desc = "neotest: stop the nearest test",
     },
     {
       "<leader>;;",
       function()
         require("neotest").summary.toggle()
       end,
-      desc = "Toggle summary of tests",
+      desc = "neotest: toggle summary of tests",
     },
     {
       "<leader>;:",
       function()
         require("neotest").summary.open()
       end,
-      desc = "Open Summary of tests",
+      desc = "neotest: open summary of tests",
     },
     {
       "<leader>;w",
       function()
         require("neotest").watch()
       end,
-      desc = "Watch tests",
+      desc = "neotest: watch tests",
     },
     {
       "<leader>;o",
       function()
         require("neotest").output_panel.toggle()
       end,
-      desc = "Neotest toggle Output panel",
+      desc = "neotest: toggle output panel",
     },
     {
       "<leader>;O",
       function()
         require("neotest").output.open()
       end,
-      desc = "Neotest open Output",
+      desc = "neotest: open output",
     },
     -- vim.api.nvim_set_keymap(
     --     "n",

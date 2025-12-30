@@ -3,8 +3,8 @@ return {
   dependencies = { "kkharji/sqlite.lua" },
   opts = {},
   keys = {
-    { "<leader>md", "<cmd>ToggleDelay<cr>", desc = "Macro delays" },
-    { "<leader>me", "<cmd>EditMacros<cr>", desc = "Edit Macros" },
+    { "<leader>md", "<cmd>ToggleDelay<cr>", desc = "neocomposer: macro delays" },
+    { "<leader>me", "<cmd>EditMacros<cr>", desc = "neocomposer: edit macros" },
   },
 -- play_macro	Q	Plays queued macro
 -- stop_macro	cq	Halts macro playback

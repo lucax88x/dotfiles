@@ -45,7 +45,7 @@ return {
         Snacks.picker.lsp_references()
       end,
       nowait = true,
-      desc = "References",
+      desc = "snacks: references",
     },
     -- {
     --   "gi",
@@ -81,56 +81,56 @@ return {
       function()
         Snacks.zen()
       end,
-      desc = "Toggle Zen Mode",
+      desc = "snacks: toggle zen mode",
     },
     {
       "<leader>Z",
       function()
         Snacks.zen.zoom()
       end,
-      desc = "Toggle Zoom",
+      desc = "snacks: toggle zoom",
     },
     {
       "<leader>.",
       function()
         Snacks.scratch()
       end,
-      desc = "Toggle Scratch Buffer",
+      desc = "snacks: toggle scratch buffer",
     },
     {
       "<leader>N",
       function()
         Snacks.notifier.show_history()
       end,
-      desc = "Notification History",
+      desc = "snacks: notification history",
     },
     {
       "<leader>bd",
       function()
         Snacks.bufdelete()
       end,
-      desc = "Delete Buffer",
+      desc = "snacks: delete buffer",
     },
     {
       "<leader>bA",
       function()
         Snacks.bufdelete.all()
       end,
-      desc = "Delete Buffer",
+      desc = "snacks: delete buffer",
     },
     {
       "<leader>gg",
       function()
         Snacks.lazygit()
       end,
-      desc = "Lazygit",
+      desc = "snacks: lazygit",
     },
     {
       "<leader>nc",
       function()
         Snacks.notifier.hide()
       end,
-      desc = "Dismiss All Notifications",
+      desc = "snacks: dismiss all notifications",
     },
   },
 }

@@ -10,7 +10,7 @@ return {
     {
       "<leader>ld",
       "<cmd>Dotnet<CR>",
-      desc = "dotnet picker",
+      desc = "easy-dotnet: picker",
     },
   },
 }

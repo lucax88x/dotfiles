@@ -4,7 +4,7 @@ return {
     {
       "<leader>rp",
       "<cmd>ISwap<cr>",
-      desc = "Swap parameter",
+      desc = "iswap: swap parameter",
     },
   },
 }

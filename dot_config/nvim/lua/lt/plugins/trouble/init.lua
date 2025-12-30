@@ -6,12 +6,12 @@ return {
     {
       "<leader>tL",
       "<cmd>Trouble loclist toggle<cr>",
-      desc = "Location List (Trouble)",
+      desc = "trouble: location list",
     },
     {
       "<leader>tQ",
       "<cmd>Trouble qflist toggle<cr>",
-      desc = "Quickfix List (Trouble)",
+      desc = "trouble: quickfix list",
     },
     {
       "[q",
@@ -25,7 +25,7 @@ return {
           end
         end
       end,
-      desc = "Previous Trouble/Quickfix Item",
+      desc = "trouble: previous item",
     },
     {
       "]q",
@@ -39,7 +39,7 @@ return {
           end
         end
       end,
-      desc = "Next Trouble/Quickfix Item",
+      desc = "trouble: next item",
     },
   },
 }

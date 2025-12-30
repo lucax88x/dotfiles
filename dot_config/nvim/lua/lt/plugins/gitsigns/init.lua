@@ -54,42 +54,42 @@ return {
       function()
         require("gitsigns").stage_hunk()
       end,
-      desc = "Stage hunk",
+      desc = "gitsigns: stage hunk",
     },
     {
       "<leader>hu",
       function()
         require("gitsigns").undo_stage_hunk()
       end,
-      desc = "Undo stage hunk",
+      desc = "gitsigns: undo stage hunk",
     },
     {
       "<leader>hr",
       function()
         require("gitsigns").reset_hunk()
       end,
-      desc = "Reset hunk",
+      desc = "gitsigns: reset hunk",
     },
     {
       "<leader>hp",
       function()
         require("gitsigns").preview_hunk()
       end,
-      desc = "Preview hunk",
+      desc = "gitsigns: preview hunk",
     },
     {
       "<leader>hb",
       function()
         require("gitsigns").blame_line({ full = true })
       end,
-      desc = "Blame line",
+      desc = "gitsigns: blame line",
     },
     {
       "<leader>hd",
       function()
         require("gitsigns").diffthis()
       end,
-      desc = "Diff this",
+      desc = "gitsigns: diff this",
     },
   },
 }

@@ -4,17 +4,17 @@ return {
     {
       "<leader>rpl",
       "<cmd>ISwapNodeWithRight<cr>",
-      desc = "Swap parameter (right)",
+      desc = "iswap: swap parameter (right)",
     },
     {
       "<leader>rph",
       "<cmd>ISwapNodeWithLeft<cr>",
-      desc = "Swap parameter (left)",
+      desc = "iswap: swap parameter (left)",
     },
     {
       "<leader>rpp",
       "<cmd>ISwapNode<cr>",
-      desc = "Swap parameter",
+      desc = "iswap: swap parameter",
     },
   },
 }

@@ -68,7 +68,7 @@ return {
         local lint = require("lint")
         lint.try_lint()
       end,
-      desc = "Lint",
+      desc = "lint: run",
     },
 
     {
@@ -81,7 +81,7 @@ return {
           vim.notify("󱉶 " .. table.concat(linters, ", "))
         end
       end,
-      desc = "List of linters",
+      desc = "lint: list of linters",
     },
     {
       "<leader>rLd",
@@ -90,7 +90,7 @@ return {
         local ns = require("lint").get_namespace("selene")
         utils.tprint(vim.diagnostic.get_namespace(ns))
       end,
-      desc = "Debug linter configuration",
+      desc = "lint: debug configuration",
     },
   },
 }

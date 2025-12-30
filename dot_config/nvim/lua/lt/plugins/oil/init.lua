@@ -18,7 +18,7 @@ return {
       function()
         require("oil").open()
       end,
-      desc = "open oil",
+      desc = "oil: open",
     },
     {
       "<leader>pw",
@@ -27,7 +27,7 @@ return {
         vim.notify("changing pwd to " .. current_dir)
         vim.cmd.cd(current_dir)
       end,
-      desc = "change pwd to current oil buffer (only when oil is open)",
+      desc = "oil: change pwd to current buffer",
     },
   },
 }

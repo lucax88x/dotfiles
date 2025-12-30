@@ -7,9 +7,9 @@ return {
   },
   cmd = "Telescope",
   keys = {
-    { "<leader>/c", function() require("telescope.builtin").commands() end,        desc = "Search commands" },
-    { "<leader>/C", function() require("telescope.builtin").command_history() end, desc = "Search command history" },
-    { "<leader>sl", function() require("telescope.builtin").live_grep() end,       desc = "Live grep" },
+    { "<leader>/c", function() require("telescope.builtin").commands() end,        desc = "telescope: search commands" },
+    { "<leader>/C", function() require("telescope.builtin").command_history() end, desc = "telescope: search command history" },
+    { "<leader>sl", function() require("telescope.builtin").live_grep() end,       desc = "telescope: live grep" },
     {
       "<leader>sc",
       function()
@@ -18,73 +18,73 @@ return {
           cwd = "$HOME/.config/nvim",
         })
       end,
-      desc = "Search neovim config"
+      desc = "telescope: search neovim config"
     },
-    { "<leader>pf", function() require("telescope.builtin").find_files() end, desc = "Find files" },
-    { "<leader>po", function() require("telescope.builtin").oldfiles() end,   desc = "Find files" },
-    { "<leader>pg", function() require("telescope.builtin").git_files() end,  desc = "Find git files" },
-    { "<leader>/h",  function() require("telescope.builtin").highlights() end,   desc = "Search highlights" },
-    { "<leader>/r",  function() require("telescope.builtin").registers() end,    desc = "Search registers" },
-    { "<leader>/M",  function() require("telescope.builtin").marks() end,        desc = "Search marks" },
-    { "<leader>/k",  function() require("telescope.builtin").keymaps() end,      desc = "Search keymaps" },
-    { "<leader>/t",  function() require("telescope.builtin").treesitter() end,   desc = "Search treesitter" },
-    { "<leader>/gb", function() require("telescope.builtin").git_branches() end, desc = "Search git branches" },
-    { "<leader>/gc", function() require("telescope.builtin").git_commits() end,  desc = "Search git commits" },
-    { "<leader>/gC", function() require("telescope.builtin").git_bcommits() end, desc = "Search git buffer commits" },
-    { "<leader>bc",  function() require("telescope.builtin").git_bcommits() end, desc = "Search git buffer commits" },
-    { "<leader>bl",  function() require("telescope.builtin").buffers() end,      desc = "Search buffers" },
-    { "<leader>//",  function() require("telescope.builtin").resume() end,       desc = "Resume Telescope" },
+    { "<leader>pf", function() require("telescope.builtin").find_files() end, desc = "telescope: find files" },
+    { "<leader>po", function() require("telescope.builtin").oldfiles() end,   desc = "telescope: find files" },
+    { "<leader>pg", function() require("telescope.builtin").git_files() end,  desc = "telescope: find git files" },
+    { "<leader>/h",  function() require("telescope.builtin").highlights() end,   desc = "telescope: search highlights" },
+    { "<leader>/r",  function() require("telescope.builtin").registers() end,    desc = "telescope: search registers" },
+    { "<leader>/M",  function() require("telescope.builtin").marks() end,        desc = "telescope: search marks" },
+    { "<leader>/k",  function() require("telescope.builtin").keymaps() end,      desc = "telescope: search keymaps" },
+    { "<leader>/t",  function() require("telescope.builtin").treesitter() end,   desc = "telescope: search treesitter" },
+    { "<leader>/gb", function() require("telescope.builtin").git_branches() end, desc = "telescope: search git branches" },
+    { "<leader>/gc", function() require("telescope.builtin").git_commits() end,  desc = "telescope: search git commits" },
+    { "<leader>/gC", function() require("telescope.builtin").git_bcommits() end, desc = "telescope: search git buffer commits" },
+    { "<leader>bc",  function() require("telescope.builtin").git_bcommits() end, desc = "telescope: search git buffer commits" },
+    { "<leader>bl",  function() require("telescope.builtin").buffers() end,      desc = "telescope: search buffers" },
+    { "<leader>//",  function() require("telescope.builtin").resume() end,       desc = "telescope: resume" },
     {
       "<leader>/m",
       "<cmd>Telescope macros<cr>",
-      desc = "Search macros"
+      desc = "telescope: search macros"
     },
     {
       "<leader>/gr",
       function()
         require('telescope').extensions.advanced_git_search.checkout_reflog()
       end,
-      desc = "Git Search: Checkout Reflog"
+      desc = "telescope: git search checkout reflog"
     },
     {
       "<leader>/gdb",
       function()
         require('telescope').extensions.advanced_git_search.diff_branch_file()
       end,
-      desc = "Git Search: Diff branch file"
+      desc = "telescope: git search diff branch file"
     },
     {
       "<leader>/gdf",
       function()
         require('telescope').extensions.advanced_git_search.diff_commit_file()
       end,
-      desc = "Git Search: Diff commit file"
+      desc = "telescope: git search diff commit file"
     },
     {
       "<leader>/gdl",
       function()
         require('telescope').extensions.advanced_git_search.diff_commit_line()
       end,
-      desc = "Git Search: Diff commit line"
+      desc = "telescope: git search diff commit line"
     },
     {
       "<leader>/gl",
       function()
         require('telescope').extensions.advanced_git_search.search_log_content()
       end,
-      desc = "Git Search: Log content"
+      desc = "telescope: git search log content"
     },
     {
       "<leader>/gL",
       function()
         require('telescope').extensions.advanced_git_search.search_log_content_file()
       end,
-      desc = "Git Search: Log content file"
+      desc = "telescope: git search log content file"
     },
     {
       "<leader>/m",
       "<cmd>Telescope macros<cr>",
-      desc = "Search macros"
+      desc = "telescope: search macros"
     },
   },
   config = function()

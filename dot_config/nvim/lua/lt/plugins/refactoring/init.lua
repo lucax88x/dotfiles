@@ -12,7 +12,7 @@ return {
       function()
         return require("refactoring").refactor("Extract Function")
       end,
-      desc = "extract function",
+      desc = "refactoring: extract function",
       expr = true,
     },
     {
@@ -21,7 +21,7 @@ return {
       function()
         return require("refactoring").refactor("Extract Function To File")
       end,
-      desc = "extract function to file",
+      desc = "refactoring: extract function to file",
       expr = true,
     },
     {
@@ -30,7 +30,7 @@ return {
       function()
         return require("refactoring").refactor("Inline Function")
       end,
-      desc = "inline function",
+      desc = "refactoring: inline function",
       expr = true,
     },
     {
@@ -39,7 +39,7 @@ return {
       function()
         return require("refactoring").refactor("Extract Variable")
       end,
-      desc = "extract variable",
+      desc = "refactoring: extract variable",
       expr = true,
     },
     {
@@ -48,7 +48,7 @@ return {
       function()
         return require("refactoring").refactor("Inline Variable")
       end,
-      desc = "inline variable",
+      desc = "refactoring: inline variable",
       expr = true,
     },
     {
@@ -57,7 +57,7 @@ return {
       function()
         return require("refactoring").refactor("Extract Block")
       end,
-      desc = "extract block",
+      desc = "refactoring: extract block",
       expr = true,
     },
     {
@@ -66,7 +66,7 @@ return {
       function()
         return require("refactoring").refactor("Extract Block To File")
       end,
-      desc = "extract block to file",
+      desc = "refactoring: extract block to file",
       expr = true,
     },
     {
@@ -75,7 +75,7 @@ return {
       function()
         return require("refactoring").select_refactor()
       end,
-      desc = "select refactors",
+      desc = "refactoring: select refactors",
       expr = true,
     },
   },

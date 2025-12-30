@@ -11,7 +11,7 @@ return {
     }
   end,
   keys = {
-    { "<leader>gs", function() require("neogit").open() end, desc = "Git status" },
-    { "<leader>gl", "<CMD>Neogit log<CR>", desc = "Git log" },
+    { "<leader>gs", function() require("neogit").open() end, desc = "neogit: git status" },
+    { "<leader>gl", "<CMD>Neogit log<CR>", desc = "neogit: git log" },
   }
 }

@@ -6,7 +6,7 @@ return {
     {
       "<leader>ltc",
       "<cmd>TSC<cr>",
-      desc = "Compile whole Typescript",
+      desc = "tsc: compile whole typescript",
     },
   },
 }

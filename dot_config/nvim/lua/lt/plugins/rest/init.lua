@@ -9,7 +9,7 @@ return {
         require("kulala").set_selected_env()
       end,
       ft = "http",
-      desc = "select env",
+      desc = "kulala: select env",
     },
     {
       "<leader>cr",
@@ -17,7 +17,7 @@ return {
         require("kulala").run()
       end,
       ft = "http",
-      desc = "run http request under the cursor",
+      desc = "kulala: run http request under the cursor",
     },
     {
       "<leader>cR",
@@ -25,7 +25,7 @@ return {
         require("kulala").run_all()
       end,
       ft = "http",
-      desc = "run all http requests",
+      desc = "kulala: run all http requests",
     },
     {
       "<leader>ct",
@@ -33,7 +33,7 @@ return {
         require("kulala").replay()
       end,
       ft = "http",
-      desc = "re-run latest http request",
+      desc = "kulala: re-run latest http request",
     },
     {
       "<leader>cc",
@@ -41,7 +41,7 @@ return {
         require("kulala").copy()
       end,
       ft = "http",
-      desc = "copy http request under the cursor as curl command",
+      desc = "kulala: copy http request as curl command",
     },
     {
       "<leader>cs",
@@ -49,7 +49,7 @@ return {
         require("kulala").search()
       end,
       ft = "http",
-      desc = "search http requests",
+      desc = "kulala: search http requests",
     },
     {
       "<leader>co",
@@ -57,7 +57,7 @@ return {
         require("kulala").toggle_view()
       end,
       ft = "http",
-      desc = "toggle view (between headers and body)",
+      desc = "kulala: toggle view (headers/body)",
     },
     {
       "[c",
@@ -65,7 +65,7 @@ return {
         require("kulala").jump_prev()
       end,
       ft = "http",
-      desc = "previous http request",
+      desc = "kulala: previous http request",
     },
     {
       "]c",
@@ -73,7 +73,7 @@ return {
         require("kulala").jump_next()
       end,
       ft = "http",
-      desc = "next http request",
+      desc = "kulala: next http request",
     },
   },
 }

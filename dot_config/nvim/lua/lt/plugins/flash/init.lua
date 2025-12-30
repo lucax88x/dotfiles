@@ -23,7 +23,7 @@ return {
           },
         })
       end,
-      desc = "Flash",
+      desc = "flash: jump",
     },
     {
       "S",
@@ -31,7 +31,7 @@ return {
       function()
         require("flash").treesitter()
       end,
-      desc = "Flash Treesitter",
+      desc = "flash: treesitter",
     },
     {
       "r",
@@ -39,7 +39,7 @@ return {
       function()
         require("flash").remote()
       end,
-      desc = "Remote Flash",
+      desc = "flash: remote",
     },
   },
 }

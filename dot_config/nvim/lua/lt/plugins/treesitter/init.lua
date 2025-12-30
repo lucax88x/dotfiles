@@ -15,12 +15,12 @@ return {
       function()
         vim.treesitter.inspect_tree({ command = "botright 60vnew" })
       end,
-      desc = "Treesitter playground",
+      desc = "treesitter: playground",
     },
     {
       "<leader>dtt",
       "<cmd>TSHighlightCapturesUnderCursor<CR>",
-      desc = "Shows highlight colors under cursor",
+      desc = "treesitter: shows highlight colors under cursor",
     },
   },
   init = function()

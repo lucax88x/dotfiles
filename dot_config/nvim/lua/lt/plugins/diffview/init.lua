@@ -36,11 +36,11 @@ return {
     })
   end,
   keys = {
-    { "<leader>gT", "<cmd>DiffviewFileHistory<CR>", desc = "Navigate history (diffview)", mode = { "n", "v" } },
-    { "<leader>gdo", "<cmd>DiffviewOpen<CR>", desc = "Open diffview (co, ct, cb to pick)" },
-    { "<leader>gdc", "<cmd>DiffviewClose<CR>", desc = "Close diffview" },
-    { "<leader>gdr", "<cmd>DiffviewRefresh<CR>", desc = "Refresh diffview" },
-    { "<leader>gdt", "<cmd>DiffviewToggleFiles<CR>", desc = "Toggle files in diffview" },
+    { "<leader>gT", "<cmd>DiffviewFileHistory<CR>", desc = "diffview: navigate history", mode = { "n", "v" } },
+    { "<leader>gdo", "<cmd>DiffviewOpen<CR>", desc = "diffview: open (co, ct, cb to pick)" },
+    { "<leader>gdc", "<cmd>DiffviewClose<CR>", desc = "diffview: close" },
+    { "<leader>gdr", "<cmd>DiffviewRefresh<CR>", desc = "diffview: refresh" },
+    { "<leader>gdt", "<cmd>DiffviewToggleFiles<CR>", desc = "diffview: toggle files" },
   },
   cmd = "DiffviewOpen",
 }

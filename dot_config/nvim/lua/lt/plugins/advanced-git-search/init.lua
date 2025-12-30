@@ -6,42 +6,42 @@ return {
       function()
         require("advanced_git_search.fzf.pickers").checkout_reflog()
       end,
-      desc = "Git Search: Checkout Reflog",
+      desc = "advanced-git-search: checkout reflog",
     },
     {
       "<leader>g/db",
       function()
         require("advanced_git_search.fzf.pickers").diff_branch_file()
       end,
-      desc = "Git Search: Diff branch file",
+      desc = "advanced-git-search: diff branch file",
     },
     {
       "<leader>g/df",
       function()
         require("advanced_git_search.fzf.pickers").diff_commit_file()
       end,
-      desc = "Git Search: Diff commit file",
+      desc = "advanced-git-search: diff commit file",
     },
     {
       "<leader>g/dl",
       function()
         require("advanced_git_search.fzf.pickers").diff_commit_line()
       end,
-      desc = "Git Search: Diff commit line",
+      desc = "advanced-git-search: diff commit line",
     },
     {
       "<leader>g/l",
       function()
         require("advanced_git_search.fzf.pickers").search_log_content()
       end,
-      desc = "Git Search: Log content",
+      desc = "advanced-git-search: log content",
     },
     {
       "<leader>g/L",
       function()
         require("advanced_git_search.fzf.pickers").search_log_content_file()
       end,
-      desc = "Git Search: Log content file",
+      desc = "advanced-git-search: log content file",
     },
   },
   opts = {},

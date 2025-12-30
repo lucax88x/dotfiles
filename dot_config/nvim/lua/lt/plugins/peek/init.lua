@@ -13,7 +13,7 @@ return {
           peek.close()
         end
       end,
-      desc = "toggle markdown preview",
+      desc = "peek: toggle markdown preview",
       mode = "n",
     },
   },

@@ -9,7 +9,7 @@ return {
         local quick_switcher = require("nvim-quick-switcher")
         quick_switcher.toggle("component.ts", "component.html")
       end,
-      desc = "component.ts <-> component.html",
+      desc = "quick-switcher: component.ts <-> component.html",
     },
     {
       "<leader>Qs",
@@ -17,14 +17,14 @@ return {
         local quick_switcher = require("nvim-quick-switcher")
         quick_switcher.toggle("ts", "scss")
       end,
-      desc = "component.ts <-> component.scss",
+      desc = "quick-switcher: component.ts <-> component.scss",
     },
     {
       "<leader>Qt",
       function()
         require("nvim-quick-switcher").find(".+test|.+spec", { regex = true, prefix = "full" })
       end,
-      desc = "spec <-> code",
+      desc = "quick-switcher: spec <-> code",
     },
   },
 }

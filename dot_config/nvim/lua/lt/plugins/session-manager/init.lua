@@ -8,21 +8,21 @@ return {
       function()
         require("persistence").load()
       end,
-      desc = "Restore Session",
+      desc = "persistence: restore session",
     },
     {
       "<leader>Sl",
       function()
         require("persistence").load({ last = true })
       end,
-      desc = "Restore Last Session",
+      desc = "persistence: restore last session",
     },
     {
       "<leader>Sd",
       function()
         require("persistence").stop()
       end,
-      desc = "Don't Save Current Session",
+      desc = "persistence: don't save current session",
     },
   },
 }

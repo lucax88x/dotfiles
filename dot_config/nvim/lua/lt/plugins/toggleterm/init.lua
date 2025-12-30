@@ -44,12 +44,12 @@ return {
     --
     --     terminal:toggle()
     --   end,
-    --   desc = "Open Toggleterm"
+    --   desc = "toggleterm: open"
     -- },
     {
       "<leader>kk",
       "<Cmd>ToggleTerm direction=float<CR>",
-      desc = "Open Toggleterm",
+      desc = "toggleterm: open",
     },
   },
 }

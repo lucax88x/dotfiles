@@ -25,7 +25,7 @@ return {
       end,
       mode = { "i", "n" },
       expr = true,
-      desc = "Goto/Apply Next Edit Suggestion",
+      desc = "sidekick: goto/apply next edit suggestion",
     },
     {
       "<C-e>",
@@ -33,7 +33,7 @@ return {
         require("sidekick").nes_clear()
       end,
       mode = { "i", "n" },
-      desc = "Clear Next Edit Suggestion",
+      desc = "sidekick: clear next edit suggestion",
     },
     -- {
     --   "<tab>",
@@ -44,14 +44,14 @@ return {
     --     end
     --   end,
     --   expr = true,
-    --   desc = "Goto/Apply Next Edit Suggestion",
+    --   desc = "sidekick: goto/apply next edit suggestion",
     -- },
     {
       "<leader>aa",
       function()
         require("sidekick.cli").toggle()
       end,
-      desc = "Sidekick Toggle CLI",
+      desc = "sidekick: toggle cli",
     },
     {
       "<leader>as",
@@ -60,7 +60,7 @@ return {
       end,
       -- Or to select only installed tools:
       -- require("sidekick.cli").select({ filter = { installed = true } })
-      desc = "Select CLI",
+      desc = "sidekick: select cli",
     },
     {
       "<leader>at",
@@ -68,7 +68,7 @@ return {
         require("sidekick.cli").send({ msg = "{this}" })
       end,
       mode = { "x", "n" },
-      desc = "Send This",
+      desc = "sidekick: send this",
     },
     {
       "<leader>av",
@@ -76,7 +76,7 @@ return {
         require("sidekick.cli").send({ msg = "{selection}" })
       end,
       mode = { "x" },
-      desc = "Send Visual Selection",
+      desc = "sidekick: send visual selection",
     },
     {
       "<leader>ap",
@@ -84,7 +84,7 @@ return {
         require("sidekick.cli").prompt()
       end,
       mode = { "n", "x" },
-      desc = "Sidekick Select Prompt",
+      desc = "sidekick: select prompt",
     },
     {
       "<c-.>",
@@ -92,14 +92,14 @@ return {
         require("sidekick.cli").focus()
       end,
       mode = { "n", "x", "i", "t" },
-      desc = "Sidekick Switch Focus",
+      desc = "sidekick: switch focus",
     },
     {
       "<leader>ac",
       function()
         require("sidekick.cli").toggle({ name = "claude", focus = true })
       end,
-      desc = "Sidekick Toggle Claude",
+      desc = "sidekick: toggle claude",
     },
     {
       "<C-n>",
@@ -108,7 +108,7 @@ return {
       end,
       expr = true,
       mode = { "i" },
-      desc = "Invoke NES manually",
+      desc = "sidekick: invoke nes manually",
     },
   },
 }

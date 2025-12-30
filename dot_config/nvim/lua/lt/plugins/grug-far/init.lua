@@ -9,14 +9,14 @@ return {
       function()
         require("grug-far").open()
       end,
-      desc = "Search all",
+      desc = "grug-far: search all",
     },
     {
       "<leader>sw",
       function()
         require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
       end,
-      desc = "Search this word",
+      desc = "grug-far: search this word",
     },
   },
 }

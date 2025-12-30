@@ -8,6 +8,7 @@ return {
     completion = {
       blink_cmp = true,
     },
+    legacy_commands = false,
     workspaces = {
       {
         name = "work",
@@ -18,15 +19,23 @@ return {
         path = "~/Documents/personal",
       },
     },
-    cmd = "Obsidian",
+    note_id_func = function(title)
+      if title == nil then
+        return nil
+      end
+
+      local name = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+      return name
+    end,
   },
+  cmd = "Obsidian",
   keys = {
-    { "<leader>no", "<cmd>Obsidian open<cr>", desc = "Open Obsidian" },
-    { "<leader>nn", "<cmd>Obsidian new<cr>", desc = "New note" },
-    { "<leader>ns", "<cmd>Obsidian search<cr>", desc = "Search notes" },
-    { "<leader>nt", "<cmd>Obsidian tags<cr>", desc = "List notes by tags" },
-    { "<leader>nq", "<cmd>Obsidian quick_switch<cr>", desc = "Quick switch in obsidian workspace" },
-    { "<leader>nw", "<cmd>Obsidian workspace work<cr>", desc = "Change to workspace work in obsidian" },
-    { "<leader>np", "<cmd>Obsidian workspace personal<cr>", desc = "Change to workspace home in obsidian" },
+    { "<leader>no", "<cmd>Obsidian open<cr>", desc = "obsidian: open" },
+    { "<leader>nn", "<cmd>Obsidian new<cr>", desc = "obsidian: new note" },
+    { "<leader>ns", "<cmd>Obsidian search<cr>", desc = "obsidian: search notes" },
+    { "<leader>nt", "<cmd>Obsidian tags<cr>", desc = "obsidian: list notes by tags" },
+    { "<leader>nq", "<cmd>Obsidian quick_switch<cr>", desc = "obsidian: quick switch" },
+    { "<leader>nw", "<cmd>Obsidian workspace work<cr>", desc = "obsidian: workspace work" },
+    { "<leader>np", "<cmd>Obsidian workspace personal<cr>", desc = "obsidian: workspace personal" },
   },
 }

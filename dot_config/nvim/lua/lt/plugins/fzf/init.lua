@@ -12,35 +12,35 @@ return {
       function()
         require("fzf-lua").commands()
       end,
-      desc = "Search commands",
+      desc = "fzf: search commands",
     },
     {
       "<leader>/C",
       function()
         require("fzf-lua").command_history()
       end,
-      desc = "Search command history",
+      desc = "fzf: search command history",
     },
     {
       "<leader>sl",
       function()
         require("fzf-lua").live_grep()
       end,
-      desc = "Live grep",
+      desc = "fzf: live grep",
     },
     {
       "<leader>sc",
       function()
         require("lt.plugins.fzf.functions").search_neovim_dotfiles()
       end,
-      desc = "Search neovim dotfiles",
+      desc = "fzf: search neovim dotfiles",
     },
     {
       "<leader>sd",
       function()
         require("lt.plugins.fzf.functions").search_dotfiles()
       end,
-      desc = "Search dotfiles",
+      desc = "fzf: search dotfiles",
     },
     {
       "<leader>sC",
@@ -50,7 +50,7 @@ return {
           cwd = "$HOME/.local/share/chezmoi/dot_config/nvim",
         })
       end,
-      desc = "Live grep neovim config",
+      desc = "fzf: live grep neovim config",
     },
     {
       "<leader>s~",
@@ -60,21 +60,21 @@ return {
           cwd = "$HOME",
         })
       end,
-      desc = "Search profile",
+      desc = "fzf: search profile",
     },
     {
       "<leader>pf",
       function()
         require("fzf-lua").files()
       end,
-      desc = "Find files",
+      desc = "fzf: find files",
     },
     {
       "<leader>pF",
       function()
         require("lt.plugins.fzf.functions").search_project_files()
       end,
-      desc = "Find files in another project",
+      desc = "fzf: find files in another project",
     },
     {
       "<leader>pd",
@@ -86,98 +86,98 @@ return {
           cwd = directory,
         })
       end,
-      desc = "Navigation bar",
+      desc = "fzf: navigation bar",
     },
     {
       "<leader>po",
       function()
         require("fzf-lua").oldfiles()
       end,
-      desc = "Find files",
+      desc = "fzf: find files",
     },
     {
       "<leader>pg",
       function()
         require("fzf-lua").git_files()
       end,
-      desc = "Find git files",
+      desc = "fzf: find git files",
     },
     {
       "<leader>/h",
       function()
         require("fzf-lua").highlights()
       end,
-      desc = "Search highlights",
+      desc = "fzf: search highlights",
     },
     {
       "<leader>/r",
       function()
         require("fzf-lua").registers()
       end,
-      desc = "Search registers",
+      desc = "fzf: search registers",
     },
     {
       "<leader>/M",
       function()
         require("fzf-lua").marks()
       end,
-      desc = "Search marks",
+      desc = "fzf: search marks",
     },
     {
       "<leader>/k",
       function()
         require("fzf-lua").keymaps()
       end,
-      desc = "Search keymaps",
+      desc = "fzf: search keymaps",
     },
     {
       "<leader>/t",
       function()
         require("fzf-lua").treesitter()
       end,
-      desc = "Search treesitter",
+      desc = "fzf: search treesitter",
     },
     {
       "<leader>g/b",
       function()
         require("fzf-lua").git_branches()
       end,
-      desc = "Search git branches",
+      desc = "fzf: search git branches",
     },
     {
       "<leader>g/c",
       function()
         require("fzf-lua").git_commits()
       end,
-      desc = "Search git commits",
+      desc = "fzf: search git commits",
     },
     {
       "<leader>g/C",
       function()
         require("fzf-lua").git_bcommits()
       end,
-      desc = "Search git buffer commits",
+      desc = "fzf: search git buffer commits",
     },
     {
       "<leader>bc",
       function()
         require("fzf-lua").git_bcommits()
       end,
-      desc = "Search git buffer commits",
+      desc = "fzf: search git buffer commits",
     },
     {
       "<leader>bl",
       function()
         require("fzf-lua").buffers()
       end,
-      desc = "Search buffers",
+      desc = "fzf: search buffers",
     },
     {
       "<leader>//",
       function()
         require("fzf-lua").resume()
       end,
-      desc = "Resume FZF",
+      desc = "fzf: resume",
     },
   },
   config = function()

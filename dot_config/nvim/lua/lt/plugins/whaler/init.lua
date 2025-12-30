@@ -16,6 +16,6 @@ return {
   },
   cmd = "Whaler",
   keys = {
-    { "<leader>pp", "<cmd>Whaler<cr>", desc = "Switch Project" },
+    { "<leader>pp", "<cmd>Whaler<cr>", desc = "whaler: switch project" },
   },
 }

@@ -41,7 +41,7 @@ return {
         -- qt.run_line('split')
         -- qt.run_line('popup')
       end,
-      desc = "Test [R]un Line",
+      desc = "quicktest: run line",
     },
     {
       "<leader>;f",
@@ -50,7 +50,7 @@ return {
 
         qt.run_file()
       end,
-      desc = "Test Run [F]ile",
+      desc = "quicktest: run file",
     },
     {
       "<leader>;d",
@@ -59,7 +59,7 @@ return {
 
         qt.run_dir()
       end,
-      desc = "Test Run [D]ir",
+      desc = "quicktest: run dir",
     },
     {
       "<leader>;l",
@@ -68,7 +68,7 @@ return {
 
         qt.run_all()
       end,
-      desc = "Test Run [A]ll",
+      desc = "quicktest: run all",
     },
     {
       "<leader>;t",
@@ -77,7 +77,7 @@ return {
 
         qt.run_previous()
       end,
-      desc = "Test Run [P]revious",
+      desc = "quicktest: run previous",
     },
     {
       "<leader>;:",
@@ -86,7 +86,7 @@ return {
 
         qt.toggle_win("split")
       end,
-      desc = "Test [T]oggle Window",
+      desc = "quicktest: toggle window",
     },
     {
       "<leader>;c",
@@ -95,7 +95,7 @@ return {
 
         qt.cancel_current_run()
       end,
-      desc = "Test [C]ancel Current Run",
+      desc = "quicktest: cancel current run",
     },
   },
 }

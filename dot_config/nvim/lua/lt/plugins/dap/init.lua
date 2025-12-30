@@ -13,7 +13,7 @@ return {
         local dap = require("dap")
         dap.continue()
       end,
-      desc = "Debugger start/continue (F5)",
+      desc = "dap: debugger start/continue (F5)",
     },
     {
       "<leader>dd",
@@ -21,7 +21,7 @@ return {
         local dap = require("dap")
         dap.continue()
       end,
-      desc = "Debugger start/continue",
+      desc = "dap: debugger start/continue",
     },
     {
       "<leader>do",
@@ -29,7 +29,7 @@ return {
         local dap = require("dap")
         dap.step_over()
       end,
-      desc = "Step over",
+      desc = "dap: step over",
     },
     {
       "<F8>",
@@ -37,7 +37,7 @@ return {
         local dap = require("dap")
         dap.step_over()
       end,
-      desc = "Step over (F8)",
+      desc = "dap: step over (F8)",
     },
     {
       "<leader>di",
@@ -45,7 +45,7 @@ return {
         local dap = require("dap")
         dap.step_into()
       end,
-      desc = "Step into",
+      desc = "dap: step into",
     },
     {
       "<F7>",
@@ -53,7 +53,7 @@ return {
         local dap = require("dap")
         dap.step_into()
       end,
-      desc = "Step into (F7)",
+      desc = "dap: step into (F7)",
     },
     {
       "<leader>dO",
@@ -61,7 +61,7 @@ return {
         local dap = require("dap")
         dap.step_out()
       end,
-      desc = "Step out",
+      desc = "dap: step out",
     },
     {
       "<leader>db",
@@ -69,14 +69,14 @@ return {
         local dap = require("dap")
         dap.toggle_breakpoint()
       end,
-      desc = "Toggle breakpoint",
+      desc = "dap: toggle breakpoint",
     },
     {
       "<leader>dh",
       function()
         require("dap.ui.widgets").hover()
       end,
-      desc = "Hover widgets",
+      desc = "dap: hover widgets",
       mode = { "n", "v" },
     },
     {
@@ -84,35 +84,35 @@ return {
       function()
         require("fzf-lua").dap_commands()
       end,
-      desc = "DAP commands",
+      desc = "dap: commands",
     },
     {
       "<leader>/dco",
       function()
         require("fzf-lua").dap_configurations()
       end,
-      desc = "DAP configurations",
+      desc = "dap: configurations",
     },
     {
       "<leader>/db",
       function()
         require("fzf-lua").dap_breakpoints()
       end,
-      desc = "DAP list breakpoints",
+      desc = "dap: list breakpoints",
     },
     {
       "<leader>/dv",
       function()
         require("fzf-lua").dap_variables()
       end,
-      desc = "DAP variables",
+      desc = "dap: variables",
     },
     {
       "<leader>/df",
       function()
         require("fzf-lua").dap_frames()
       end,
-      desc = "DAP frames",
+      desc = "dap: frames",
     },
     {
       "<leader>du",
@@ -120,14 +120,14 @@ return {
         local dap_ui = require("dapui")
         dap_ui.toggle()
       end,
-      desc = "Toggle DAP UI",
+      desc = "dap: toggle ui",
     },
     {
       "<leader>dl",
       function()
         print(vim.fn.stdpath("cache") .. "/dap.log")
       end,
-      desc = "Show log path",
+      desc = "dap: show log path",
     },
   },
   config = function()

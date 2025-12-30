@@ -15,7 +15,7 @@ return {
       function()
         require("neogen").generate()
       end,
-      desc = "Add documentation for the method/class/function "
+      desc = "neogen: add documentation"
     },
   }
 }

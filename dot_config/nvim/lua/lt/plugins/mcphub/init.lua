@@ -9,7 +9,7 @@ return {
     {
       "<leader>am",
       "<cmd>MCPHub<cr>",
-      desc = "MCP hub",
+      desc = "mcphub: open",
     },
   },
   config = function()
