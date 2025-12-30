@@ -62,13 +62,16 @@ compinit -C
 zinit cdreplay -q
 
 # ENV VAR
-export VOLTA_HOME="$HOME/.volta"
 export EDITOR=nvim
 export VISUAL=nvim
-export MANGOHUD=1
 
 # emacs
 export PATH="$PATH:$HOME/.config/emacs/bin"
+
+# dotnet
+if [[ -d "$HOME/.asdf/plugins/dotnet" ]]; then
+  source "$HOME/.asdf/plugins/dotnet/set-dotnet-env.zsh"
+fi
 
 if [[ -r "$HOME/.zshrc.env" ]]; then
   source "$HOME/.zshrc.env"

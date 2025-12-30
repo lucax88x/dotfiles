@@ -125,7 +125,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       print(vim.lsp.get_log_path())
     end, { desc = "Show log path" })
 
-    buf_keymap("n", "<leader>lsa", ":LspInfo()<CR>", { desc = "LSP Info" })
+    buf_keymap("n", "<leader>lsa", ":checkhealth vim.lsp<CR>", { desc = "LSP Info" })
     -- end debug
 
     if is_typescript then

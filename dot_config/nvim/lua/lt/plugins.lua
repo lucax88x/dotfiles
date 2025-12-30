@@ -41,6 +41,8 @@ return {
   -- start screen & project management
   require("lt.plugins.alpha"),
   require("lt.plugins.session-manager"),
+  -- projects
+  require("lt.plugins.whaler"),
 
   -- scroll
   --[[ require("lt.plugins.neoscroll"), ]]
@@ -85,14 +87,11 @@ return {
 
   require("lt.plugins.lint"),
   require("lt.plugins.conform"),
-  -- require("lt.plugins.typescript-tools"),
-  require("lt.plugins.ts-error-translator"),
-  require("lt.plugins.tsc"),
   -- lua
   require("lt.plugins.lazydev"),
   require("lt.plugins.trouble"),
-  -- go structs
-  require("lt.plugins.goplelements"),
+
+  -- ui
   require("lt.plugins.lsp"),
   require("lt.plugins.fidget"),
 
@@ -111,6 +110,17 @@ return {
 
   -- fold
   require("lt.plugins.ufo"),
+
+  -- specific programming language
+  -- go structs
+  require("lt.plugins.goplelements"),
+  -- dotnet
+  require("lt.plugins.roslyin"),
+  require("lt.plugins.easy-dotnet"),
+
+  --typescript
+  require("lt.plugins.ts-error-translator"),
+  require("lt.plugins.tsc"),
 
   -- code helpers
   require("lt.plugins.quick-switcher"),
@@ -155,7 +165,7 @@ return {
   -- require("lt.plugins.avante"),
   require("lt.plugins.sidekick"),
   require("lt.plugins.copilot"),
-  -- require("lt.plugins.store"),
+  require("lt.plugins.store"),
   -- require("lt.plugins.mcphub"),
   -- require("lt.plugins.minuet"),
   -- require("lt.plugins.llm"),

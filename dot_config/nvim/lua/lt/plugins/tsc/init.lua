@@ -1,12 +1,10 @@
 return {
   "dmmulroy/tsc.nvim",
   ft = { "tsx", "ts", "mts" },
-  config = function()
-    require("tsc").setup()
-  end,
+  opts = {},
   keys = {
     {
-      "<leader>tc",
+      "<leader>ltc",
       "<cmd>TSC<cr>",
       desc = "Compile whole Typescript",
     },

@@ -1,9 +1,11 @@
 return {
   "mason-org/mason.nvim",
-  config = function()
-    local mason = require("mason")
-
-    mason.setup()
-  end,
+  opts = {
+    registries = {
+      "github:mason-org/mason-registry",
+      -- roslyin
+      "github:Crashdummyy/mason-registry",
+    },
+  },
   cmd = { "Mason", "MasonInstall" },
 }

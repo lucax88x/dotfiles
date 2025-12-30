@@ -1,14 +1,13 @@
 return {
-  "epwalsh/obsidian.nvim",
-  version = "*", -- recommended, use latest release instead of latest commit
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
+  "obsidian-nvim/obsidian.nvim",
+  version = "*", -- use latest release, remove to use latest commit
+  ft = "markdown",
+  ---@module 'obsidian'
+  ---@type obsidian.config
   opts = {
     completion = {
-      nvim_cmp = true,
+      blink_cmp = true,
     },
-    new_notes_location = "notes_subdir",
     workspaces = {
       {
         name = "work",
@@ -19,15 +18,15 @@ return {
         path = "~/Documents/personal",
       },
     },
-  },
-  cmd = "ObsidianSearch",
-  keys = {
-    { "<leader>no", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian" },
-    { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "New note" },
-    { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search notes" },
-    { "<leader>nt", "<cmd>ObsidianTags<cr>", desc = "List notes by tags" },
-    { "<leader>nq", "<cmd>ObsidianQuickSwitch<cr>", desc = "Quick switch in obsidian workspace" },
-    { "<leader>nw", "<cmd>ObsidianWorkspace work<cr>", desc = "Change to workspace work in obsidian" },
-    { "<leader>np", "<cmd>ObsidianWorkspace personal<cr>", desc = "Change to workspace home in obsidian" },
+    cmd = "Obsidian",
+    keys = {
+      { "<leader>no", "<cmd>Obsidian open<cr>", desc = "Open Obsidian" },
+      { "<leader>nn", "<cmd>Obsidian new<cr>", desc = "New note" },
+      { "<leader>ns", "<cmd>Obsidian search<cr>", desc = "Search notes" },
+      { "<leader>nt", "<cmd>Obsidian tags<cr>", desc = "List notes by tags" },
+      { "<leader>nq", "<cmd>Obsidian quick_switch<cr>", desc = "Quick switch in obsidian workspace" },
+      { "<leader>nw", "<cmd>Obsidian workspace work<cr>", desc = "Change to workspace work in obsidian" },
+      { "<leader>np", "<cmd>Obsidian workspace personal<cr>", desc = "Change to workspace home in obsidian" },
+    },
   },
 }

@@ -20,9 +20,7 @@ return {
       dashboard.button("s", " Restore Session", function()
         require("persistence").load({ last = true })
       end),
-      dashboard.button("p", " Projects", function()
-        require("lt.plugins.fzf.functions").switch_project()
-      end),
+      dashboard.button("p", " Projects", ":Whaler<CR>"),
       dashboard.button("n", " Notes", ":ObsidianSearch<CR>"),
       dashboard.button("r", " Recent files", ":FzfLua oldfiles<CR>"),
       dashboard.button("c", " Dotfiles", function()

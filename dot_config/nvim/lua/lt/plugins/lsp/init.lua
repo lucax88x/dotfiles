@@ -100,6 +100,7 @@ return {
       -- azure_pipelines_ls = {},
       "powershell_es",
       "vtsls",
+      -- "tsgo",
       -- ocamllsp = {},
       "pyright",
       -- ruff = {},
