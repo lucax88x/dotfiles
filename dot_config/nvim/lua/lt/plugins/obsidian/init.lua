@@ -3,7 +3,7 @@ return {
   version = "*", -- use latest release, remove to use latest commit
   ft = "markdown",
   ---@module 'obsidian'
-  ---@type obsidian.config
+  ---@type obsidian.Config
   opts = {
     completion = {
       blink_cmp = true,
@@ -19,14 +19,14 @@ return {
       },
     },
     cmd = "Obsidian",
-    keys = {
-      { "<leader>no", "<cmd>Obsidian open<cr>", desc = "Open Obsidian" },
-      { "<leader>nn", "<cmd>Obsidian new<cr>", desc = "New note" },
-      { "<leader>ns", "<cmd>Obsidian search<cr>", desc = "Search notes" },
-      { "<leader>nt", "<cmd>Obsidian tags<cr>", desc = "List notes by tags" },
-      { "<leader>nq", "<cmd>Obsidian quick_switch<cr>", desc = "Quick switch in obsidian workspace" },
-      { "<leader>nw", "<cmd>Obsidian workspace work<cr>", desc = "Change to workspace work in obsidian" },
-      { "<leader>np", "<cmd>Obsidian workspace personal<cr>", desc = "Change to workspace home in obsidian" },
-    },
+  },
+  keys = {
+    { "<leader>no", "<cmd>Obsidian open<cr>", desc = "Open Obsidian" },
+    { "<leader>nn", "<cmd>Obsidian new<cr>", desc = "New note" },
+    { "<leader>ns", "<cmd>Obsidian search<cr>", desc = "Search notes" },
+    { "<leader>nt", "<cmd>Obsidian tags<cr>", desc = "List notes by tags" },
+    { "<leader>nq", "<cmd>Obsidian quick_switch<cr>", desc = "Quick switch in obsidian workspace" },
+    { "<leader>nw", "<cmd>Obsidian workspace work<cr>", desc = "Change to workspace work in obsidian" },
+    { "<leader>np", "<cmd>Obsidian workspace personal<cr>", desc = "Change to workspace home in obsidian" },
   },
 }

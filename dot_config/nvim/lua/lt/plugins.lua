@@ -115,7 +115,7 @@ return {
   -- go structs
   require("lt.plugins.goplelements"),
   -- dotnet
-  require("lt.plugins.roslyin"),
+  -- require("lt.plugins.roslyin"),
   require("lt.plugins.easy-dotnet"),
 
   --typescript
