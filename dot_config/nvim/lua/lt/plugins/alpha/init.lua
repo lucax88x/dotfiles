@@ -23,7 +23,10 @@ return {
       dashboard.button("p", " Projects", ":Whaler<CR>"),
       dashboard.button("n", " Notes", ":ObsidianSearch<CR>"),
       dashboard.button("r", " Recent files", ":FzfLua oldfiles<CR>"),
-      dashboard.button("c", " Dotfiles", function()
+      dashboard.button("c", " Neovim", function()
+        require("lt.plugins.fzf.functions").search_neovim_dotfiles()
+      end),
+      dashboard.button("d", " Dotfiles", function()
         require("lt.plugins.fzf.functions").search_dotfiles()
       end),
       dashboard.button("u p", " Lazy", ":Lazy<CR>"),

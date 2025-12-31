@@ -95,6 +95,8 @@ return {
       "texlab",
       "ansiblels",
       "gopls",
+      -- use nvim-lint instead
+      -- "golangci_lint_ls",
       "terraformls",
       -- clangd = {},
       -- azure_pipelines_ls = {},

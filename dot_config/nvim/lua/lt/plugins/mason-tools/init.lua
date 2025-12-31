@@ -11,6 +11,7 @@ return {
         "jsonlint",
 
         -- go
+        -- managed by mise
         -- "golangci-lint",
         -- "goimports",
 

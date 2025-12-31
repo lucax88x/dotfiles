@@ -1,132 +1,98 @@
-# if you need to profile
+# =============================================================================
+# PROFILING (uncomment to debug startup time)
+# =============================================================================
 # zmodload zsh/zprof
- 
-if [[ $INTELLIJ_ENVIRONMENT_READER ]]; then
+
+# =============================================================================
+# EARLY RETURNS
+# =============================================================================
+if [[ -n "$INTELLIJ_ENVIRONMENT_READER" ]]; then
   return
 fi
 
-### ZINIT
+# =============================================================================
+# ZINIT SETUP
+# =============================================================================
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+
+if [[ ! -d "$ZINIT_HOME" ]]; then
+  mkdir -p "$(dirname "$ZINIT_HOME")"
+fi
+
+if [[ ! -d "$ZINIT_HOME/.git" ]]; then
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
+# unalias zi as zoxide needs this alias
+zinit wait lucid atload'_zsh_autosuggest_start; unalias zi' light-mode for \
+    zsh-users/zsh-autosuggestions
+
 zinit light-mode for \
-    zdharma-continuum/zinit-annex-{'readurl','bin-gem-node','patch-dl','rust'}
+  zdharma-continuum/zinit-annex-{'readurl','bin-gem-node','patch-dl','rust'}
 
+# =============================================================================
+# PROMPT
+# =============================================================================
+if [[ "$(tput colors)" == "256" && "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+  eval "$(starship init zsh)"
+fi
 
-### END ZINIT
-
-if [ `tput colors` = "256" ]; then  
-  if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    # zinit light romkatv/powerlevel10k
-    eval "$(starship init zsh)"
-  fi
-fi 
-
+# =============================================================================
 # PLUGINS
+# =============================================================================
 zinit ice depth=1
-
-# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-# zinit light jeffreytse/zsh-vi-mode
-
 zinit light zsh-users/zsh-completions
 
-if uname -r |grep -q 'Microsoft' ; then
+if uname -r | grep -q 'Microsoft'; then
   zinit light MichaelAquilina/zsh-auto-notify
 fi
 
-# zinit light zdharma-continuum/history-search-multi-word
-# zinit snippet OMZ::lib/history.zsh 
-
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
-# autocomplete
-# zinit snippet OMZ::plugins/docker/_docker
-
-# those should stay last
+# these should stay last
 zinit light zsh-users/zsh-autosuggestions
-# for some reason really slow in osx
-# zinit light zdharma-continuum/fast-syntax-highlighting
-#
 
-# COMPINIT 
-autoload -Uz compinit
-if [ "$(find ~/.zcompdump -mtime 1)" ] ; then
-    compinit
+# slow on macOS
+if [[ "$OSTYPE" != darwin* ]]; then
+  zinit light zdharma-continuum/fast-syntax-highlighting
 fi
-compinit -C
+
+# =============================================================================
+# COMPLETIONS
+# =============================================================================
+autoload -Uz compinit
+
+if [[ -n "$(find ~/.zcompdump -mtime 1 2>/dev/null)" ]]; then
+  compinit
+else
+  compinit -C
+fi
+
 zinit cdreplay -q
 
-# ENV VAR
+# lazy-loaded plugins
+zinit ice lucid wait
+zinit light Aloxaf/fzf-tab
+
+zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
+
+# =============================================================================
+# ENVIRONMENT VARIABLES
+# =============================================================================
 export EDITOR=nvim
 export VISUAL=nvim
 
-# emacs
-export PATH="$PATH:$HOME/.config/emacs/bin"
-
-# dotnet
-if [[ -d "$HOME/.local/share/mise/plugins/dotnet" ]]; then
-  source "$HOME/.local/share/mise/plugins/dotnet/set-dotnet-env.zsh"
-fi
-
-if [[ -r "$HOME/.zshrc.env" ]]; then
-  source "$HOME/.zshrc.env"
-fi
-# END ENV VAR
-
-if [[ -r "$HOME/go" ]]; then
-  export GOPATH=$HOME/go
-  export PATH=$PATH:$GOPATH/bin
-fi
-
-if [[ -r "$HOME/.cargo" ]]; then
-  export GOPATH=$HOME/go
-  export PATH=$PATH:$HOME/.cargo/bin
-fi
-
-if command -v bun > /dev/null 2>&1; then
-  export PATH="$HOME/.bun/bin:$PATH"
-fi
-
-if command -v mise > /dev/null 2>&1; then
-  eval "$($HOME/.local/bin/mise activate zsh)"
-fi
-
-# awaits, necessary for vi mode
-zinit ice lucid wait
-# zinit snippet OMZP::fzf
-zinit light Aloxaf/fzf-tab
-# zinit light Tarrasch/zsh-bd
-# zinit snippet $HOME/.fzf.zsh
-#
-zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
-# zinit light g-plane/zsh-yarn-autocompletions
-# zinit ice atload"unalias zi"
-
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=true
-# zinit light zsh-users/zsh-history-substring-search
-# bindkey '^[[A' history-substring-search-up
-# bindkey '^[[B' history-substring-search-down
-# zinit load atuinsh/atuin
-
-# zinit snippet OMZ::lib/key-bindings.zsh 
- 
-# gh completion -s zsh > /Users/luca.trazzi/.zinit/completions/_gh
-# https://cli.github.com/manual/gh_completion
-
-# END PLUGINS
-
-
+# =============================================================================
 # HISTORY
+# =============================================================================
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -134,91 +100,111 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-# END HISTORY
 
-# FZF
-export FZF_DEFAULT_COMMAND="find . -maxdepth 1"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# END FZF
-
+# =============================================================================
 # ALIASES
+# =============================================================================
+# core
 alias k='kubectl'
 alias c='xclip -selection clipboard'
 alias v='nvim'
 alias nv='neovide'
 
+# ls replacements (lsd)
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+# shell
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
-# alias v+='f(){ amixer -q sset Master "$@"%+;  unset -f f; }; f'
-# alias v-='f(){ amixer -q sset Master "$@"%-;  unset -f f; }; f'
-# alias v='f(){ amixer -q sset Master toggle;  unset -f f; }; f'
-
+# tools
 alias grep='rg'
-# alias find='fd'
-# alias ps='procs'
 alias crashed='journalctl --since=today'
-
 alias ssk="kitty +kitten ssh"
 alias lg="lazygit"
 alias p="pnpm"
 alias run="run.mjs"
-alias zipgit="git archive HEAD -o ${PWD##*/}.zip"
-alias gipzit="git archive HEAD -o ${PWD##*/}.zip"
-# alias zip7git="7z a -bd ${PWD##*/}.7z * '-xr@./.gitignore'"
-# alias docker="podman"
-
-function addTodo() {
-    todoist add --date today -P 2211210927 "$1"
-}
-alias todo=addTodo
-alias todos="todoist list"
-alias pp='cd $(fd --full-path ~/repos/ -t d -d 2 | fzf)'
 alias j='jj'
 
-# END ALIASES
+# git
+alias zipgit="git archive HEAD -o \${PWD##*/}.zip"
+alias gipzit="git archive HEAD -o \${PWD##*/}.zip"
 
-# Shell integrations
-if command -v fzf > /dev/null 2>&1; then
-  # eval "$(fzf --zsh)"
-  source <(fzf --zsh)
+# todoist
+alias todo='todoist add --date today -P 2211210927'
+alias todos="todoist list"
+
+# navigation
+alias pp='cd $(fd --full-path ~/repos/ -t d -d 2 | fzf)'
+
+# =============================================================================
+# PATH ADDITIONS
+# =============================================================================
+if [[ -d "$HOME/go" ]]; then
+  export GOPATH="$HOME/go"
+  export PATH="$PATH:$GOPATH/bin"
 fi
 
-if command -v zoxide > /dev/null 2>&1; then
-  eval "$(zoxide init zsh)"
+if [[ -d "$HOME/.cargo" ]]; then
+  export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
-if command -v kubectl > /dev/null 2>&1; then
-  source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
-  source "$HOME/bin/functions/ks"
+if [[ -d "$HOME/.bun" ]]; then
+  export PATH="$HOME/.bun/bin:$PATH"
 fi
 
-
-# eval "$(zoxide init --cmd cd zsh)"
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/zsh/pnpm.zsh ]] && . ~/.config/tabtab/zsh/pnpm.zsh || true
-
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '$HOME/.opam/opam-init/init.zsh' ]] || source '$HOME/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
-
-# pnpm
-export PNPM_HOME="/home/lucatrazzi/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end#
 
+# =============================================================================
+# PROGRAM INTEGRATIONS
+# =============================================================================
+if command -v fzf &>/dev/null; then
+  export FZF_DEFAULT_COMMAND="find . -maxdepth 1"
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+  source <(fzf --zsh)
+fi
+
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+if command -v kubectl &>/dev/null; then
+  source <(kubectl completion zsh)
+  [[ -f "$HOME/bin/functions/ks" ]] && source "$HOME/bin/functions/ks"
+fi
+
+if command -v mise &>/dev/null; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
+
+  if [[ -d "$HOME/.local/share/mise/plugins/dotnet" ]]; then
+    source "$HOME/.local/share/mise/plugins/dotnet/set-dotnet-env.zsh"
+  fi
+fi
+
+if command -v atuin &>/dev/null; then
+  [[ -f "$HOME/.atuin/bin/env" ]] && source "$HOME/.atuin/bin/env"
+  eval "$(atuin init zsh)"
+fi
+
+# opam
+if [[ -r "$HOME/.opam/opam-init/init.zsh" ]]; then
+  source "$HOME/.opam/opam-init/init.zsh" &>/dev/null
+fi
+
+# tabtab (pnpm completions)
+if [[ -f ~/.config/tabtab/zsh/pnpm.zsh ]]; then
+  source ~/.config/tabtab/zsh/pnpm.zsh
+fi
+
+# =============================================================================
+# PROFILING OUTPUT (uncomment with zprof at top)
+# =============================================================================
 # zprof
