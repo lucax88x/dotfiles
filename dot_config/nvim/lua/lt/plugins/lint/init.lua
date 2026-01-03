@@ -84,10 +84,20 @@ return {
       desc = "lint: list of linters",
     },
     {
+      "<leader>rLi",
+      function()
+        local utils = require("lt.utils.functions")
+        local filetype = vim.bo.filetype
+        local linters = require("lint").linters_by_ft[filetype]
+        utils.tprint(linters)
+      end,
+      desc = "lint: get linters by filetype",
+    },
+    {
       "<leader>rLd",
       function()
         local utils = require("lt.utils.functions")
-        local ns = require("lint").get_namespace("selene")
+        local ns = require("lint").get_namespace("golangcilint")
         utils.tprint(vim.diagnostic.get_namespace(ns))
       end,
       desc = "lint: debug configuration",

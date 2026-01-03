@@ -7,5 +7,5 @@ return {
       "github:Crashdummyy/mason-registry",
     },
   },
-  cmd = { "Mason", "MasonInstall" },
+  -- no lazy, we need it for setupping path
 }

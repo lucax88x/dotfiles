@@ -20,7 +20,7 @@ return {
         html = { "prettierd", "prettier", stop_after_first = true },
         md = { "prettierd", "prettier", stop_after_first = true },
         php = { "pretty-php" },
-        go = { "gofmt" },
+        go = { "golangci-lint" },
         bash = { "shfmt" },
         sh = { "shfmt" },
         yaml = { "yamlfmt" },
@@ -39,6 +39,7 @@ return {
       },
     })
   end,
+  cmd = "ConformInfo",
   keys = {
     {
       "<leader>rf",
@@ -46,6 +47,11 @@ return {
         require("conform").format({ lsp_fallback = true })
       end,
       desc = "conform: format",
+    },
+    {
+      "<leader>rF",
+      cmd = "<cmd>ConformInfo<CR>",
+      desc = "conform: info",
     },
   },
 }

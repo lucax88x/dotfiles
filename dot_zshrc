@@ -76,7 +76,9 @@ zinit cdreplay -q
 zinit ice lucid wait
 zinit light Aloxaf/fzf-tab
 
-zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
+zinit ice atload"zpcdreplay" atclone"./zplug.zsh" atpull"%atclone"
+
+zinit light g-plane/pnpm-shell-completion
 
 # =============================================================================
 # ENVIRONMENT VARIABLES
@@ -204,6 +206,9 @@ if [[ -f ~/.config/tabtab/zsh/pnpm.zsh ]]; then
   source ~/.config/tabtab/zsh/pnpm.zsh
 fi
 
+if command -v jj &>/dev/null; then
+  source <(jj util completion zsh)
+fi
 
 # =============================================================================
 # KEYS

@@ -124,15 +124,12 @@ return {
   require("lt.plugins.tsc"),
 
   -- code helpers
-  require("lt.plugins.quick-switcher"),
   require("lt.plugins.refactoring"),
-  -- require("lt.plugins.tailwindcss"),
 
   -- tree
   require("lt.plugins.oil"),
 
   -- tests
-  -- require("lt.plugins.quicktest"),
   require("lt.plugins.neotest-golang"),
   require("lt.plugins.neotest"),
 
@@ -147,9 +144,8 @@ return {
   require("lt.plugins.colorizer"),
   require("lt.plugins.modes"),
   require("lt.plugins.indent-blankline"),
-  -- require("lt.plugins.neocomposer"),
   -- replaced by snacks
-  -- require("lt.plugins.inc_rename"),
+  require("lt.plugins.inc_rename"),
 
   -- status bar
   require("lt.plugins.lualine"),

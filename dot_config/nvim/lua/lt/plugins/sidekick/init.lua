@@ -6,7 +6,7 @@ return {
   opts = {},
   keys = {
     {
-      "<C-Space>",
+      "<Tab>",
       function()
         -- if there is a next edit, jump to it, otherwise apply it if any
         if require("sidekick").nes_jump_or_apply() then
@@ -28,24 +28,22 @@ return {
       desc = "sidekick: goto/apply next edit suggestion",
     },
     {
+      -- "<C-n>",
+      "<C-space>",
+      function()
+        require("sidekick.nes").update()
+      end,
+      mode = { "i", "n" },
+      desc = "sidekick: request next edit suggestion",
+    },
+    {
       "<C-e>",
       function()
-        require("sidekick").nes_clear()
+        require("sidekick.nes").clear()
       end,
       mode = { "i", "n" },
       desc = "sidekick: clear next edit suggestion",
     },
-    -- {
-    --   "<tab>",
-    --   function()
-    --     -- if there is a next edit, jump to it, otherwise apply it if any
-    --     if not require("sidekick").nes_jump_or_apply() then
-    --       return "<Tab>" -- fallback to normal tab
-    --     end
-    --   end,
-    --   expr = true,
-    --   desc = "sidekick: goto/apply next edit suggestion",
-    -- },
     {
       "<leader>aa",
       function()
@@ -100,15 +98,6 @@ return {
         require("sidekick.cli").toggle({ name = "claude", focus = true })
       end,
       desc = "sidekick: toggle claude",
-    },
-    {
-      "<C-n>",
-      function()
-        require("sidekick.nes").update()
-      end,
-      expr = true,
-      mode = { "i" },
-      desc = "sidekick: invoke nes manually",
     },
   },
 }

@@ -108,7 +108,9 @@ return {
         require("neotest-dotnet"),
         require("neotest-plenary"),
         -- require("neotest-go"),
-        require("neotest-golang"),
+        require("neotest-golang")({
+            runner = "gotestsum",
+        }),
         -- require("neotest-busted"),
         require("neotest-python"),
       },

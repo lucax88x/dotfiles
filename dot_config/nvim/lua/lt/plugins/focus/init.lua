@@ -37,4 +37,20 @@ return {
       desc = "Disable focus autoresize for FileType",
     })
   end,
+
+  keys = {
+    { "<leader>wf", "<cmd>FocusToggle<cr>", desc = "window: toggle focus autoresize" },
+    { "<leader>wn", "<cmd>FocusSplitNicely<cr>", desc = "window: split nicely (golden ratio)" },
+    { "<leader>wc", "<cmd>FocusSplitCycle<cr>", desc = "window: cycle splits" },
+    { "<leader>wC", "<cmd>FocusSplitCycle reverse<cr>", desc = "window: cycle splits (reverse)" },
+    { "<leader>wW", "<cmd>FocusToggleWindow<cr>", desc = "window: toggle focus for current window" },
+    { "<leader>wB", "<cmd>FocusToggleBuffer<cr>", desc = "window: toggle focus for current buffer" },
+    { "<leader>wh", "<cmd>FocusSplitLeft<cr>", desc = "window: split left" },
+    { "<leader>wj", "<cmd>FocusSplitDown<cr>", desc = "window: split down" },
+    { "<leader>wk", "<cmd>FocusSplitUp<cr>", desc = "window: split up" },
+    { "<leader>wl", "<cmd>FocusSplitRight<cr>", desc = "window: split right" },
+    { "<leader>w=", "<cmd>FocusEqualise<cr>", desc = "window: equalise splits" },
+    { "<leader>wm", "<cmd>FocusMaximise<cr>", desc = "window: maximise focused window" },
+    { "<leader>wo", "<cmd>FocusMaxOrEqual<cr>", desc = "window: toggle maximise/equalise" },
+  },
 }
