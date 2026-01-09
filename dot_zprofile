@@ -16,6 +16,10 @@ export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 # used by jetbrains toolbox for linux
 export PATH="$PATH:/home/lucatrazzi/.local/share/JetBrains/Toolbox/scripts"
 
-if command -v mise &>/dev/null; then
+if [[ -f "/opt/homebrew/bin/mise" ]]; then
+  eval "$(/opt/homebrew/bin/mise activate zsh)"
+fi
+
+if [[ -d "$HOME/.local/bin/mise" ]]; then
   eval "$($HOME/.local/bin/mise activate zsh)"
 fi

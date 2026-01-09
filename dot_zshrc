@@ -183,11 +183,20 @@ if command -v kubectl &>/dev/null; then
   [[ -f "$HOME/bin/functions/ks" ]] && source "$HOME/bin/functions/ks"
 fi
 
-if command -v mise &>/dev/null; then
+
+if [[ -d "$HOME/.local/bin/mise" ]]; then
   eval "$($HOME/.local/bin/mise activate zsh)"
 
   if [[ -d "$HOME/.local/share/mise/plugins/dotnet" ]]; then
     source "$HOME/.local/share/mise/plugins/dotnet/set-dotnet-env.zsh"
+  fi
+fi
+
+if [[ -f "/opt/homebrew/bin/mise" ]]; then
+  eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+  if [[ -d "/opt/homebrew/share/mise/plugins/dotnet" ]]; then
+    source "/opt/homebrew/share/mise/plugins/dotnet/set-dotnet-env.zsh"
   fi
 fi
 
