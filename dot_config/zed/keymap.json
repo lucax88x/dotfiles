@@ -1,0 +1,171 @@
+[
+  // ===============================
+  // Neovim Keymaps Ported to Zed
+  // ===============================
+  // Source: dot_config/nvim/lua/lt/plugins & defaults/remaps.lua
+
+  // ===============================
+  // NORMAL MODE
+  // ===============================
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // Quit
+      "shift-q": "pane::CloseActiveItem",
+
+      // Search centering (n/N center screen)
+      "n": ["workspace::SendKeystrokes", "n z z"],
+      "N": ["workspace::SendKeystrokes", "shift-n z z"],
+
+      // Buffer management
+      "space b w": "workspace::Save",
+      "space b d": "pane::CloseActiveItem",
+      "space b l": "tab_switcher::Toggle",
+
+      // Window wrap toggle
+      "space w w": "editor::ToggleSoftWrap",
+
+      // File explorer (like oil.nvim -)
+      "-": "workspace::ToggleLeftDock",
+
+      // Search and navigation (like telescope/fzf)
+      "space p f": "file_finder::Toggle",
+      "space p o": "file_finder::Toggle",
+      "space p p": "projects::OpenRecent",
+      "space s l": "pane::DeploySearch",
+      "space s s": "project_search::ToggleFocus",
+      "space s w": "editor::SearchWordUnderCursor",
+      "space /": "command_palette::Toggle",
+
+      // Git (like neogit/fugitive)
+      "space g s": "git::OpenRepositoryPane",
+
+      // Git hunks (like gitsigns)
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+      "space h s": "git::Stage",
+      "space h r": "git::Unstage",
+      "space h p": "editor::ToggleHunkDiff",
+      "space h b": "git::Blame",
+
+      // LSP (standard vim lsp mappings)
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDeclaration",
+      "g i": "editor::GoToImplementation",
+      "g y": "editor::GoToTypeDefinition",
+      "g r": "editor::FindAllReferences",
+      "K": "editor::Hover",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c s": "outline::Toggle",
+      "space c S": "project_symbols::Toggle",
+
+      // Diagnostics (like trouble.nvim)
+      "space t d": "diagnostics::Deploy",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+      "] q": "editor::GoToDiagnostic",
+      "[ q": "editor::GoToPreviousDiagnostic",
+
+      // Debugging (like dap)
+      "f5": "debugger::Continue",
+      "space d d": "debugger::Continue",
+      "f7": "debugger::StepInto",
+      "space d i": "debugger::StepInto",
+      "f8": "debugger::StepOver",
+      "space d o": "debugger::StepOver",
+      "space d shift-o": "debugger::StepOut",
+      "space d b": "debugger::ToggleBreakpoint",
+      "space d u": "debugger::TogglePanel",
+
+      // Testing (like neotest)
+      "space ; r": "task::Rerun",
+      "space ; t": "task::Spawn",
+
+      // Refactoring
+      "space r f": "editor::Format",
+      "space r n": "editor::Rename",
+
+      // Folding (like ufo)
+      "z shift-r": "editor::UnfoldAll",
+      "z shift-m": "editor::FoldAll",
+
+      // Zen mode
+      "space z": "workspace::ToggleCenteredLayout",
+
+      // Terminal (like toggleterm)
+      "space k k": "terminal_panel::ToggleFocus",
+
+      // AI (like copilot)
+      "space a c e": "copilot::Enable",
+      "space a c d": "copilot::Disable",
+
+      // Undo history
+      "space u": "undo_history::Toggle"
+    }
+  },
+
+  // ===============================
+  // VISUAL MODE
+  // ===============================
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      // Move lines up/down (like v K/J in neovim)
+      "shift-k": "editor::MoveLineUp",
+      "shift-j": "editor::MoveLineDown",
+
+      // Delete without yanking (like X in visual mode)
+      "shift-x": "editor::Delete"
+    }
+  },
+
+  // ===============================
+  // INSERT MODE
+  // ===============================
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // Better escape (jk to escape - like better-escape.nvim)
+      "j k": "vim::NormalBefore"
+    }
+  },
+
+  // ===============================
+  // TERMINAL
+  // ===============================
+  {
+    "context": "Terminal",
+    "bindings": {
+      // Exit terminal mode with escape (like toggleterm)
+      "escape": "terminal_panel::ToggleFocus",
+      "j k": "terminal_panel::ToggleFocus",
+
+      // Window navigation from terminal
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+
+  // ===============================
+  // GLOBAL / ALL CONTEXTS
+  // ===============================
+  {
+    "context": "Workspace",
+    "bindings": {
+      // Quick buffer/file switching
+      "ctrl-p": "file_finder::Toggle",
+
+      // Command palette
+      "ctrl-shift-p": "command_palette::Toggle",
+
+      // Window navigation (like vim splits)
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  }
+]

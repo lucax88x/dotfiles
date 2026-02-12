@@ -72,19 +72,10 @@ return {
             return items
           end,
         },
-        -- avante = {
-        --   module = "blink-cmp-avante",
-        --   name = "Avante",
-        --   opts = {},
-        -- },
-        -- minuet = {
-        --   name = "minuet",
-        --   module = "minuet.blink",
-        --   async = true,
-        --   -- Should match minuet.config.request_timeout * 1000,
-        --   -- since minuet.config.request_timeout is in seconds
-        --   timeout_ms = 3000,
-        --   score_offset = 50, -- Gives minuet higher priority among suggestions
+        -- codecompanion = {
+        --   name = "CodeCompanion",
+        --   module = "codecompanion.providers.completion.blink",
+        --   enabled = true,
         -- },
       },
     },

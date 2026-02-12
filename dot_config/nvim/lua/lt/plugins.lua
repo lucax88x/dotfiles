@@ -161,6 +161,7 @@ return {
   -- AI
   -- require("lt.plugins.avante"),
   require("lt.plugins.sidekick"),
+  -- require("lt.plugins.codecompanion"),
   require("lt.plugins.copilot"),
   require("lt.plugins.store"),
   -- require("lt.plugins.mcphub"),

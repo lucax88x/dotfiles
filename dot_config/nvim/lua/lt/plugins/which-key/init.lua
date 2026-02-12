@@ -39,6 +39,7 @@ return {
       { "<leader>gd", group = "diffview" },
       { "<leader>h",  group = "hunks" },
       { "<leader>a",  group = "ai" },
+      { "<leader>aC", group = "ai: copilot" },
       { "<leader>ls", group = "servers" },
       { "<leader>k",  group = "terminal" },
       { "<leader>l",  group = "lint" },

@@ -41,8 +41,8 @@ return {
   keys = {
     { "<leader>wf", "<cmd>FocusToggle<cr>", desc = "window: toggle focus autoresize" },
     { "<leader>wn", "<cmd>FocusSplitNicely<cr>", desc = "window: split nicely (golden ratio)" },
-    { "<leader>wc", "<cmd>FocusSplitCycle<cr>", desc = "window: cycle splits" },
-    { "<leader>wC", "<cmd>FocusSplitCycle reverse<cr>", desc = "window: cycle splits (reverse)" },
+    -- { "<leader>wc", "<cmd>FocusSplitCycle<cr>", desc = "window: cycle splits" },
+    -- { "<leader>wC", "<cmd>FocusSplitCycle reverse<cr>", desc = "window: cycle splits (reverse)" },
     { "<leader>wW", "<cmd>FocusToggleWindow<cr>", desc = "window: toggle focus for current window" },
     { "<leader>wB", "<cmd>FocusToggleBuffer<cr>", desc = "window: toggle focus for current buffer" },
     { "<leader>wh", "<cmd>FocusSplitLeft<cr>", desc = "window: split left" },
