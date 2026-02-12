@@ -167,6 +167,22 @@ esac
 # =============================================================================
 # PROGRAM INTEGRATIONS
 # =============================================================================
+if [[ -f "$HOME/.local/bin/mise" ]]; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
+
+  if [[ -d "$HOME/.local/share/mise/plugins/dotnet" ]]; then
+    source "$HOME/.local/share/mise/plugins/dotnet/set-dotnet-env.zsh"
+  fi
+fi
+
+if [[ -f "/opt/homebrew/bin/mise" ]]; then
+  eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+  if [[ -d "/opt/homebrew/share/mise/plugins/dotnet" ]]; then
+    source "/opt/homebrew/share/mise/plugins/dotnet/set-dotnet-env.zsh"
+  fi
+fi
+
 if command -v fzf &>/dev/null; then
   export FZF_DEFAULT_COMMAND="find . -maxdepth 1"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -181,23 +197,6 @@ fi
 if command -v kubectl &>/dev/null; then
   source <(kubectl completion zsh)
   [[ -f "$HOME/bin/functions/ks" ]] && source "$HOME/bin/functions/ks"
-fi
-
-
-if [[ -d "$HOME/.local/bin/mise" ]]; then
-  eval "$($HOME/.local/bin/mise activate zsh)"
-
-  if [[ -d "$HOME/.local/share/mise/plugins/dotnet" ]]; then
-    source "$HOME/.local/share/mise/plugins/dotnet/set-dotnet-env.zsh"
-  fi
-fi
-
-if [[ -f "/opt/homebrew/bin/mise" ]]; then
-  eval "$(/opt/homebrew/bin/mise activate zsh)"
-
-  if [[ -d "/opt/homebrew/share/mise/plugins/dotnet" ]]; then
-    source "/opt/homebrew/share/mise/plugins/dotnet/set-dotnet-env.zsh"
-  fi
 fi
 
 if command -v atuin &>/dev/null; then
