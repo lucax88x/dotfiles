@@ -1,6 +1,9 @@
 -- https://github.com/neovide/neovide/issues/2620o
--- if vim.g.neovide then
--- vim.o.guifont = "JetBrains Mono:h22"
+if not vim.g.neovide then
+  return
+end
+
+vim.o.guifont = "JetBrains Mono:h22"
 -- vim.g.neovide_cursor_trail_length = 0.05
 vim.g.neovide_cursor_animation_length = 0.05
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
@@ -36,4 +39,3 @@ end)
 map("n", "<C-0>", function()
   vim.g.neovide_scale_factor = 1
 end)
--- end

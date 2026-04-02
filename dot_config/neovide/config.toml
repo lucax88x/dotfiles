@@ -2,5 +2,5 @@ frame = "buttonless"
 title-hidden = true
 
 [font]
-normal = "JetBrains Mono"
+normal = ["JetBrains Mono"]
 size = 18

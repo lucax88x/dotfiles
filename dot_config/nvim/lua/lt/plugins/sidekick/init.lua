@@ -3,7 +3,14 @@ return {
 
   lazy = true,
   ---@class sidekick.Config
-  opts = {},
+  opts = {
+    cli = {
+      tools = {
+        -- https://github.com/folke/sidekick.nvim/issues/258
+        copilot = { cmd = { "copilot", "--alt-screen" } },
+      },
+    },
+  },
   keys = {
     {
       "<Tab>",

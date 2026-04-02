@@ -137,7 +137,7 @@ return {
   require("lt.plugins.dap"),
 
   -- http
-  require("lt.plugins.luarocks"),
+  -- require("lt.plugins.luarocks"),
   require("lt.plugins.rest"),
 
   -- ui
