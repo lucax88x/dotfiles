@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+port="${1:-}"
+if [[ -z "$port" ]]; then
+  echo "Usage: $0 <port>" >&2
+  exit 1
+fi
+
+pid=$(lsof -ti tcp:"$port" 2>/dev/null | head -1)
+if [[ -z "$pid" ]]; then
+  echo "Nothing listening on port $port"
+  exit 0
+fi
+
+echo "Port   : $port"
+echo "PID    : $pid"
+echo "Process: $(ps -p "$pid" -o comm= 2>/dev/null)"
+echo "Command: $(ps -p "$pid" -o args= 2>/dev/null)"
+echo "CWD    : $(lsof -p "$pid" -a -d cwd -Fn 2>/dev/null | grep '^n' | sed 's/^n//')"
+echo "User   : $(ps -p "$pid" -o user= 2>/dev/null)"
