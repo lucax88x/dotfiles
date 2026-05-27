@@ -45,19 +45,17 @@ fi
 zinit ice depth=1
 zinit light zsh-users/zsh-completions
 
-if uname -r | grep -q 'Microsoft'; then
-  zinit light MichaelAquilina/zsh-auto-notify
-fi
-
-zinit snippet OMZ::plugins/git/git.plugin.zsh
+# if uname -r | grep -q 'Microsoft'; then
+#   zinit light MichaelAquilina/zsh-auto-notify
+# fi
 
 # these should stay last
 zinit light zsh-users/zsh-autosuggestions
-
-# slow on macOS
-if [[ "$OSTYPE" != darwin* ]]; then
-  zinit light zdharma-continuum/fast-syntax-highlighting
-fi
+#
+# # slow on macOS
+# if [[ "$OSTYPE" != darwin* ]]; then
+#   zinit light zdharma-continuum/fast-syntax-highlighting
+# fi
 
 # =============================================================================
 # COMPLETIONS
@@ -71,14 +69,14 @@ else
 fi
 
 zinit cdreplay -q
-
+#
 # lazy-loaded plugins
 zinit ice lucid wait
 zinit light Aloxaf/fzf-tab
 
-zinit ice atload"zpcdreplay" atclone"./zplug.zsh" atpull"%atclone"
+# zinit ice atload"zpcdreplay" atclone"./zplug.zsh" atpull"%atclone"
 
-zinit light g-plane/pnpm-shell-completion
+# zinit light g-plane/pnpm-shell-completion
 
 # =============================================================================
 # ENVIRONMENT VARIABLES
@@ -107,6 +105,7 @@ setopt hist_find_no_dups
 # ALIASES
 # =============================================================================
 # core
+alias g='git'
 alias k='kubectl'
 alias c='xclip -selection clipboard'
 alias v='nvim'
@@ -165,6 +164,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+if [[ -d "$HOME/.lmstudio/bin" ]]; then
+  export PATH="$PATH:$HOME/.lmstudio/bin"
+fi
+
+
 # =============================================================================
 # PROGRAM INTEGRATIONS
 # =============================================================================
@@ -195,29 +199,29 @@ if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
-if command -v kubectl &>/dev/null; then
-  source <(kubectl completion zsh)
-  [[ -f "$HOME/bin/functions/ks" ]] && source "$HOME/bin/functions/ks"
-fi
-
+# if command -v kubectl &>/dev/null; then
+#   source <(kubectl completion zsh)
+#   [[ -f "$HOME/bin/functions/ks" ]] && source "$HOME/bin/functions/ks"
+# fi
+#
 if command -v atuin &>/dev/null; then
   [[ -f "$HOME/.atuin/bin/env" ]] && source "$HOME/.atuin/bin/env"
   eval "$(atuin init zsh)"
 fi
+#
+# # opam
+# if [[ -r "$HOME/.opam/opam-init/init.zsh" ]]; then
+#   source "$HOME/.opam/opam-init/init.zsh" &>/dev/null
+# fi
 
-# opam
-if [[ -r "$HOME/.opam/opam-init/init.zsh" ]]; then
-  source "$HOME/.opam/opam-init/init.zsh" &>/dev/null
-fi
-
-# tabtab (pnpm completions)
-if [[ -f ~/.config/tabtab/zsh/pnpm.zsh ]]; then
-  source ~/.config/tabtab/zsh/pnpm.zsh
-fi
-
-if command -v jj &>/dev/null; then
-  source <(jj util completion zsh)
-fi
+# # tabtab (pnpm completions)
+# if [[ -f ~/.config/tabtab/zsh/pnpm.zsh ]]; then
+#   source ~/.config/tabtab/zsh/pnpm.zsh
+# fi
+#
+# if command -v jj &>/dev/null; then
+#   source <(jj util completion zsh)
+# fi
 
 # =============================================================================
 # KEYS

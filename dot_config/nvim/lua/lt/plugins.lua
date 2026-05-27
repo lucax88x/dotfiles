@@ -85,6 +85,7 @@ return {
   -- require("lt.plugins.mason-dap"),
   require("lt.plugins.mason-tools"),
   require("lt.plugins.mise"),
+  require("lt.plugins.uv"),
 
   require("lt.plugins.lint"),
   require("lt.plugins.conform"),

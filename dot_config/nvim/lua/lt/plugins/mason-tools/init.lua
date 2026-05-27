@@ -32,7 +32,7 @@ return {
 
         -- bash
         -- python
-        -- "ruff",
+        "ruff",
         -- "isort"
       },
     })
