@@ -5,7 +5,11 @@ return {
   keys = {
     {
       "<leader>ltc",
-      "<cmd>TSC<cr>",
+      function()
+        return require("tsc").setup({
+          bin_name = "tsgo",
+        })
+      end,
       desc = "tsc: compile whole typescript",
     },
   },

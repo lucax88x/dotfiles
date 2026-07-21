@@ -104,7 +104,7 @@ return {
       -- "vtsls",
       "tsgo",
       -- ocamllsp = {},
-      "basedpyright",
+      "ty",
       -- ruff = {},
       -- pylsp = {},
       "copilot",
