@@ -1,14 +1,18 @@
 [tools]
 bun = "1.3.5"
-pnpm = "10.27.0"
+pnpm = "12"
 zig = "0.15.2"
 nodejs = "22.14.0"
-rust = "1.92.0"
+rust = "1.98.0"
 chezmoi = "2.68.1"
-opam = "2.5.0"
 uv = "0.9.21"
 dotnet = "10.0.101"
 go = "1.25.5"
 node = "25.2.1"
-jujutsu = "0.36.0"
 python = "latest"
+
+"npm:@openai/codex" = "0.159.0"
+"npm:@tektona/cli" = "latest"
+
+[settings]
+auto_update = true

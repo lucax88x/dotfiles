@@ -8,7 +8,7 @@
 [includeIf "gitdir:~/repos/adesso-*/"]
   path = .gitconfig-adesso
   
-[includeIf "gitdir:~/repos/itrl-*/"]
+[includeIf "gitdir:~/repos/interroll-*/"]
   path = .gitconfig-itrl
   
 [includeIf "gitdir:~/repos/post-*/"]
