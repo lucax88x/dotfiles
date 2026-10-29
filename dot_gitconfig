@@ -9,7 +9,7 @@
   path = .gitconfig-adesso
   
 [includeIf "gitdir:~/repos/interroll-*/"]
-  path = .gitconfig-itrl
+  path = .gitconfig-interroll
   
 [includeIf "gitdir:~/repos/post-*/"]
   path = .gitconfig-post
@@ -202,6 +202,7 @@
   refactor = "!f() { git commit -m \"refactor: $1\";  }; f"
   fix = "!f() { git commit -m \"fix: $1\";  }; f"
   docs = "!f() { git commit -m \"docs: $1\";  }; f"
+  wt = "!f() { root=$(git rev-parse --show-toplevel) || return; git worktree add -b \"$1\" \"$(dirname \"$root\")/$(basename \"$root\")-${1##*/}\"; }; f"
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
